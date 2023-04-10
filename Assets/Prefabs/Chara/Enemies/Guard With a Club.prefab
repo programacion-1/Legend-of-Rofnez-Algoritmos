@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4338225890602798738
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 540004773825614250, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e88a68373c0c2a408f6a54490a9948c,
+        type: 2}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.6096325
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.008459882
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999643
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.96900004
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614256, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614262, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_Name
+      value: Guard With a Club
+      objectReference: {fileID: 0}
+    - target: {fileID: 540004773825614262, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428849089670857681, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: dropRate
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428849089670857681, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: rewardToDrop
+      value: 
+      objectReference: {fileID: 3464409536102011505, guid: f1fa5d01ea50b5b47b801f22d309c5a5,
+        type: 3}
+    - target: {fileID: 4020652134336385471, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: chaseDistance
+      value: 11.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695560333957209406, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 923113035045403928}
+    - target: {fileID: 8212890988055871080, guid: 78698cf7a23a12347a02382a2e58bf96,
+        type: 3}
+      propertyPath: impactClipSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 19efce6f6a3436f47a860f71985b2212, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+--- !u!137 &923113035045403928 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3529686434512483210, guid: 78698cf7a23a12347a02382a2e58bf96,
+    type: 3}
+  m_PrefabInstance: {fileID: 4338225890602798738}
+  m_PrefabAsset: {fileID: 0}
