@@ -7,13 +7,16 @@ namespace RPG.Core
 {
     public class ObstacleHealth : Health
     {
-        public override void ChildrenStartingSettings()
-        {
-           
-        }
+        [Header ("Obstacle Health Stats")]
+        [SerializeField] float _damageRate;
+        [SerializeField] Transform shaderSpawnpoint;
+        [SerializeField] protected GameObject hitFX;
+
         public override void ChildrenDamageBehavior()
         {
             audioManager.TryToPlayClip(audioManager.obstacleSources, impactClipSound);
+            GameObject.Instantiate(hitFX, shaderSpawnpoint.position,shaderSpawnpoint.rotation);
+            EnableInvencibility(_damageRate);
         }
 
         public override void DeathBehaviour()
@@ -21,6 +24,11 @@ namespace RPG.Core
             audioManager.TryToPlayClip(audioManager.obstacleSources, deadClipSound);
             GetComponent<NavMeshObstacle>().enabled = false;
             Destroy(this.gameObject);
+        }
+
+        void Start()
+        {
+            CoreStartingSettings();
         }
     }
 

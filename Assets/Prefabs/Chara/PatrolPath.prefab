@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9021498539526110328}
   m_RootOrder: 0
@@ -56,6 +57,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 3.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9021498539526110328}
   m_RootOrder: 1
@@ -69,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9021498539526110328}
-  - component: {fileID: 9021498539526110331}
+  - component: {fileID: 7116553318637136445}
   m_Layer: 0
   m_Name: PatrolPath
   m_TagString: Untagged
@@ -87,6 +89,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6, y: 0.5, z: 19.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9021498539362304041}
   - {fileID: 9021498539395833634}
@@ -94,7 +97,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9021498539526110331
+--- !u!114 &7116553318637136445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +106,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9021498539526110330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8446f81c3d53f4e8a01a58ef9b68b2, type: 3}
+  m_Script: {fileID: 11500000, guid: efc5eb0713a34bb46986520049431e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9021498539983982688
@@ -132,6 +135,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9021498539526110328}
   m_RootOrder: 2

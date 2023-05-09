@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GeneralEnums;
 using RPG.Movement;
-//using RPG.Combat;
+using RPG.Combat;
 using RPG.Core;
 //using RPG.UI;
 using System;
@@ -14,6 +14,7 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         PlayerHealth _health;
+        Fighter _fighter;
         private bool _godMode;
         bool canHealHP = true;
         bool canHealMP = true;
@@ -22,6 +23,7 @@ namespace RPG.Control
         void Start()
         {
             _health = GetComponent<PlayerHealth>();
+            _fighter = GetComponent<Fighter>();
         }
 
         // Update is called once per frame
@@ -37,7 +39,7 @@ namespace RPG.Control
                 if(_godMode) DisableGodMode();
                 else EnableGodMode();
             }
-
+            if(InteractWithCombat()) return;
             if(InteractWithMovement()) return;
         }
 
@@ -45,7 +47,7 @@ namespace RPG.Control
         private void EnableGodMode()
         {
             _godMode = true;
-            _health.EnableInvencibility();
+            _health.EnableInvencibilityCheat();
         }
 
         private void DisableGodMode()
@@ -54,6 +56,28 @@ namespace RPG.Control
             _health.DisableInvencibility();
         }
         #endregion
+
+        #region Combat
+        // Busco con raycast si encuentro un objetivo para pelear, chequeo si puedo atacarlo y si hago click, lo ataco
+        private bool InteractWithCombat()
+        {
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            foreach(RaycastHit hit in hits)
+            {
+                CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
+                if(target == null) continue;
+                Debug.Log($"Encontre un objetivo");
+                if(!_fighter.CanAttack(target.gameObject)) continue;
+                if(Input.GetMouseButtonDown(0))
+                {
+                    _fighter.Attack(target.gameObject);
+                } 
+                return true;
+            }
+            return false;
+        }
+        #endregion
+
         #region Movement
         //Chequeo con Raycast algún punto en el mundo en donde pueda hacer moverme y si hago click y tengo lugar, me muevo
         private bool InteractWithMovement()

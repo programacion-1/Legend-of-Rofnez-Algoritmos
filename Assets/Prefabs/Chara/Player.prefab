@@ -47,8 +47,10 @@ GameObject:
   - component: {fileID: 7728357046130000598}
   - component: {fileID: 4424714602934427123}
   - component: {fileID: 552618450792025908}
+  - component: {fileID: 3836124194544175527}
   - component: {fileID: 350899885960186329}
   - component: {fileID: 970811454}
+  - component: {fileID: 6016132443323725300}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -211,6 +213,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0791b4e5f47258f4bb9c144a213c5cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3836124194544175527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810658928676046845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d339e67ab5afbcc4dafa573c70654ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackers: 070000000800000009000000
 --- !u!114 &350899885960186329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +245,8 @@ MonoBehaviour:
   deadClipSound: {fileID: 8300000, guid: 1bf9ee80f2374534b80d6c5880558f5e, type: 3}
   damageClipSound: {fileID: 8300000, guid: c67b8f28ccb1a184cba5b958315fb75f, type: 3}
   impactClipSound: {fileID: 8300000, guid: 151fa7778dc9cf14ba998127d188283b, type: 3}
+  _damageRate: 0.375
+  _returnToWhiteColourTimer: 0
   charaRenderer: {fileID: 3810658928676046841}
   shaderSpawnpoint: {fileID: 2013218034227970706}
   hitFX: {fileID: 66467482925399531, guid: e293ba5db78eaf046971a1fa16835ba7, type: 3}
@@ -248,6 +265,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runClip: {fileID: 8300000, guid: 4ee9f1d66b3a5584181b21c7f0be34de, type: 3}
+--- !u!114 &6016132443323725300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810658928676046845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8135a3564716e9349b3f90e1509e9eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHandTransform: {fileID: 1071873450652732139}
+  leftHandTransform: {fileID: 1071873450652805763}
+  defaultWeapon: {fileID: 11400000, guid: 843b3696b7c004e47bfb45195fa32dc6, type: 2}
+  currentWeapon: {fileID: 11400000, guid: 0f8e3b67aea0fa54fa187a1964ea1178, type: 2}
+  target: {fileID: 0}
 --- !u!1001 &1071873450652664687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -337,6 +371,16 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3f6fc0cf5e5d31c458bc74ede87cb8ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+--- !u!4 &1071873450652732139 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 461188, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 1071873450652664687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1071873450652805763 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 403948, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 1071873450652664687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1071873450652837493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435482, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}

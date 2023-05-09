@@ -11,6 +11,7 @@ namespace RPG.Core
         [SerializeField] float maxHealthPoints = 100f;
         private bool _isDead;
         [SerializeField] private bool _isInvencible;
+        private float _invencibiltyTimer;
 
         [Header("Audio Clips")]
         public AudioManager audioManager;
@@ -26,7 +27,7 @@ namespace RPG.Core
             healthPoints = maxHealthPoints;
         }
         //Función abstracta para las configuraciones iniciales que usarán las clases que hereden de ésta
-        public abstract void ChildrenStartingSettings();
+        //public abstract void ChildrenStartingSettings();
 
         #endregion
 
@@ -43,6 +44,10 @@ namespace RPG.Core
         #endregion
         
         #region Getters y Setters
+        public float HealthPoint
+        {
+            get{return healthPoints;}
+        }
         public float GetHP()
         {
             return healthPoints;
@@ -62,16 +67,25 @@ namespace RPG.Core
         #endregion
         
         #region Invencibility
+        public void EnableInvencibility(float seconds)
+        {
+            if(!CheckIfIsInvencible())
+            {
+                _invencibiltyTimer = seconds;
+                StartCoroutine("EnableInvencibilityCo");
+            }
+        }
+
         //Corrutina que habilita la invencibilidad por una cantidad de segundos definidas por parámetro
-        public IEnumerator EnableInvencibilityCo(float seconds)
+        public IEnumerator EnableInvencibilityCo()
         {
             _isInvencible = true;
-            yield return new WaitForSeconds(seconds);
+            yield return new WaitForSeconds(_invencibiltyTimer);
             DisableInvencibility();
         }
 
         //ATENCION: función únicamente para utilizar al activar el God Mode
-        public void EnableInvencibility()
+        public void EnableInvencibilityCheat()
         {
             _isInvencible = true;
         }
@@ -118,10 +132,10 @@ namespace RPG.Core
         public abstract void DeathBehaviour();
         #endregion
         
-        void Start()
+        /*void Start()
         {
             CoreStartingSettings();
             ChildrenStartingSettings();
-        }
+        }*/
     }
 }
