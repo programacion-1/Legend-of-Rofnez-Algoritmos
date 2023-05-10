@@ -3,94 +3,88 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using RPG.Item;
 
 namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] Transform rightHandTransform = null;
-        [SerializeField] Transform leftHandTransform = null;
-        [SerializeField] Weapon defaultWeapon = null;
-        [SerializeField] Weapon currentWeapon = null;
-        Mover mover;
-        Animator anim;
-        RuntimeAnimatorController defaultRuntimeAnimatorController;
-        [SerializeField] Health target;
-        float timeSinceLastAttack = Mathf.Infinity;
-        AttackTrigger weaponAttackTrigger;
+        [SerializeField] Transform _rightHandTransform = null;
+        [SerializeField] Transform _leftHandTransform = null;
+        [SerializeField] Weapon _defaultWeapon = null;
+        [SerializeField] Weapon _currentWeapon = null;
+        Mover _mover;
+        Animator _anim;
+        RuntimeAnimatorController _defaultRuntimeAnimatorController;
+        Health _target;
+        float _timeSinceLastAttack = Mathf.Infinity;
+        AttackTrigger _weaponAttackTrigger;
         
         
         // Start is called before the first frame update
         void Start()
         {
-            mover = GetComponent<Mover>();  
-            anim = GetComponent<Animator>();
-            defaultRuntimeAnimatorController = anim.runtimeAnimatorController;
-            EquipWeapon(defaultWeapon);
+            _mover = GetComponent<Mover>();  
+            _anim = GetComponent<Animator>();
+            _defaultRuntimeAnimatorController = _anim.runtimeAnimatorController;
+            EquipWeapon(_defaultWeapon);
         }
 
         // Update is called once per frame
         void Update()
         {
-            timeSinceLastAttack += Time.deltaTime;
+            _timeSinceLastAttack += Time.deltaTime;
 
             //Chequeo si tengo un objetivo y si el objetivo está muerto            
-            if (target == null) return;
-            if(target.CheckIfIsDead()) return;
+            if (_target == null) return;
+            if(_target.CheckIfIsDead()) return;
 
             //Si estoy en el rango de ataque, ataco y sino me muevo hasta el objetivo
             if(!GetIsInRange())
             {
-                mover.MoveTo(target.transform.position);
+                _mover.MoveTo(_target.transform.position);
             }
             else
             {
                 AttackBehaviour();
-                mover.Cancel();
+                _mover.Cancel();
             }
         }
 
         public void EquipWeapon(Weapon weapon)
         {
-            currentWeapon = weapon;
             if(weapon == null) return;
-            anim.runtimeAnimatorController = defaultRuntimeAnimatorController;
-            weapon.Spawn(rightHandTransform, leftHandTransform, anim);
-            if(currentWeapon != null)
-            {
-                if (currentWeapon.CheckIsRightHanded()) weaponAttackTrigger = rightHandTransform.GetChild(rightHandTransform.childCount - 1).GetComponent<AttackTrigger>();
-                else weaponAttackTrigger = leftHandTransform.GetChild(leftHandTransform.childCount - 1).GetComponent<AttackTrigger>();
-
-                weaponAttackTrigger.SetTriggerDamage(currentWeapon.GetWeaponDamage());
-                weaponAttackTrigger.DeactivateWeaponCollider();
-            }
+            _currentWeapon = weapon;
+            _anim.runtimeAnimatorController = _defaultRuntimeAnimatorController;
+            weapon.Spawn(_rightHandTransform, _leftHandTransform, _anim);
+            _currentWeapon.SetEquippedWeaponDamage();
         }
 
         public Weapon GetCurrentWeapon()
         {
-            return currentWeapon;
+            return _currentWeapon;
         }
 
-        //Evento en la animación de Attack. Realiza el daño al objetivo.
-        void Hit()
+        //Evento en la animación de Attack. Activa el ataque del arma
+        void ActivateAttack()
         {
-            if(target == null) return;
-            weaponAttackTrigger.ActivateWeaponCollider();            
+            if(_target == null) return;
+            _currentWeapon.WeaponAttack(_target);
         }
 
-        void StopHit()
+        void DeactivateAttack()
         {
-            weaponAttackTrigger.DeactivateWeaponCollider();
+            _currentWeapon.StopAttack();
         }
 
         //Lo que hago al atacar
         private void AttackBehaviour()
         {
-            transform.LookAt(target.transform); //Roto hacia mi objetivo
-            if(timeSinceLastAttack >= currentWeapon.GetTimeBetweenAttacks())
+            transform.LookAt(_target.transform); //Roto hacia mi objetivo
+            if(_timeSinceLastAttack >= _currentWeapon.timeBetweenAttacks)
             {
                 //Esto invoca el evento Hit()
-                timeSinceLastAttack = 0f;
+                _timeSinceLastAttack = 0f;
                 AttackTriggers("StopAttack", "Attack");                
             }
         }
@@ -98,21 +92,21 @@ namespace RPG.Combat
         //Reinicio un trigger e inicio el otro. Esto se realizó para evitar un bug cuando se cancela un ataque con el trigger StopAttack
         private void AttackTriggers(string triggerToReset, string triggerToSet)
         {
-            anim.ResetTrigger(triggerToReset);
-            anim.SetTrigger(triggerToSet);
+            _anim.ResetTrigger(triggerToReset);
+            _anim.SetTrigger(triggerToSet);
         }
 
         //Devuelve la distancia entre mi posición y la del objetivo y chequea que sea menor al rango del arma
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetWeaponRange();
+            return Vector3.Distance(transform.position, _target.transform.position) < _currentWeapon.weaponRange;
         }
 
         //Inicio la acción de ataque y defino mi objetivo
         public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            target = combatTarget.GetComponent<Health>();
+            _target = combatTarget.GetComponent<Health>();
         }
 
         //Chequeo si puedo atacar
@@ -126,9 +120,9 @@ namespace RPG.Combat
         //Cancelo el ataque
         public void Cancel()
         {
-            target = null;
+            _target = null;
             AttackTriggers("Attack", "StopAttack");
-            if (weaponAttackTrigger != null) weaponAttackTrigger.DeactivateWeaponCollider();
+            DeactivateAttack();
         }
     }
 

@@ -1,21 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RPG.Core;
 
-namespace RPG.Combat
+namespace RPG.Core
 {
     public class DamageTrigger : MonoBehaviour
     {
         Health _target;
         
-        public float _damageToDeal
-        {
-            get{return _damageToDeal;}
-            set{_damageToDeal = value;}
-        }
+        public float _damageToDeal {get; set;}
+        //public float _damageToDeal;
 
-        public void SetTarget(Health health)
+        public void SetDamageTarget(Health health)
         {
             _target = health;
         }

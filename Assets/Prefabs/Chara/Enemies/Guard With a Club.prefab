@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 343134453573305847, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e88a68373c0c2a408f6a54490a9948c, type: 2}
+    - target: {fileID: 343134453573305847, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+      propertyPath: _defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 3181985705dc85747876edff429dfceb, type: 2}
     - target: {fileID: 540004773825614250, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
       propertyPath: defaultWeapon
       value: 
@@ -313,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 923113035045403928}
     - target: {fileID: 8006936652865474539, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
       propertyPath: chaseDistance
-      value: 11.52
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 8212890988055871080, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
       propertyPath: impactClipSound

@@ -408,14 +408,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0.4662
-        functionName: Hit
+        functionName: ActivateAttack
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 8135a3564716e9349b3f90e1509e9eda, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.67469877
-        functionName: StopHit
+        functionName: DeactivateAttack
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 8135a3564716e9349b3f90e1509e9eda, type: 3}
         floatParameter: 0

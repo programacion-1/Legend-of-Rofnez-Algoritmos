@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de8d6ba00cfd3d3438668e1c8d40bf19, type: 3}
-  m_Name: Unarmed-Enemy
+  m_Script: {fileID: 11500000, guid: 6b2589ba953c46a419cd8567b50829d4, type: 3}
+  m_Name: RangedWeapon
   m_EditorClassIdentifier: 
-  _weaponRange: 1
-  _weaponDamage: 3.75
-  _timeBetweenAttacks: 2
-  isRightHanded: 1
-  _equippedPrefab: {fileID: 1646692550931462815, guid: 3b58501106b24794ea0ce6f2c04946f3, type: 3}
+  _weaponRange: 0
+  _weaponDamage: 0
+  _timeBetweenAttacks: 0
+  isRightHanded: 0
+  _equippedPrefab: {fileID: 0}
   _animatorOverride: {fileID: 0}
   _weaponSprite: {fileID: 0}
+  _projectile: {fileID: 0}

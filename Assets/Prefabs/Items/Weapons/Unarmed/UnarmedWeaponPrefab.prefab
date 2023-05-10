@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7371610227875157565}
   - component: {fileID: 4062825004191757124}
+  - component: {fileID: 6227510275623762755}
   m_Layer: 6
   m_Name: WeaponCollider
   m_TagString: Untagged
@@ -45,6 +46,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6227510275623762755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697799272384799084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b782a63d35f6443808eff9314c9948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageToDeal: 0
 --- !u!1 &1646692550931462815
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,5 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c832840d56f7745b53f51d60118200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponCollider: {fileID: 697799272384799084}
-  triggerDamage: 5
+  _weaponCollider: {fileID: 6227510275623762755}
+  _triggerDamage: 5

@@ -19,9 +19,13 @@ namespace RPG.Combat
         {
             for(int i = 0; i < attackers.Length; i++)
             {
-                if(other.gameObject.layer == attackers[i])
+                if(other.gameObject.layer == attackers[i] && other.GetComponent<DamageTrigger>() != null)
                 {
-                    if(!_health.CheckIfIsInvencible()) _health.TakeDamage(other.transform.parent.GetComponent<AttackTrigger>().GetTriggerDamage());
+                    if(!_health.CheckIfIsInvencible())
+                    {
+                        other.GetComponent<DamageTrigger>().SetDamageTarget(_health);
+                        other.GetComponent<DamageTrigger>().DealDamage();
+                    } 
                     break;                    
                 }
            }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2013218034227970706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EffectShaderSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,11 +277,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8135a3564716e9349b3f90e1509e9eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHandTransform: {fileID: 1071873450652732139}
-  leftHandTransform: {fileID: 1071873450652805763}
-  defaultWeapon: {fileID: 11400000, guid: 843b3696b7c004e47bfb45195fa32dc6, type: 2}
-  currentWeapon: {fileID: 11400000, guid: 0f8e3b67aea0fa54fa187a1964ea1178, type: 2}
-  target: {fileID: 0}
+  _rightHandTransform: {fileID: 1071873450652732139}
+  _leftHandTransform: {fileID: 1071873450652805763}
+  _defaultWeapon: {fileID: 11400000, guid: 6d161e6e948a40e499f86fa915885249, type: 2}
+  _currentWeapon: {fileID: 0}
 --- !u!1001 &1071873450652664687
 PrefabInstance:
   m_ObjectHideFlags: 0

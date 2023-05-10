@@ -153,11 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8135a3564716e9349b3f90e1509e9eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHandTransform: {fileID: 3529686434509596632}
-  leftHandTransform: {fileID: 3529686434509522906}
-  defaultWeapon: {fileID: 11400000, guid: a6967366e0c0953498498184df0a9939, type: 2}
-  currentWeapon: {fileID: 0}
-  target: {fileID: 0}
+  _rightHandTransform: {fileID: 3529686434509596632}
+  _leftHandTransform: {fileID: 3529686434509522906}
+  _defaultWeapon: {fileID: 11400000, guid: 325eb4fcdae0d4046942a93ad2c8c60d, type: 2}
+  _currentWeapon: {fileID: 0}
 --- !u!114 &930139824560791585
 MonoBehaviour:
   m_ObjectHideFlags: 0

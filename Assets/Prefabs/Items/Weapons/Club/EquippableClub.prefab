@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4214447876704921442}
   - component: {fileID: 2085223520529206134}
+  - component: {fileID: 6985759193936964735}
   m_Layer: 7
   m_Name: WeaponCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4214447876704921442
 Transform:
   m_ObjectHideFlags: 0
@@ -45,6 +46,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12236795, y: 0.5198745, z: 0.17198744}
   m_Center: {x: 0.017388316, y: 0.27123338, z: 0.023686519}
+--- !u!114 &6985759193936964735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294964102818146387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b782a63d35f6443808eff9314c9948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageToDeal: 0
 --- !u!1 &7549051083786947283
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c832840d56f7745b53f51d60118200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponCollider: {fileID: 2294964102818146387}
-  triggerDamage: 0
+  _weaponCollider: {fileID: 6985759193936964735}
+  _triggerDamage: 0
 --- !u!1001 &3008946281869609320
 PrefabInstance:
   m_ObjectHideFlags: 0

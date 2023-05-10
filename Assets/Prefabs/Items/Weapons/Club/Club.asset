@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0819b969a0541248a260d15bb248d49, type: 3}
+  m_Script: {fileID: 11500000, guid: de8d6ba00cfd3d3438668e1c8d40bf19, type: 3}
   m_Name: Club
   m_EditorClassIdentifier: 
-  weaponRange: 2
-  weaponDamage: 5
-  timeBetweenAttacks: 1
-  equippedPrefab: {fileID: 7549051083786947283, guid: 456afded84e803d43b5effdb885d4b6e, type: 3}
-  animatorOverride: {fileID: 22100000, guid: a3067f663ca4cf04c9770e1330679ce3, type: 2}
+  _weaponRange: 1
+  _weaponDamage: 7.5
+  _timeBetweenAttacks: 1
   isRightHanded: 1
-  ammo: 0
-  weaponSprite: {fileID: 0}
+  _equippedPrefab: {fileID: 7549051083786947283, guid: 456afded84e803d43b5effdb885d4b6e, type: 3}
+  _animatorOverride: {fileID: 22100000, guid: a3067f663ca4cf04c9770e1330679ce3, type: 2}
+  _weaponSprite: {fileID: 0}
