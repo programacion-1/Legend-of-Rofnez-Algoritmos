@@ -53,6 +53,8 @@ GameObject:
   - component: {fileID: 6016132443323725300}
   - component: {fileID: 7173218899589490050}
   - component: {fileID: 5623221010749139124}
+  - component: {fileID: 2253082583425601405}
+  - component: {fileID: 4424574291894480157}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -316,6 +318,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _magicPoints: 0
   maxMagicPoints: 20
+--- !u!114 &2253082583425601405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810658928676046845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383f7b11a6620434f8fc5f98f3a9fca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _equippedMeleeWeapon: {fileID: 0}
+  _equippedRangedWeapon: {fileID: 0}
+  _activeWeapon: {fileID: 0}
+--- !u!114 &4424574291894480157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810658928676046845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84c8ae631226084eabc47a3bb15bc3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 0}
+  potions: []
 --- !u!1001 &1071873450652664687
 PrefabInstance:
   m_ObjectHideFlags: 0

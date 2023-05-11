@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace RPG.UI
 {
-    public class InteractiveBar : MonoBehaviour
+    public class InteractiveBar : MonoBehaviour, IObserver
     {
         [SerializeField]Image _interactiveBar;
         public void ChangeBarFiller(float amount, float maxAmount)
@@ -13,5 +13,9 @@ namespace RPG.UI
             _interactiveBar.fillAmount = amount / maxAmount;
         }
 
+        public void Notify(string action)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
