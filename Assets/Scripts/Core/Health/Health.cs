@@ -7,8 +7,8 @@ namespace RPG.Core
 {
     public abstract class Health : MonoBehaviour
     {
-        [SerializeField] float healthPoints;
-        [SerializeField] float maxHealthPoints = 100f;
+        [SerializeField] float _healthPoints;
+        [SerializeField] float _maxHealthPoints = 100f;
         private bool _isDead;
         [SerializeField] private bool _isInvencible;
         private float _invencibiltyTimer;
@@ -24,7 +24,7 @@ namespace RPG.Core
         public void CoreStartingSettings()
         {
             audioManager = GameObject.FindObjectOfType<AudioManager>();
-            healthPoints = maxHealthPoints;
+            _healthPoints = _maxHealthPoints;
         }
         //Función abstracta para las configuraciones iniciales que usarán las clases que hereden de ésta
         //public abstract void ChildrenStartingSettings();
@@ -46,23 +46,23 @@ namespace RPG.Core
         #region Getters y Setters
         public float HealthPoint
         {
-            get{return healthPoints;}
+            get{return _healthPoints;}
         }
         public float GetHP()
         {
-            return healthPoints;
+            return _healthPoints;
         }
         public void SetHP(float hp)
         {
-            healthPoints = hp;
+            _healthPoints = hp;
         }
         public float GetMaxHP()
         {
-            return maxHealthPoints;
+            return _maxHealthPoints;
         }
         public void SetMaxHP(float maxHP)
         {
-            maxHealthPoints = maxHP;
+            _maxHealthPoints = maxHP;
         }
         #endregion
         
@@ -108,10 +108,10 @@ namespace RPG.Core
         //Comportamiento core al recibir daño
         private void DamageBehaviour(float damage)
         {
-            float currentHealthPoints = Mathf.Max(healthPoints - damage, 0);
+            float currentHealthPoints = Mathf.Max(_healthPoints - damage, 0);
             SetHP(currentHealthPoints);
             ChildrenDamageBehavior();
-            if (healthPoints == 0) Die();
+            if (_healthPoints == 0) Die();
         }
 
         //Comportamiento que harán las clases que hereden de Health al recibir daño
@@ -131,6 +131,11 @@ namespace RPG.Core
         //Comportamiento de la clase al morir
         public abstract void DeathBehaviour();
         #endregion
+
+        public void Heal(float healPoints)
+        {
+            _healthPoints = Mathf.Min(_healthPoints + healPoints, _maxHealthPoints);
+        }
         
         /*void Start()
         {

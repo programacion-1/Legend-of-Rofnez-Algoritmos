@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Item;
-using RPG.Core;
+using RPG.InventorySystem;
 
 namespace RPG.Combat
 {
@@ -15,5 +15,4 @@ namespace RPG.Combat
             wI.GetComponent<RangedWeaponAmmoInventory>().SetAmmo(wI.equippedRangedWeapon.ammo);
         }
     }
-
 }

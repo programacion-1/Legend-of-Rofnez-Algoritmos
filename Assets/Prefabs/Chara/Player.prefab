@@ -240,8 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01e1b4a41adfb49a53e102c4b2f06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 0
-  maxHealthPoints: 100
+  _healthPoints: 0
+  _maxHealthPoints: 100
   _isInvencible: 0
   audioManager: {fileID: 0}
   deadClipSound: {fileID: 8300000, guid: 1bf9ee80f2374534b80d6c5880558f5e, type: 3}
@@ -250,7 +250,7 @@ MonoBehaviour:
   _damageRate: 0.375
   _returnToWhiteColourTimer: 0
   charaRenderer: {fileID: 3810658928676046841}
-  shaderSpawnpoint: {fileID: 2013218034227970706}
+  _shaderSpawnpoint: {fileID: 2013218034227970706}
   hitFX: {fileID: 66467482925399531, guid: e293ba5db78eaf046971a1fa16835ba7, type: 3}
   bloodFX: {fileID: 9110215784254510012, guid: 8dfca03007bc7f24584fb16d41f3054a, type: 3}
   deadTriggerName: Die

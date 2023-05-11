@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Item;
 
-namespace RPG.Core
+namespace RPG.InventorySystem
 {
     public class WeaponInventory : MonoBehaviour
     {

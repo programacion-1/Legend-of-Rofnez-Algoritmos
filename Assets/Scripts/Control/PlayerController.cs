@@ -5,6 +5,7 @@ using GeneralEnums;
 using RPG.Movement;
 using RPG.Combat;
 using RPG.Core;
+using RPG.InventorySystem;
 using RPG.Magic;
 //using RPG.UI;
 using System;
@@ -17,9 +18,9 @@ namespace RPG.Control
         PlayerHealth _health;
         Fighter _fighter;
         PlayerMagicCaster _magicCaster;
+        ItemInventory _itemInventory;
         private bool _godMode;
-        bool canHealHP = true;
-        bool canHealMP = true;
+        bool canUseItem = true;
         
         // Start is called before the first frame update
         void Start()
@@ -27,6 +28,7 @@ namespace RPG.Control
             _health = GetComponent<PlayerHealth>();
             _fighter = GetComponent<Fighter>();
             _magicCaster = GetComponent<PlayerMagicCaster>();
+            _itemInventory = GetComponent<ItemInventory>();
         }
 
         // Update is called once per frame
@@ -34,7 +36,7 @@ namespace RPG.Control
         {
             if(_health.CheckIfIsDead()) return;
             #region Inputs de Testing
-            if(Input.GetKeyDown(KeyCode.F1)) _health.TakeDamage(10f);
+            //if(Input.GetKeyDown(KeyCode.F1)) _health.TakeDamage(10f);
             #endregion
             //Input para activar y desactivar el God Mode
             if(Input.GetKeyDown(KeyCode.F))
@@ -42,6 +44,20 @@ namespace RPG.Control
                 if(_godMode) DisableGodMode();
                 else EnableGodMode();
             }
+            #region Inputs para consumir pociones. Por el momento, hardcodeado
+            if(canUseItem)
+            {
+                if(Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    UseItemOnInventory(0);
+                }
+
+                if(Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    UseItemOnInventory(1);
+                }
+            }
+            #endregion
             if(InteractWithMagic()) return;
             if(InteractWithCombat()) return;
             if(InteractWithMovement()) return;
@@ -155,6 +171,25 @@ namespace RPG.Control
                     return true;
                 default:
                     return false;
+            }
+        }
+        #endregion
+
+        #region ItemInventory
+
+        private IEnumerator useItem()
+        {
+            canUseItem = false;
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+            yield return new WaitForSeconds(1f);
+            canUseItem = true;
+        }
+        void UseItemOnInventory(int item)
+        {
+            if(item < _itemInventory.potions.Count)
+            {
+                _itemInventory.UsePotionOnInventory(_itemInventory.potions[item]);
+                StartCoroutine(useItem());
             }
         }
         #endregion

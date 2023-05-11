@@ -10,7 +10,7 @@ namespace RPG.Core
         [SerializeField] float _damageRate;
         [SerializeField] float _returnToWhiteColourTimer;
         [SerializeField] Renderer charaRenderer;
-        [SerializeField] Transform shaderSpawnpoint;
+        [SerializeField] Transform _shaderSpawnpoint;
         [SerializeField] protected GameObject hitFX;
         [SerializeField] protected GameObject bloodFX;
         [SerializeField] string deadTriggerName;
@@ -18,11 +18,16 @@ namespace RPG.Core
         public override void ChildrenDamageBehavior()
         {
             CharaDamageBehaviour();
-            GameObject.Instantiate(hitFX, shaderSpawnpoint.position, shaderSpawnpoint.rotation);
-            GameObject.Instantiate(bloodFX, shaderSpawnpoint.position, shaderSpawnpoint.rotation);
+            InstantiateVFX(hitFX);
+            InstantiateVFX(bloodFX);
             audioManager.TryToPlayClip(audioManager.PlayerSFXSources, impactClipSound);
             audioManager.TryToPlayClip(audioManager.PlayerSFXSources, damageClipSound);            
             EnableInvencibility(_damageRate);
+        }
+
+        public void InstantiateVFX(GameObject vfx)
+        {
+            GameObject.Instantiate(vfx, _shaderSpawnpoint.position, _shaderSpawnpoint.rotation);
         }
 
         public abstract void CharaDamageBehaviour();
