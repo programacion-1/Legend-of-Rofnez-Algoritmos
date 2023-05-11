@@ -209,8 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0252285fe2b348a4d9cf054acfaaeef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 0
-  maxHealthPoints: 30
+  _healthPoints: 0
+  _maxHealthPoints: 100
   _isInvencible: 0
   audioManager: {fileID: 0}
   deadClipSound: {fileID: 8300000, guid: 0a490d2ac2e526246ab488aed902f6f1, type: 3}
@@ -219,7 +219,7 @@ MonoBehaviour:
   _damageRate: 0.25
   _returnToWhiteColourTimer: 0.5
   charaRenderer: {fileID: 540004773825614258}
-  shaderSpawnpoint: {fileID: 7999120956489734571}
+  _shaderSpawnpoint: {fileID: 7999120956489734571}
   hitFX: {fileID: 66467482925399531, guid: e293ba5db78eaf046971a1fa16835ba7, type: 3}
   bloodFX: {fileID: 9110215784254510012, guid: 8dfca03007bc7f24584fb16d41f3054a, type: 3}
   deadTriggerName: Die
@@ -235,11 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92ee7d4520b83840a459f6e9bb85c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseDistance: 5
-  suspicionTime: 5
-  patrolPath: {fileID: 0}
-  waypointTolerance: 1
-  waypointDwellTime: 5
+  _chaseDistance: 5
+  _suspicionTime: 5
+  _patrolPath: {fileID: 0}
+  _waypointTolerance: 1
+  _waypointDwellTime: 5
 --- !u!114 &9002156179390591761
 MonoBehaviour:
   m_ObjectHideFlags: 0

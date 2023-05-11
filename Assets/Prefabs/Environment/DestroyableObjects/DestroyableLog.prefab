@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e623c1aa3249ec043943233633b2c291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 0
-  maxHealthPoints: 25
+  _healthPoints: 0
+  _maxHealthPoints: 20
   _isInvencible: 0
   audioManager: {fileID: 0}
   deadClipSound: {fileID: 8300000, guid: 59da0ad043828c446b7a2acc7524d008, type: 3}
