@@ -51,6 +51,8 @@ GameObject:
   - component: {fileID: 350899885960186329}
   - component: {fileID: 970811454}
   - component: {fileID: 6016132443323725300}
+  - component: {fileID: 7173218899589490050}
+  - component: {fileID: 5623221010749139124}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -281,6 +283,39 @@ MonoBehaviour:
   _leftHandTransform: {fileID: 1071873450652805763}
   _defaultWeapon: {fileID: 11400000, guid: 6d161e6e948a40e499f86fa915885249, type: 2}
   _currentWeapon: {fileID: 0}
+--- !u!114 &7173218899589490050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810658928676046845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e7799619c9e2b47b39d4a70bc6c2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rightHandTransform: {fileID: 0}
+  _leftHandTransform: {fileID: 0}
+  _magicAnims:
+  - Area
+  - Projectile
+  _defaultMagic: {fileID: 11400000, guid: 425433cc4815a344db4361185be150fa, type: 2}
+  _currentMagic: {fileID: 0}
+--- !u!114 &5623221010749139124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810658928676046845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c2f76aae4bfea43a68c437b3b7507b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _magicPoints: 0
+  maxMagicPoints: 20
 --- !u!1001 &1071873450652664687
 PrefabInstance:
   m_ObjectHideFlags: 0

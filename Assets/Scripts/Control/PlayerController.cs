@@ -5,6 +5,7 @@ using GeneralEnums;
 using RPG.Movement;
 using RPG.Combat;
 using RPG.Core;
+using RPG.Magic;
 //using RPG.UI;
 using System;
 
@@ -15,6 +16,7 @@ namespace RPG.Control
     {
         PlayerHealth _health;
         Fighter _fighter;
+        PlayerMagicCaster _magicCaster;
         private bool _godMode;
         bool canHealHP = true;
         bool canHealMP = true;
@@ -24,6 +26,7 @@ namespace RPG.Control
         {
             _health = GetComponent<PlayerHealth>();
             _fighter = GetComponent<Fighter>();
+            _magicCaster = GetComponent<PlayerMagicCaster>();
         }
 
         // Update is called once per frame
@@ -39,6 +42,7 @@ namespace RPG.Control
                 if(_godMode) DisableGodMode();
                 else EnableGodMode();
             }
+            if(InteractWithMagic()) return;
             if(InteractWithCombat()) return;
             if(InteractWithMovement()) return;
         }
@@ -57,6 +61,47 @@ namespace RPG.Control
         }
         #endregion
 
+        #region Magic
+        private bool InteractWithMagic()
+        {
+            if(Input.GetMouseButtonDown(1) && _magicCaster.currentMagic != null)
+            {
+                RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+                foreach(RaycastHit hit in hits)
+                {
+                    CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
+                    if(target == null) continue;
+                    if(target == GetComponent<CombatTarget>()) continue;
+                    _magicCaster.target = target.GetComponent<Health>();
+                }
+                _magicCaster.MagicAttack();
+                return true;
+
+                /*bool canActivateMagic = true;
+
+                /f(_magicCaster.getCurrentMagic().GetMagicType() == MagicType.Projectile)
+                {
+                    if(GetProjectileTarget() != null)
+                    {
+                        _magicCaster.SetSpecialTarget(GetProjectileTarget());
+                        canActivateMagic = true;
+                    }
+                    else canActivateMagic = false;
+                }
+
+                if(canActivateMagic)
+                {
+                    _magicCaster.MagicAttack();
+                    return true;
+                }
+
+                else return false;
+            }*/
+            }
+            else return false;
+        }
+        #endregion
+
         #region Combat
         // Busco con raycast si encuentro un objetivo para pelear, chequeo si puedo atacarlo y si hago click, lo ataco
         private bool InteractWithCombat()
@@ -66,8 +111,9 @@ namespace RPG.Control
             {
                 CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
                 if(target == null) continue;
-                Debug.Log($"Encontre un objetivo");
+                if(target == GetComponent<CombatTarget>()) continue;
                 if(!_fighter.CanAttack(target.gameObject)) continue;
+                Debug.Log($"Encontre un objetivo");
                 if(Input.GetMouseButtonDown(0))
                 {
                     _fighter.Attack(target.gameObject);

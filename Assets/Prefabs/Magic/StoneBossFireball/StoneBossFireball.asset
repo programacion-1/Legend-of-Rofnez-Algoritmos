@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d479f6d49e05ba4d92af294f9fa5d32, type: 3}
+  m_Script: {fileID: 11500000, guid: aa471cb8339b6b24ea266d349ba4d3f5, type: 3}
   m_Name: StoneBossFireball
   m_EditorClassIdentifier: 
-  magicDamage: 20
-  mpToConsume: 0
-  magicCooldown: 1
-  equippedPrefab: {fileID: 8095572290885335392, guid: dc7277f3cbd4d8e4e883ce2318b3d084,
-    type: 3}
-  animatorOverride: {fileID: 0}
-  magicType: 0
+  _magicDamage: 20
+  _mpToConsume: 0
+  _magicCooldown: 1
+  _equippedPrefab: {fileID: 0}
+  _magicSprite: {fileID: 0}
+  _projectile: {fileID: 6987407998333974604, guid: dc7277f3cbd4d8e4e883ce2318b3d084, type: 3}

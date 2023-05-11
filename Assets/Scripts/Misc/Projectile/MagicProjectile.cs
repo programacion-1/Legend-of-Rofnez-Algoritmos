@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicProjectile : MonoBehaviour
+public class MagicProjectile : Projectile
 {
     // Start is called before the first frame update
     void Start()

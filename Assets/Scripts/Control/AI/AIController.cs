@@ -10,59 +10,32 @@ namespace RPG.Control
 {
     public abstract class AIController: MonoBehaviour
     {
-        [SerializeField] float chaseDistance = 5f;
+        [SerializeField] float _chaseDistance = 5f;
 
-        ActionScheduler actionScheduler;
-        Fighter fighter;
-        Health health;
-        GameObject player;
-        Mover mover;
+        protected ActionScheduler _AIactionScheduler{get; set;}
+        protected Fighter _AIfighter{get; set;}
+        protected Health _AIhealth{get; set;}
+        protected GameObject _AIplayerTarget{get; set;}
+        protected Mover _AImover{get; set;}
         public void ParentStartingSettings()
         {
-            actionScheduler = GetComponent<ActionScheduler>();
-            fighter = GetComponent<Fighter>();
-            health = GetComponent<Health>();
-            player = GameObject.FindObjectOfType<PlayerController>().gameObject;
-            mover = GetComponent<Mover>();
-        }
-
-        // Getters Principales
-
-        public ActionScheduler aiActionScheduler
-        {
-            get{return actionScheduler;}
-        }
-
-        public Fighter aiFighter
-        {
-            get{return fighter;}
-        }
-
-        public Health aiHealth
-        {
-            get{return health;}
-        }
-
-        public Mover aiMover
-        {
-            get{return mover;}
-        }
-        
-        public GameObject playerTarget
-        {
-            get{return player;}
+            _AIactionScheduler = GetComponent<ActionScheduler>();
+            _AIfighter = GetComponent<Fighter>();
+            _AIhealth = GetComponent<Health>();
+            _AIplayerTarget = GameObject.FindObjectOfType<PlayerController>().gameObject;
+            _AImover = GetComponent<Mover>();
         }
 
         public float aiChaseDistance
         {
-            get{return chaseDistance;}
+            get{return _chaseDistance;}
         }
 
         //Update del Padre
         private void Update()
         {
             //Chequeo si está muerto
-            if (health.CheckIfIsDead()) return;
+            if (_AIhealth.CheckIfIsDead()) return;
             UpdateBehaviour();
             UpdateTimers();
         }
@@ -74,8 +47,8 @@ namespace RPG.Control
          //Devuelve un booleano al calcular la distancia del player con el enemigo y si dicha distancia es menor a la distancia para perseguir al player.
         public bool InAttackRangeOfPlayer()
         {
-            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-            return distanceToPlayer < chaseDistance;
+            float distanceToPlayer = Vector3.Distance(_AIplayerTarget.transform.position, transform.position);
+            return distanceToPlayer < _chaseDistance;
         }
     }
 }

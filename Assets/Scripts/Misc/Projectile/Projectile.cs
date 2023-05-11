@@ -18,7 +18,7 @@ public abstract class Projectile : MonoBehaviour
     [Header("Audio Clips")]
     public AudioClip _impactClip;
     public AudioClip _launchClip;
-    AudioManager _audioManager;
+    [SerializeField] AudioManager _audioManager;
 
     void Awake()
     {
@@ -27,18 +27,19 @@ public abstract class Projectile : MonoBehaviour
     
     void Start()
     {
+        _audioManager = GameObject.FindObjectOfType<AudioManager>();
+        _audioManager.TryToPlayClip(_audioManager.trapSources, _launchClip);
+        transform.LookAt(GetAimLocation());
+        StartCoroutine(DestroyProjectileByLifeSpan());
         #region testing
         //SetProjectileTarget(_target, _target.gameObject.layer);
         #endregion
-        transform.LookAt(GetAimLocation());
-        StartCoroutine(DestroyProjectileByLifeSpan());
-        _audioManager = GameObject.FindObjectOfType<AudioManager>();
-        _audioManager.TryToPlayClip(_audioManager.trapSources, _launchClip);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Update");
         if(_target == null) return;
         if(_isHoming && !_target.CheckIfIsDead()) transform.LookAt(GetAimLocation());
         transform.Translate(Vector3.forward * _speed * Time.deltaTime);
@@ -60,9 +61,9 @@ public abstract class Projectile : MonoBehaviour
     //Clase para buscar el objetivo a apuntar
     private Vector3 GetAimLocation()
     {
-        CapsuleCollider targetCapsule = _target.GetComponent<CapsuleCollider>();
-        if(targetCapsule == null) return _target.transform.position;
-        return _target.transform.position + Vector3.up * targetCapsule.height / 2;
+        if(_target == null) return transform.position;
+        if(_target.GetComponent<CapsuleCollider>() == null) return _target.transform.position;
+        return _target.transform.position + Vector3.up * _target.GetComponent<CapsuleCollider>().height / 2;
     }
 
     private bool ImpactEffect()

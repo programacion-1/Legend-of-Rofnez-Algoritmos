@@ -10,6 +10,8 @@ namespace RPG.Item
         [Header("Ranged Weapon Properties")]
         [SerializeField] Projectile _projectile;
         float _projectileDamage;
+        [SerializeField] int _ammo;
+        public int ammo{get{return _ammo;} set{_ammo = value;}}
 
         public override void SetEquippedWeaponDamage()
         {

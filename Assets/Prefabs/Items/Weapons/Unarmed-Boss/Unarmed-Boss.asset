@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26458d6aee7f71b40986aa84abfd0de8, type: 3}
+  m_Script: {fileID: 11500000, guid: de8d6ba00cfd3d3438668e1c8d40bf19, type: 3}
   m_Name: Unarmed-Boss
   m_EditorClassIdentifier: 
-  weaponRange: 2
-  weaponDamage: 7.5
-  timeBetweenAttacks: 4
-  equippedPrefab: {fileID: 1646692550931462815, guid: 0794dc291829078458aeb3f660b35386,
-    type: 3}
-  animatorOverride: {fileID: 0}
-  isRightHanded: 0
-  projectile: {fileID: 0}
+  _weaponRange: 1.8
+  _weaponDamage: 10
+  _timeBetweenAttacks: 3.5
+  isRightHanded: 1
+  _equippedPrefab: {fileID: 1646692550931462815, guid: 0794dc291829078458aeb3f660b35386, type: 3}
+  _animatorOverride: {fileID: 0}
+  _weaponSprite: {fileID: 0}
