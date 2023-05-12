@@ -8875,6 +8875,7 @@ Transform:
   - {fileID: 1604153095}
   - {fileID: 1294784101}
   - {fileID: 749952840}
+  - {fileID: 237056729}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8893,7 +8894,8 @@ MonoBehaviour:
   door: {fileID: 1713254598}
   newYRotation: 180
   rotationSpeed: 50
-  hasPlayerPickedUpTheKey: 0
+  _hasPlayerPickedUpTheKey: 0
+  _hasPlayerEnteredTheArena: 0
 --- !u!1001 &201359985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10131,6 +10133,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 9c94b89ac7bc73748951463086a4dbab, type: 3}
   m_PrefabInstance: {fileID: 228390312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &237056728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237056729}
+  - component: {fileID: 237056731}
+  - component: {fileID: 237056730}
+  m_Layer: 0
+  m_Name: EnteringTheArenaTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &237056729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237056728}
+  m_LocalRotation: {x: -0, y: 0.87213784, z: -0, w: -0.48926044}
+  m_LocalPosition: {x: -15.26, y: -0.18, z: 84.118}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201121370}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 238.58398, z: 0}
+--- !u!114 &237056730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237056728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ab35c0407bd944f878d4d496540c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _arenaObstacle: {fileID: 201121371}
+  playerLayer: 6
+--- !u!65 &237056731
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237056728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5488596, y: 1.5718368, z: 0.31528944}
+  m_Center: {x: -0.019167673, y: 0.28591785, z: -0.19159622}
 --- !u!4 &238045954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 0d17025ab9b6ed2488b9057657f58cfe, type: 3}
@@ -47358,15 +47420,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 416864, guid: d66c89601ce96d4419ce36a4dce3c401, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.92
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 416864, guid: d66c89601ce96d4419ce36a4dce3c401, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 416864, guid: d66c89601ce96d4419ce36a4dce3c401, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.82
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 416864, guid: d66c89601ce96d4419ce36a4dce3c401, type: 3}
       propertyPath: m_LocalRotation.w
@@ -47410,7 +47472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284147856}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.92, y: 0.14, z: 4.82}
+  m_LocalPosition: {x: -1.18, y: 0, z: 0.34}
   m_LocalScale: {x: 1.5932, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -68377,7 +68439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713254597}
   m_LocalRotation: {x: -0, y: 0.87213784, z: -0, w: -0.48926044}
-  m_LocalPosition: {x: -8.55, y: -0.255, z: 86.64}
+  m_LocalPosition: {x: -15.84, y: -0.255, z: 85.94}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
