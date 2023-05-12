@@ -12,8 +12,7 @@ namespace RPG.Combat
 
         public override bool AttackAvaivalbleByTimer()
         {
-            if(_timeSinceLastAttack >= _weaponInventory.activeWeapon.timeBetweenAttacks) return true;
-            return false;
+            return _timeSinceLastAttack >= _weaponInventory.activeWeapon.timeBetweenAttacks;
         }
 
         public override void ChildFighterSettings()

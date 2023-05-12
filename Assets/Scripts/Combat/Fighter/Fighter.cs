@@ -4,7 +4,6 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
 using RPG.Item;
-using RPG.InventorySystem;
 
 namespace RPG.Combat
 {
@@ -13,9 +12,8 @@ namespace RPG.Combat
         [SerializeField] protected Transform _rightHandTransform = null;
         [SerializeField] protected Transform _leftHandTransform = null;
         [SerializeField] protected Weapon _defaultWeapon = null;
-        [SerializeField] Weapon _currentWeapon = null;
         Mover _mover;
-        Animator _anim;
+        protected Animator _anim;
         protected RuntimeAnimatorController _defaultRuntimeAnimatorController;
         protected Health _target;
         protected float _timeSinceLastAttack = Mathf.Infinity;        
@@ -27,7 +25,6 @@ namespace RPG.Combat
             _anim = GetComponent<Animator>();
             _defaultRuntimeAnimatorController = _anim.runtimeAnimatorController;
             ChildFighterSettings();
-          //EquipWeapon(_defaultWeapon);
         }
 
         public abstract void ChildFighterSettings();
@@ -53,26 +50,11 @@ namespace RPG.Combat
             }
         }
 
-        /*public void EquipWeapon(Weapon weapon)
-        {
-            if(weapon == null) return;
-            _currentWeapon = weapon;
-            _anim.runtimeAnimatorController = _defaultRuntimeAnimatorController;
-            weapon.Spawn(_rightHandTransform, _leftHandTransform, _anim);
-            _currentWeapon.SetEquippedWeaponDamage();
-        }*/
-
-        public Weapon GetCurrentWeapon()
-        {
-            return _currentWeapon;
-        }
-
         //Evento en la animación de Attack. Activa el ataque del arma
         void ActivateAttack()
         {
             if(_target == null) return;
             ChildrenAttack();
-            //_currentWeapon.WeaponAttack(_target);
         }
 
         public abstract void ChildrenAttack();
@@ -80,7 +62,6 @@ namespace RPG.Combat
         void DeactivateAttack()
         {
             ChildrenDeactivateAttack();
-            //_currentWeapon.StopAttack();
         }
 
         public abstract void ChildrenDeactivateAttack();
@@ -89,12 +70,6 @@ namespace RPG.Combat
         private void AttackBehaviour()
         {
             transform.LookAt(_target.transform); //Roto hacia mi objetivo
-            /*if(_timeSinceLastAttack >= _currentWeapon.timeBetweenAttacks)
-            {
-                //Esto invoca el evento Hit()
-                _timeSinceLastAttack = 0f;
-                AttackTriggers("StopAttack", "Attack");                
-            }*/
             if(AttackAvaivalbleByTimer())
             {
                 //Esto invoca el evento Hit()

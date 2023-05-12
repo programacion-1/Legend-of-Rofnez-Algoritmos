@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Item;
 
-public class RangedEnemyFighter : MonoBehaviour
+namespace RPG.Combat
 {
-    // Start is called before the first frame update
-    void Start()
+    public class RangedEnemyFighter : EnemyFighter
     {
-        
-    }
+        WeaponProjectileSpawner _weaponProjectileSpawner;
+        public override void ChildrenAttack()
+        {
+            _weaponProjectileSpawner.LaunchProjectile(_target);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void ChildrenDeactivateAttack()
+        {
+            
+        }
+
+        public override void SetSpawnedWeaponDamage(float damage)
+        {
+            _weaponProjectileSpawner = spawnedWeapon.GetComponent<WeaponProjectileSpawner>();
+            _weaponProjectileSpawner.projectileDamage = damage;
+            RangedWeapon w = (RangedWeapon) _currentWeapon;
+            _weaponProjectileSpawner.projectileToSpawn = w.projectile;
+        }
     }
 }

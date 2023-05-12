@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Item;
+using RPG.Core;
 
-public class MeleeEnemyFighter : MonoBehaviour
+namespace RPG.Combat
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MeleeEnemyFighter : EnemyFighter
     {
-        
-    }
+        AttackTrigger _attackTrigger;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void ChildrenAttack()
+        {
+            _attackTrigger.ActivateWeaponCollider();
+        }
+
+        public override void ChildrenDeactivateAttack()
+        {
+            _attackTrigger.DeactivateWeaponCollider();
+        }
+
+        public override void SetSpawnedWeaponDamage(float damage)
+        {
+            _attackTrigger = spawnedWeapon.GetComponent<AttackTrigger>();
+            _attackTrigger._triggerDamage = damage;
+        }
     }
 }
+    

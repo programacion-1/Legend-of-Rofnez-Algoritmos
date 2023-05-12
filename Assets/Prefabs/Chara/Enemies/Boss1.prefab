@@ -409,6 +409,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
   m_PrefabInstance: {fileID: 5740274670517592461}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1183398413103480280 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2322225799281468331, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
+  m_PrefabInstance: {fileID: 5740274670517592461}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4361842273920546948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
@@ -506,6 +511,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runClip: {fileID: 0}
+--- !u!114 &6631898387215110490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361842273920546948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35fe1ae8f4fd0a4b897e1034223fd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rightHandTransform: {fileID: 0}
+  _leftHandTransform: {fileID: 0}
+  _magicAnims:
+  - Projectile
+  _defaultMagic: {fileID: 11400000, guid: af896f36b3325194aaaadc8b003dd219, type: 2}
+  _currentMagic: {fileID: 0}
 --- !u!114 &7154314444113161134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,8 +554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f82fa4b441cad43a93fe7fa50da241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 0
-  maxHealthPoints: 100
+  _healthPoints: 0
+  _maxHealthPoints: 100
   _isInvencible: 0
   audioManager: {fileID: 0}
   deadClipSound: {fileID: 8300000, guid: 3aa8b26622ee8e74895db604c5342b2b, type: 3}
@@ -541,7 +564,7 @@ MonoBehaviour:
   _damageRate: 0.35
   _returnToWhiteColourTimer: 0
   charaRenderer: {fileID: 0}
-  shaderSpawnpoint: {fileID: 8046056893070945994}
+  _shaderSpawnpoint: {fileID: 0}
   hitFX: {fileID: 66467482925399531, guid: e293ba5db78eaf046971a1fa16835ba7, type: 3}
   bloodFX: {fileID: 9110215784254510012, guid: 8dfca03007bc7f24584fb16d41f3054a, type: 3}
   deadTriggerName: Die
@@ -554,36 +577,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4361842273920546948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8135a3564716e9349b3f90e1509e9eda, type: 3}
+  m_Script: {fileID: 11500000, guid: fccf22739640c5241929e85ec61cb8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rightHandTransform: {fileID: 5559715023702279569}
+  _rightHandTransform: {fileID: 1183398413103480280}
   _leftHandTransform: {fileID: 8120977804482690127}
   _defaultWeapon: {fileID: 11400000, guid: e2ab36d1335ab2c44ac5858ac0d941aa, type: 2}
   _currentWeapon: {fileID: 0}
---- !u!114 &6631898387215110490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4361842273920546948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35fe1ae8f4fd0a4b897e1034223fd33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rightHandTransform: {fileID: 0}
-  _leftHandTransform: {fileID: 0}
-  _magicAnims:
-  - Projectile
-  _defaultMagic: {fileID: 11400000, guid: af896f36b3325194aaaadc8b003dd219, type: 2}
-  _currentMagic: {fileID: 0}
---- !u!4 &5559715023702279569 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -9042772588573301732, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
-  m_PrefabInstance: {fileID: 5740274670517592461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8120977804482690127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4676408568124400190, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}

@@ -339,10 +339,42 @@ PrefabInstance:
       propertyPath: maxHealthPoints
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 343134453573305847, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+--- !u!1 &1080376874974949719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 540004773825614262, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+  m_PrefabInstance: {fileID: 684615794663465185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7365363154241848616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080376874974949719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a0c18022662c74caa493aa7ca0ccb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rightHandTransform: {fileID: 4142125749366425401}
+  _leftHandTransform: {fileID: 4142125749366499131}
+  _defaultWeapon: {fileID: 11400000, guid: c5fd60fa6bbd54a4097e44ad33663c17, type: 2}
+  _currentWeapon: {fileID: 0}
 --- !u!137 &4142125749352534891 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 3529686434512483210, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+  m_PrefabInstance: {fileID: 684615794663465185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4142125749366425401 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3529686434509596632, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+  m_PrefabInstance: {fileID: 684615794663465185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4142125749366499131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3529686434509522906, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
   m_PrefabInstance: {fileID: 684615794663465185}
   m_PrefabAsset: {fileID: 0}
