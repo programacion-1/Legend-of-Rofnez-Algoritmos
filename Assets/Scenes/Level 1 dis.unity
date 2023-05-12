@@ -74305,6 +74305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1865686412}
   - component: {fileID: 1865686411}
+  - component: {fileID: 1865686413}
   m_Layer: 0
   m_Name: EnterEventTrigger
   m_TagString: Untagged
@@ -74332,14 +74333,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865686410}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -48.94, y: -3.0098588, z: 13.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 674999144}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1865686413
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865686410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.433781, y: 1, z: 1}
+  m_Center: {x: 0.7920399, y: 0, z: 0}
 --- !u!1001 &1867157126
 PrefabInstance:
   m_ObjectHideFlags: 0

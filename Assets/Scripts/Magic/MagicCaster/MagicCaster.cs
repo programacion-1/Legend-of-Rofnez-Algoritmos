@@ -59,9 +59,9 @@ namespace RPG.Magic
         {
             if(CheckIfCanUseMagic())
             {
+                _actionScheduler.StartAction(this);
                 _anim.ResetTrigger("StopMagicAttack");
                 _anim.SetTrigger("MagicAttack");
-                _actionScheduler.StartAction(this);
                 _timeToActivateMagic = 0f;
             }
         }
