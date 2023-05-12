@@ -153,7 +153,7 @@ MonoBehaviour:
   deadClipSound: {fileID: 8300000, guid: 59da0ad043828c446b7a2acc7524d008, type: 3}
   damageClipSound: {fileID: 8300000, guid: 35ea60cc5be64c24cbb54146158b100d, type: 3}
   impactClipSound: {fileID: 8300000, guid: 35ea60cc5be64c24cbb54146158b100d, type: 3}
-  _damageRate: 0
+  _damageRate: 0.25
   shaderSpawnpoint: {fileID: 7341624626986025729}
   hitFX: {fileID: 2327025726558607438, guid: e519bca7ab838c045b85b498910ee188, type: 3}
 --- !u!114 &7675948150511626980

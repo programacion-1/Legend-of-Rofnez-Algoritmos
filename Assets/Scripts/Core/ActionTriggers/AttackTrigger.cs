@@ -12,14 +12,14 @@ namespace RPG.Core
 
         public void ActivateWeaponCollider()
         {
-            _weaponCollider.gameObject.SetActive(true);
             _weaponCollider._damageToDeal = _triggerDamage;
+            _weaponCollider.gameObject.SetActive(true);
         }
 
         public void DeactivateWeaponCollider()
         {
-            _weaponCollider.gameObject.SetActive(false);
             _weaponCollider._damageToDeal = 0;
+            _weaponCollider.gameObject.SetActive(false);
         }
 
     }
