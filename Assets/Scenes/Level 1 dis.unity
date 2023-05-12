@@ -63893,7 +63893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextLevelPortal: {fileID: 1995909025}
   _questTexts:
-  - You must find the key in the forest!
+  - You must find the key in the village!
   - That archer has the key! Kill him!
   - The guard has droped the key!
   - You can enter the arena to fight the boss!
