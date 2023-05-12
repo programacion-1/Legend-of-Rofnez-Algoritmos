@@ -15,7 +15,7 @@ namespace RPG.UI
         [SerializeField] GameObject godModeText;
         [SerializeField] GameObject hpPotQuantityText;
         [SerializeField] GameObject mpPotQuantityText;
-        
+
         public GameObject GetPauseMenu()
         {
             return pauseMenu;

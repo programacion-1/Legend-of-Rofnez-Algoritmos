@@ -22,6 +22,7 @@ namespace RPG.Core
         public void StartingSettings()
         {
             nextLevelPortal.SetActive(false);
+            _eventText = FindObjectOfType<EventText>();
             #region Observer Pattern
             FillNotifiesDictionary();
             _objectObserved = FindObjectOfType<BossHealth>();

@@ -8,7 +8,7 @@ namespace RPG.UI
     public class EventText : MonoBehaviour
     {
         [SerializeField] Text eventText;
-        void Start()
+        void Awake()
         {
             eventText = GetComponent<Text>();
             SetEventText("");
