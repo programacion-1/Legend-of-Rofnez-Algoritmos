@@ -9,10 +9,10 @@ namespace RPG.Magic
     {
         [SerializeField] float _magicPoints;
         public float magicPoints{get{return _magicPoints;}}        
-        [SerializeField] float maxMagicPoints;
+        [SerializeField] float _maxMagicPoints;
         
         [SerializeField] InteractiveBar _manaBar;
-        [SerializeField] string magicBarName;
+        [SerializeField] string _magicBarName;
         PlayerMinMaxQuantityText magicBarText;
         /*[SerializeField] string magicBarTextName;*/
         // Start is called before the first frame update
@@ -24,17 +24,8 @@ namespace RPG.Magic
 
         public void SetStartingMagicPointsSettings()
         {
-            _magicPoints = maxMagicPoints;
-            InteractiveBar[] interactivebars = GameObject.FindObjectsOfType<InteractiveBar>();
-            for(int i = 0; i < interactivebars.Length; i++)
-            {
-                if(interactivebars[i].gameObject.name == magicBarName)
-                {
-                    _manaBar = interactivebars[i];
-                    _manaBar.ChangeBarFiller(_magicPoints, maxMagicPoints);
-                    break;
-                }
-            }
+            _magicPoints = _maxMagicPoints;
+            TriggerChangeInteractiveBarValuesEvent();
             /*PlayerMinMaxQuantityText[] playerMinMaxQuantityTexts = GameObject.FindObjectsOfType<PlayerMinMaxQuantityText>();
             for (int i = 0; i < playerMinMaxQuantityTexts.Length; i++)
             {
@@ -51,14 +42,21 @@ namespace RPG.Magic
         public void ConsumeMagicPoints(float mpToConsume)
         {
             _magicPoints = Mathf.Max(_magicPoints - mpToConsume, 0);
-            _manaBar.ChangeBarFiller(_magicPoints, maxMagicPoints);
+            TriggerChangeInteractiveBarValuesEvent();
         }
 
         public void RestoreMagicPoints(float mptToRestore)
         {
-            _magicPoints = Mathf.Min(_magicPoints + mptToRestore, maxMagicPoints);
-            _manaBar.ChangeBarFiller(_magicPoints, maxMagicPoints);
+            _magicPoints = Mathf.Min(_magicPoints + mptToRestore, _maxMagicPoints);
+            TriggerChangeInteractiveBarValuesEvent();
         }
+
+        #region EventManager
+        void TriggerChangeInteractiveBarValuesEvent()
+        {
+            EventManager.TriggerEvent(EventManager.Events.Event_ChangeInteractiveBarValues, _magicBarName, _magicPoints, _maxMagicPoints);
+        }
+        #endregion
     }
 
 }

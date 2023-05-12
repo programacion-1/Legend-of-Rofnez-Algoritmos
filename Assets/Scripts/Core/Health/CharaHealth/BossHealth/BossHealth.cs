@@ -8,7 +8,6 @@ namespace RPG.Core
 {
     public abstract class BossHealth : CharaHealth, IObservable
     {
-        [SerializeField] InteractiveBar _bossHealthBar;
         [SerializeField] string _bossHealthBarName;
         const string barName = "BossHealthBar";
         List<IObserver> _allObservers = new List<IObserver>();
@@ -16,16 +15,7 @@ namespace RPG.Core
         {
             CoreStartingSettings();
             _bossHealthBarName = barName;
-            InteractiveBar[] interactiveBars = GameObject.FindObjectsOfType<InteractiveBar>();
-            for (int i = 0; i < interactiveBars.Length; i++)
-            {
-                if (interactiveBars[i].gameObject.name == _bossHealthBarName)
-                {
-                    _bossHealthBar = interactiveBars[i];
-                    _bossHealthBar.ChangeBarFiller(GetHP(), GetMaxHP());
-                    break;
-                }
-            }
+            TriggerChangeInteractiveBarValuesEvent();
             BossChildHealthStartingSettings();
             NotifyToObservers("Begin");
         }
@@ -38,7 +28,7 @@ namespace RPG.Core
         }
         public override void CharaDamageBehaviour()
         {
-            _bossHealthBar.ChangeBarFiller(GetHP(), GetMaxHP());
+            TriggerChangeInteractiveBarValuesEvent();
             BossDamageBehaviour();
         }
 
@@ -54,7 +44,7 @@ namespace RPG.Core
 
         public override void HealVisualSettings()
         {
-            _bossHealthBar.ChangeBarFiller(GetHP(), GetMaxHP());
+            TriggerChangeInteractiveBarValuesEvent();
         }
 
         #region Observable
@@ -87,5 +77,11 @@ namespace RPG.Core
 
         #endregion
 
+        #region EventManager
+        void TriggerChangeInteractiveBarValuesEvent()
+        {
+            EventManager.TriggerEvent(EventManager.Events.Event_ChangeInteractiveBarValues, _bossHealthBarName, GetHP(), GetMaxHP());
+        }
+        #endregion
     }
 }

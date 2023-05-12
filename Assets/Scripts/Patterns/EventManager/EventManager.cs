@@ -7,7 +7,8 @@ public static class EventManager
     //Creo el enum con todos los eventos a utilizar
     public enum Events
     {
-        Event_PlayerDead
+        Event_PlayerDead,
+        Event_ChangeInteractiveBarValues
     }
 
     //Creo un delegado donde voy a obligar a las funciones que se quieran suscribir

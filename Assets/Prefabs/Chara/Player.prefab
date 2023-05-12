@@ -256,7 +256,6 @@ MonoBehaviour:
   hitFX: {fileID: 66467482925399531, guid: e293ba5db78eaf046971a1fa16835ba7, type: 3}
   bloodFX: {fileID: 9110215784254510012, guid: 8dfca03007bc7f24584fb16d41f3054a, type: 3}
   deadTriggerName: Die
-  _healthBar: {fileID: 0}
   _healthBarName: HealthBar
 --- !u!114 &970811454
 MonoBehaviour:
@@ -318,9 +317,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _magicPoints: 0
-  maxMagicPoints: 20
+  _maxMagicPoints: 20
   _manaBar: {fileID: 0}
-  magicBarName: ManaBar
+  _magicBarName: ManaBar
 --- !u!114 &2253082583425601405
 MonoBehaviour:
   m_ObjectHideFlags: 0
