@@ -20,7 +20,6 @@ public class WeaponProjectileSpawner : MonoBehaviour
         projectileInstance.transform.position = _projectileSpawner.transform.position;
         projectileInstance.transform.rotation = Quaternion.identity;
         projectileInstance.gameObject.layer = layerToSet;
-        Debug.Log(projectileInstance.gameObject.layer);
         projectileInstance.SetProjectileTarget(_target, _target.gameObject.layer);
         projectileInstance.SetProjectileDamage(_projectileDamage);
         projectileInstance.SetProjectileTrail(projectileColorTrail);

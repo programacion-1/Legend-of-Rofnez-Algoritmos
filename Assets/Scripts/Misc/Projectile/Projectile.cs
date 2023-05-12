@@ -6,36 +6,30 @@ using RPG.Combat;
 
 public abstract class Projectile : MonoBehaviour
 {
+    //Objetivo del proyectil
     [SerializeField] Health _target;
+    //Trigger donde se setea el daño del proyectil
     DamageTrigger _damageTrigger;
     [SerializeField] float _speed;
+    //Bool para chequear si es teledirigido
     [SerializeField] private bool _isHoming;
     public float _damage{get; set;}
     [SerializeField] GameObject _hitEffect = null;
+    //Vida útil del objetio
     [SerializeField] float _lifeSpan = 1f;
     float _lifeTime = 0f;
+    //Lista de objectos (layers) con los que puedo impactar
     [SerializeField] List<int> _impactObjects = new List<int>();
+    //Variable para definir el color del efecto. Principalmente por si es proyectil de player o de enemy
     [SerializeField] TrailRenderer trail;
     [Header("Audio Clips")]
     public AudioClip _impactClip;
     public AudioClip _launchClip;
     [SerializeField] AudioManager _audioManager;
-
-    void Awake()
-    {
-        
-    }
-    
     void Start()
     {
         Reset();
-        /*_damageTrigger = GetComponent<DamageTrigger>();
-        _audioManager = GameObject.FindObjectOfType<AudioManager>();
-        _audioManager.TryToPlayClip(_audioManager.trapSources, _launchClip);
-        transform.LookAt(GetAimLocation());
-        StartCoroutine(DestroyProjectileByLifeSpan());*/
         #region testing
-        //SetProjectileTarget(_target, _target.gameObject.layer);
         #endregion
     }
 
@@ -62,6 +56,7 @@ public abstract class Projectile : MonoBehaviour
         transform.LookAt(GetAimLocation());
     }
 
+    //Funcion para evitar que se repitan impactObjects
     public void TryAddImpactObject(int objectLayer)
     {
         for(int i = 0; i < _impactObjects.Count; i++)

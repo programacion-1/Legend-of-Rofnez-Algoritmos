@@ -9,7 +9,7 @@ public class ArrowProjectileFactory : MonoBehaviour
     [SerializeField] int _initialAmount;
     ObjectPool<Projectile> _arrowProjectilePool;
 
-        void Awake()
+    void Awake()
     {
         if (Instance) Destroy(this);
         else Instance = this;

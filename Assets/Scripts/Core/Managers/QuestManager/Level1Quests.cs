@@ -9,7 +9,7 @@ namespace RPG.Core
     {
         [SerializeField] GameObject key;
         bool keyHasAppeared = false;
-        QuestEnterTrigger _firstQuestEnterTrigger;
+        [SerializeField] QuestEnterTrigger _firstQuestEnterTrigger;
         KeyBearer _keyBearer;
         [SerializeField] EnemyHealth[] bossMobs;
         //Deathcounter deathcounter;

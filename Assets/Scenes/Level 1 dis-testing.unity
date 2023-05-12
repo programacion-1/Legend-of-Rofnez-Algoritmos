@@ -63896,6 +63896,7 @@ MonoBehaviour:
   - The boss is dead! You can continue on your journey!
   _bossHealthBar: {fileID: 0}
   key: {fileID: 1171006826}
+  _firstQuestEnterTrigger: {fileID: 2078475932}
   bossMobs:
   - {fileID: 2084616706}
 --- !u!4 &1593071066
