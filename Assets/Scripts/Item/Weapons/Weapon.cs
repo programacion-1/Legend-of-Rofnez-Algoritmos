@@ -21,20 +21,25 @@ namespace RPG.Item
         protected Transform _leftHand;
         const string _weaponName = "Weapon";
 
-        public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
+        public GameObject Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
+            GameObject newWeapon = null;
             DestroyOldWeapon(rightHand, leftHand);
             
             if(_equippedPrefab != null)
             {
-                _rightHand = rightHand;
-                _leftHand = leftHand;
-                Transform handTransform = GetTransform(_rightHand, _leftHand);
-                GameObject newWeapon = Instantiate(_equippedPrefab, handTransform);
+                Transform handTransform = GetTransform(rightHand, leftHand);
+                newWeapon = Instantiate(_equippedPrefab, handTransform);
                 newWeapon.name = _weaponName;
-                SpawnSettings(newWeapon);
             }
             if (_animatorOverride != null) animator.runtimeAnimatorController = _animatorOverride;
+            return newWeapon;
+        }
+
+        public void SetHandTransforms(Transform rightHand, Transform leftHand)
+        {
+            _rightHand = rightHand;
+            _leftHand = leftHand;
         }
 
         public Transform GetTransform(Transform rightHand, Transform leftHand)
@@ -54,11 +59,6 @@ namespace RPG.Item
             oldWeapon.name = "DESTROYING";
             Destroy(oldWeapon.gameObject);
         }
-
-        public abstract void SetEquippedWeaponDamage();
-        public abstract void SpawnSettings(GameObject spawnedWeapon);
-        public abstract void WeaponAttack(Health t);
-        public abstract void StopAttack();
     }
 
 }

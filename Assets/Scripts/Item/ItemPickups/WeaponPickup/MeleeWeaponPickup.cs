@@ -10,8 +10,7 @@ namespace RPG.Combat
     {
         public override void SetWeaponOnInventory(WeaponInventory wI, Weapon w)
         {
-            wI.equippedMeleeWeapon = (MeleeWeapon)w;
-            wI.SetActiveWeapon(wI.equippedMeleeWeapon);
+            wI.EquipMeeleWeapon((MeleeWeapon) w);
         }
     }
 

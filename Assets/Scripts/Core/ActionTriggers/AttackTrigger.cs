@@ -8,7 +8,6 @@ namespace RPG.Core
     {
         [SerializeField] DamageTrigger _weaponCollider;
         public float _triggerDamage{get; set;}
-        //public float _triggerDamage;
 
 
         public void ActivateWeaponCollider()

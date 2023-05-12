@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 7173218899589490050}
   - component: {fileID: 5623221010749139124}
   - component: {fileID: 2253082583425601405}
-  - component: {fileID: 4424574291894480157}
+  - component: {fileID: 3941247847641947573}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3810658928676046845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8135a3564716e9349b3f90e1509e9eda, type: 3}
+  m_Script: {fileID: 11500000, guid: 359499611e123e14f89101d5eee99bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rightHandTransform: {fileID: 1071873450652732139}
@@ -332,8 +332,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _equippedMeleeWeapon: {fileID: 0}
   _equippedRangedWeapon: {fileID: 0}
+  _rangedWeaponAmmo: 0
   _activeWeapon: {fileID: 0}
---- !u!114 &4424574291894480157
+  _attackTrigger: {fileID: 0}
+  _weaponProjectileSpawner: {fileID: 0}
+--- !u!114 &3941247847641947573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -22,11 +22,12 @@ public abstract class Projectile : MonoBehaviour
 
     void Awake()
     {
-        _damageTrigger = GetComponent<DamageTrigger>();
+        
     }
     
     void Start()
     {
+        _damageTrigger = GetComponent<DamageTrigger>();
         _audioManager = GameObject.FindObjectOfType<AudioManager>();
         _audioManager.TryToPlayClip(_audioManager.trapSources, _launchClip);
         transform.LookAt(GetAimLocation());
@@ -39,7 +40,6 @@ public abstract class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Update");
         if(_target == null) return;
         if(_isHoming && !_target.CheckIfIsDead()) transform.LookAt(GetAimLocation());
         transform.Translate(Vector3.forward * _speed * Time.deltaTime);
@@ -54,6 +54,7 @@ public abstract class Projectile : MonoBehaviour
     public void SetProjectileTarget(Health t, int impactObjectLayer)
     {
         _target = t;
+        if(_damageTrigger == null) _damageTrigger = GetComponent<DamageTrigger>();
         _damageTrigger.SetDamageTarget(_target);
         _impactObjects.Add(impactObjectLayer);
     }
@@ -61,9 +62,10 @@ public abstract class Projectile : MonoBehaviour
     //Clase para buscar el objetivo a apuntar
     private Vector3 GetAimLocation()
     {
-        if(_target == null) return transform.position;
+        if(_target == null) return transform.position;        
         if(_target.GetComponent<CapsuleCollider>() == null) return _target.transform.position;
-        return _target.transform.position + Vector3.up * _target.GetComponent<CapsuleCollider>().height / 2;
+        Vector3 AimLocation = _target.transform.position + Vector3.up * _target.GetComponent<CapsuleCollider>().height / 2;
+        return AimLocation;
     }
 
     private bool ImpactEffect()

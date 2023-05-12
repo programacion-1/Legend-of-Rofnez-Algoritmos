@@ -4,22 +4,21 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
 using RPG.Item;
+using RPG.InventorySystem;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public abstract class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] Transform _rightHandTransform = null;
-        [SerializeField] Transform _leftHandTransform = null;
-        [SerializeField] Weapon _defaultWeapon = null;
+        [SerializeField] protected Transform _rightHandTransform = null;
+        [SerializeField] protected Transform _leftHandTransform = null;
+        [SerializeField] protected Weapon _defaultWeapon = null;
         [SerializeField] Weapon _currentWeapon = null;
         Mover _mover;
         Animator _anim;
-        RuntimeAnimatorController _defaultRuntimeAnimatorController;
-        Health _target;
-        float _timeSinceLastAttack = Mathf.Infinity;
-        AttackTrigger _weaponAttackTrigger;
-        
+        protected RuntimeAnimatorController _defaultRuntimeAnimatorController;
+        protected Health _target;
+        protected float _timeSinceLastAttack = Mathf.Infinity;        
         
         // Start is called before the first frame update
         void Start()
@@ -27,8 +26,11 @@ namespace RPG.Combat
             _mover = GetComponent<Mover>();  
             _anim = GetComponent<Animator>();
             _defaultRuntimeAnimatorController = _anim.runtimeAnimatorController;
-            EquipWeapon(_defaultWeapon);
+            ChildFighterSettings();
+          //EquipWeapon(_defaultWeapon);
         }
+
+        public abstract void ChildFighterSettings();
 
         // Update is called once per frame
         void Update()
@@ -51,14 +53,14 @@ namespace RPG.Combat
             }
         }
 
-        public void EquipWeapon(Weapon weapon)
+        /*public void EquipWeapon(Weapon weapon)
         {
             if(weapon == null) return;
             _currentWeapon = weapon;
             _anim.runtimeAnimatorController = _defaultRuntimeAnimatorController;
             weapon.Spawn(_rightHandTransform, _leftHandTransform, _anim);
             _currentWeapon.SetEquippedWeaponDamage();
-        }
+        }*/
 
         public Weapon GetCurrentWeapon()
         {
@@ -69,25 +71,39 @@ namespace RPG.Combat
         void ActivateAttack()
         {
             if(_target == null) return;
-            _currentWeapon.WeaponAttack(_target);
+            ChildrenAttack();
+            //_currentWeapon.WeaponAttack(_target);
         }
+
+        public abstract void ChildrenAttack();
 
         void DeactivateAttack()
         {
-            _currentWeapon.StopAttack();
+            ChildrenDeactivateAttack();
+            //_currentWeapon.StopAttack();
         }
+
+        public abstract void ChildrenDeactivateAttack();
 
         //Lo que hago al atacar
         private void AttackBehaviour()
         {
             transform.LookAt(_target.transform); //Roto hacia mi objetivo
-            if(_timeSinceLastAttack >= _currentWeapon.timeBetweenAttacks)
+            /*if(_timeSinceLastAttack >= _currentWeapon.timeBetweenAttacks)
+            {
+                //Esto invoca el evento Hit()
+                _timeSinceLastAttack = 0f;
+                AttackTriggers("StopAttack", "Attack");                
+            }*/
+            if(AttackAvaivalbleByTimer())
             {
                 //Esto invoca el evento Hit()
                 _timeSinceLastAttack = 0f;
                 AttackTriggers("StopAttack", "Attack");                
             }
         }
+
+        public abstract bool AttackAvaivalbleByTimer();
 
         //Reinicio un trigger e inicio el otro. Esto se realizó para evitar un bug cuando se cancela un ataque con el trigger StopAttack
         private void AttackTriggers(string triggerToReset, string triggerToSet)
@@ -97,10 +113,10 @@ namespace RPG.Combat
         }
 
         //Devuelve la distancia entre mi posición y la del objetivo y chequea que sea menor al rango del arma
-        private bool GetIsInRange()
-        {
-            return Vector3.Distance(transform.position, _target.transform.position) < _currentWeapon.weaponRange;
-        }
+        public abstract bool GetIsInRange();
+        /*{
+            //return Vector3.Distance(transform.position, _target.transform.position) < _currentWeapon.weaponRange;
+        }*/
 
         //Inicio la acción de ataque y defino mi objetivo
         public void Attack(GameObject combatTarget)

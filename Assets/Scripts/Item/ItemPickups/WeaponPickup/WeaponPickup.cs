@@ -14,7 +14,6 @@ namespace RPG.Combat
         {
             WeaponInventory playerWeaponInventory = player.GetComponent<WeaponInventory>();
             SetWeaponOnInventory(playerWeaponInventory, weaponToEquip);
-            player.GetComponent<Fighter>().EquipWeapon(weaponToEquip);
         }
 
         public abstract void SetWeaponOnInventory(WeaponInventory wI, Weapon w);

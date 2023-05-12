@@ -10,9 +10,9 @@ namespace RPG.Combat
     {
         public override void SetWeaponOnInventory(WeaponInventory wI, Weapon w)
         {
-            wI.equippedRangedWeapon = (RangedWeapon)w;
-            wI.SetActiveWeapon(wI.equippedRangedWeapon);
-            wI.GetComponent<RangedWeaponAmmoInventory>().SetAmmo(wI.equippedRangedWeapon.ammo);
+            RangedWeapon rangedWeapon = (RangedWeapon) w;
+            wI.EquipRangedWeapon(rangedWeapon);
+            //wI.GetComponent<RangedWeaponAmmoInventory>().SetAmmo(wI.equippedRangedWeapon.ammo);
         }
     }
 }

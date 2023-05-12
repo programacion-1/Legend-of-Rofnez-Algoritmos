@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BowPickup
       objectReference: {fileID: 0}
+    - target: {fileID: 6307555404039608023, guid: afec72d1d9f9dab4d907b7cbe7496729, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6585907619575478204, guid: afec72d1d9f9dab4d907b7cbe7496729, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -97,6 +101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Simple Bow
       objectReference: {fileID: 0}
+    - target: {fileID: 1563655986059756, guid: 7f105c0c272e6c146b4b41cdc53ea356, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4281075886339594, guid: 7f105c0c272e6c146b4b41cdc53ea356, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -165,6 +173,10 @@ PrefabInstance:
     - target: {fileID: 175590, guid: c83a45822d0d3f94991e76a87670125c, type: 3}
       propertyPath: m_Name
       value: FX_Dust_Prefab_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 175590, guid: c83a45822d0d3f94991e76a87670125c, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 468624, guid: c83a45822d0d3f94991e76a87670125c, type: 3}
       propertyPath: m_RootOrder
