@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.UI;
 
 namespace RPG.Core
 {
@@ -13,13 +14,14 @@ namespace RPG.Core
 
         public override void BossDamageBehaviour()
         {
-            
+
         }
 
         public override void BossDeathBehaviour()
         {
             
         }
+        
     }
 
 }

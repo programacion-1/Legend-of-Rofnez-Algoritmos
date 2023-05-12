@@ -7,27 +7,23 @@ namespace RPG.UI
 {
     public class ItemInventoryMenu : MonoBehaviour
     {
-        [SerializeField] Text HealthPotQuantityText;
-        [SerializeField] Text MagicPotQuantityText;
-        
-        public Text GetHealthPotQuantityText()
-        {
-            return HealthPotQuantityText;
-        }
-
-        public Text GetMagicPotQuantityText()
-        {
-            return MagicPotQuantityText;
-        }
+        [SerializeField] string _healthPotKey;
+        public string healthPotKey{get{return _healthPotKey;}}
+        [SerializeField] Text _healthPotQuantityText;
+        public Text healthPotQuantityText{get{return _healthPotQuantityText;}}
+        [SerializeField] string _magicPotKey;
+        public string magicPotKey{get{return _magicPotKey;}}
+        [SerializeField] Text _magicPotQuantityText;
+        public Text magicPotQuantityText{get{return _magicPotQuantityText;}}
 
         public void SetHealthPotQuantityText(string quantity)
         {
-            HealthPotQuantityText.text = "X" + quantity;
+            _healthPotQuantityText.text = "X" + quantity;
         }
 
         public void SetMagicPotQuantityText(string quantity)
         {
-            MagicPotQuantityText.text = "X" + quantity;
+            _magicPotQuantityText.text = "X" + quantity;
         }
 
         public void SetTextColor(Color newColor, Text myText)

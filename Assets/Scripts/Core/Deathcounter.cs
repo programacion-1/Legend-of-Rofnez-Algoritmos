@@ -7,7 +7,7 @@ namespace RPG.Core
 {
     public class Deathcounter : MonoBehaviour
     {
-        int counter = 0;
+        /*int counter = 0;
 
         public int AddToCounter()
         {
@@ -25,7 +25,7 @@ namespace RPG.Core
         {
             counter = 0;
             GameObject.FindObjectOfType<KillCounterText>().SetKillText(counter);
-        }
+        }*/
 
 }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.UI;
 
 namespace RPG.Magic
 {
@@ -10,10 +11,10 @@ namespace RPG.Magic
         public float magicPoints{get{return _magicPoints;}}        
         [SerializeField] float maxMagicPoints;
         
-        /*HealBar bar;
+        [SerializeField] InteractiveBar _manaBar;
         [SerializeField] string magicBarName;
         PlayerMinMaxQuantityText magicBarText;
-        [SerializeField] string magicBarTextName;*/
+        /*[SerializeField] string magicBarTextName;*/
         // Start is called before the first frame update
         
         void Start()
@@ -24,16 +25,17 @@ namespace RPG.Magic
         public void SetStartingMagicPointsSettings()
         {
             _magicPoints = maxMagicPoints;
-            /*HealBar[] healbars = GameObject.FindObjectsOfType<HealBar>();
-            for(int i = 0; i < healbars.Length; i++)
+            InteractiveBar[] interactivebars = GameObject.FindObjectsOfType<InteractiveBar>();
+            for(int i = 0; i < interactivebars.Length; i++)
             {
-                if(healbars[i].gameObject.name == magicBarName)
+                if(interactivebars[i].gameObject.name == magicBarName)
                 {
-                    bar = healbars[i];
+                    _manaBar = interactivebars[i];
+                    _manaBar.ChangeBarFiller(_magicPoints, maxMagicPoints);
                     break;
                 }
             }
-            PlayerMinMaxQuantityText[] playerMinMaxQuantityTexts = GameObject.FindObjectsOfType<PlayerMinMaxQuantityText>();
+            /*PlayerMinMaxQuantityText[] playerMinMaxQuantityTexts = GameObject.FindObjectsOfType<PlayerMinMaxQuantityText>();
             for (int i = 0; i < playerMinMaxQuantityTexts.Length; i++)
             {
                 if (playerMinMaxQuantityTexts[i].gameObject.name == magicBarTextName)
@@ -49,14 +51,13 @@ namespace RPG.Magic
         public void ConsumeMagicPoints(float mpToConsume)
         {
             _magicPoints = Mathf.Max(_magicPoints - mpToConsume, 0);
-            /*if(bar != null) bar.ChangeBarFiller(_magicPoints, maxMagicPoints);
-            if(magicBarText != null) magicBarText.SetQuantityText(_magicPoints, maxMagicPoints);*/
+            _manaBar.ChangeBarFiller(_magicPoints, maxMagicPoints);
         }
 
         public void RestoreMagicPoints(float mptToRestore)
         {
             _magicPoints = Mathf.Min(_magicPoints + mptToRestore, maxMagicPoints);
-            //bar.ChangeBarFiller(_magicPoints, maxMagicPoints);
+            _manaBar.ChangeBarFiller(_magicPoints, maxMagicPoints);
         }
     }
 

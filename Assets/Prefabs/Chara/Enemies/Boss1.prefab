@@ -409,11 +409,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
   m_PrefabInstance: {fileID: 5740274670517592461}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1183398413103480280 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2322225799281468331, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
-  m_PrefabInstance: {fileID: 5740274670517592461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4361842273920546948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
@@ -564,10 +559,12 @@ MonoBehaviour:
   _damageRate: 0.35
   _returnToWhiteColourTimer: 0
   charaRenderer: {fileID: 0}
-  _shaderSpawnpoint: {fileID: 0}
+  _shaderSpawnpoint: {fileID: 8046056893070945994}
   hitFX: {fileID: 66467482925399531, guid: e293ba5db78eaf046971a1fa16835ba7, type: 3}
   bloodFX: {fileID: 9110215784254510012, guid: 8dfca03007bc7f24584fb16d41f3054a, type: 3}
   deadTriggerName: Die
+  _bossHealthBar: {fileID: 0}
+  _bossHealthBarName: 
 --- !u!114 &8589910883275114580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,10 +577,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fccf22739640c5241929e85ec61cb8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rightHandTransform: {fileID: 1183398413103480280}
+  _rightHandTransform: {fileID: 5559715023702279569}
   _leftHandTransform: {fileID: 8120977804482690127}
   _defaultWeapon: {fileID: 11400000, guid: e2ab36d1335ab2c44ac5858ac0d941aa, type: 2}
   _currentWeapon: {fileID: 0}
+--- !u!4 &5559715023702279569 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -9042772588573301732, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
+  m_PrefabInstance: {fileID: 5740274670517592461}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8120977804482690127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4676408568124400190, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}

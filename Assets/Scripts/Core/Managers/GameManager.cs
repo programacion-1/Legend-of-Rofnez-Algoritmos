@@ -96,7 +96,7 @@ namespace RPG.Core
             CameraFollower camaraFollower = GameObject.FindObjectOfType<CameraFollower>();
             questManager = GameObject.FindObjectOfType<QuestManager>();
             GameObject.FindObjectOfType<QuestManager>().StartingSettings();
-            GetComponent<Deathcounter>().RestartCounter();
+            //GetComponent<Deathcounter>().RestartCounter();
             GameObject.FindObjectOfType<ArenaObstacle>().SetEventText();
             PlayLevelMusic();
         }

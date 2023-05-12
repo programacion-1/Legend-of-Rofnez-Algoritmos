@@ -24,5 +24,10 @@ namespace RPG.Core
         {
             rewardDrop.CheckIfCanDropReward();
         }
+
+        public override void HealVisualSettings()
+        {
+            //_healthBar.ChangeBarFiller(GetHP(), GetMaxHP());
+        }
     }
 }

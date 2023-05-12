@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Item;
 using RPG.Core;
+using RPG.UI;
 
 namespace RPG.InventorySystem
 {
@@ -26,20 +27,28 @@ namespace RPG.InventorySystem
         [SerializeField] WeaponProjectileSpawner _weaponProjectileSpawner;
         RuntimeAnimatorController _defaultAnimatorController;
         public RuntimeAnimatorController defaultAnimatorController{get{return _defaultAnimatorController;} set{_defaultAnimatorController = value;}}
+        WeaponInventorMenu _weaponInventorMenu;
+
+        void Start()
+        {
+            _weaponInventorMenu = FindObjectOfType<WeaponInventorMenu>();
+        }
 
         public void SetActiveWeapon(Weapon weapon)
         {
             GetComponent<Animator>().runtimeAnimatorController = _defaultAnimatorController;
             if(_activeWeapon == null) _activeWeapon = _equippedMeleeWeapon;
             else _activeWeapon = weapon;
-            Debug.Log(_activeWeapon);
             currentWeapon = _activeWeapon.Spawn(_rightHand, _leftHand, this.GetComponent<Animator>());
         }
 
         public void EquipMeeleWeapon(MeleeWeapon weapon)
         {
             _equippedMeleeWeapon = weapon;
+            _weaponInventorMenu.SetMeleeWeaponSprite(weapon.weaponSprite);
+            _weaponInventorMenu.SetMeleeInventoryText(weapon.name);
             SetActiveWeapon(_equippedMeleeWeapon);
+            _weaponInventorMenu.SetCurrentWeaponActive(0);
             _attackTrigger = currentWeapon.GetComponent<AttackTrigger>();
             _attackTrigger._triggerDamage = _activeWeapon.weaponDamage;
         }
@@ -47,12 +56,16 @@ namespace RPG.InventorySystem
         public void EquipRangedWeapon(RangedWeapon weapon)
         {
             _equippedRangedWeapon = weapon;
+            _weaponInventorMenu.SetRangedWeaponSprite(weapon.weaponSprite);
+            _weaponInventorMenu.SetRangedInventoryText(weapon.name);
             SetActiveWeapon(_equippedRangedWeapon);
+            _weaponInventorMenu.SetCurrentWeaponActive(1);
             _weaponProjectileSpawner = currentWeapon.GetComponent<WeaponProjectileSpawner>();
             _weaponProjectileSpawner.projectileDamage = _activeWeapon.weaponDamage;
             RangedWeapon w = (RangedWeapon) _activeWeapon;
             _weaponProjectileSpawner.projectileToSpawn = w.projectile;
             _rangedWeaponAmmo = w.ammo;
+            _weaponInventorMenu.SetAmmoText(_rangedWeaponAmmo.ToString());
         }
 
         public void SelectAttack(Health target = null)

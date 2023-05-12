@@ -5,17 +5,13 @@ using UnityEngine.UI;
 
 namespace RPG.UI
 {
-    public class InteractiveBar : MonoBehaviour, IObserver
+    public class InteractiveBar : MonoBehaviour
     {
-        [SerializeField]Image _interactiveBar;
+        [SerializeField]Image healBar;
         public void ChangeBarFiller(float amount, float maxAmount)
         {
-            _interactiveBar.fillAmount = amount / maxAmount;
+            healBar.fillAmount = amount / maxAmount;
         }
 
-        public void Notify(string action)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

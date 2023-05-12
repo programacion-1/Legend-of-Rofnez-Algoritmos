@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Item;
 using RPG.Core;
+using RPG.UI;
 
 namespace RPG.InventorySystem
 {
@@ -12,14 +13,13 @@ namespace RPG.InventorySystem
         //Dictionary<string, PotionContainer> potionCollection; Eliminado porque no se guardan los datos en el diccionario
         List<PotionContainer> _potionCollection = new List<PotionContainer>();
         public List<string> potions = new List<string>();
+        ItemInventoryMenu _itemInventoryMenu;
+
         void Start()
         {
             _health = GetComponent<CharaHealth>();
+            _itemInventoryMenu = FindObjectOfType<ItemInventoryMenu>();
         }
-
-        /// <summary>
-        /// Update is called every frame, if the MonoBehaviour is enabled.
-        /// </summary>
 
         
         public void TryAddPotion(PotionContainer newPotion)
@@ -84,7 +84,27 @@ namespace RPG.InventorySystem
         public void SetPotionQuantity(PotionContainer potionToModify, int quantity)
         {
             potionToModify.potionQuantity = Mathf.Min(quantity, potionToModify.maxQuantity);
+            //Hardcodeado full, pendiente a cambio para el segundo parcial
+            if(potionToModify.potionName == _itemInventoryMenu.healthPotKey)
+            {
+                _itemInventoryMenu.SetHealthPotQuantityText(potionToModify.potionQuantity.ToString());
+                _itemInventoryMenu.SetTextColor(SetQuantityColor(potionToModify), _itemInventoryMenu.healthPotQuantityText);
+            }
+            else if(potionToModify.potionName == _itemInventoryMenu.magicPotKey)
+            {
+                _itemInventoryMenu.SetMagicPotQuantityText(potionToModify.potionQuantity.ToString());
+                _itemInventoryMenu.SetTextColor(SetQuantityColor(potionToModify), _itemInventoryMenu.magicPotQuantityText);
+            }
             Debug.Log(potionToModify.potionName+" : "+potionToModify.potionQuantity);
+        }
+
+        public Color SetQuantityColor(PotionContainer potion)
+        {
+            Color textColor = new Color();
+            if(potion.potionQuantity == potion.maxQuantity) textColor = Color.green;
+            else if(potion.potionQuantity <= 0) textColor = Color.red;
+            else textColor = Color.white;
+            return textColor;
         }
 
         public void UsePotionOnInventory(string key)

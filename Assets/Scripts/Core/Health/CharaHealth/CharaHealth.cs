@@ -58,6 +58,16 @@ namespace RPG.Core
             yield return new WaitForSeconds(_returnToWhiteColourTimer);
             ChangeRendererColor(Color.white);
         }
+
+        
+        public void Heal(float healPoints)
+        {
+            SetHP(Mathf.Min(GetHP() + healPoints, GetMaxHP()));
+            HealVisualSettings();
+        }
+
+        public abstract void HealVisualSettings();
+        
     }
 
 }

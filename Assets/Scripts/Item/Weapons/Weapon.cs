@@ -17,6 +17,7 @@ namespace RPG.Item
         public GameObject equippedPrefab{get{return _equippedPrefab;}}
         [SerializeField] AnimatorOverrideController _animatorOverride = null;
         [SerializeField] Sprite _weaponSprite;
+        public Sprite weaponSprite{get{return _weaponSprite;}}
         protected Transform _rightHand;
         protected Transform _leftHand;
         const string _weaponName = "Weapon";

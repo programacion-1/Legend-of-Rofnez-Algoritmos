@@ -7,7 +7,7 @@ using RPG.Combat;
 using RPG.Core;
 using RPG.InventorySystem;
 using RPG.Magic;
-//using RPG.UI;
+using RPG.UI;
 using System;
 
 namespace RPG.Control
@@ -20,6 +20,7 @@ namespace RPG.Control
         PlayerMagicCaster _magicCaster;
         ItemInventory _itemInventory;
         WeaponInventory _weaponInventory;
+        MenuController _menuController;
         private bool _godMode;
         bool canUseItem = true;
         bool canChangeWeapon = true;
@@ -32,6 +33,7 @@ namespace RPG.Control
             _magicCaster = GetComponent<PlayerMagicCaster>();
             _itemInventory = GetComponent<ItemInventory>();
             _weaponInventory = GetComponent<WeaponInventory>();
+            _menuController = FindObjectOfType<MenuController>();
         }
 
         // Update is called once per frame
@@ -63,6 +65,7 @@ namespace RPG.Control
             #endregion
             //Input para cambiar de arma activa
             if(canChangeWeapon) if(Input.GetKeyDown(KeyCode.Q)) StartCoroutine("SetPlayerActiveWeapon");
+            InteractWithInventoryMenu();
             if(InteractWithMagic()) return;
             if(InteractWithCombat()) return;
             if(InteractWithMovement()) return;
@@ -73,12 +76,14 @@ namespace RPG.Control
         {
             _godMode = true;
             _health.EnableInvencibilityCheat();
+            _menuController.ShowUIObject(_menuController.GetGodModeText());
         }
 
         private void DisableGodMode()
         {
             _godMode = false;
             _health.DisableInvencibility();
+            _menuController.HideUIObject(_menuController.GetGodModeText());
         }
         #endregion
 
@@ -185,6 +190,21 @@ namespace RPG.Control
             _weaponInventory.ChangeActiveWeapon();
             yield return new WaitForSeconds(0.5f);
             canChangeWeapon = true;
+        }
+        #endregion
+
+        #region UI
+        public void InteractWithInventoryMenu()
+        {
+            if(Input.GetKeyDown(KeyCode.Tab))
+            {
+                _menuController.ShowUIObject(_menuController.GetWeaponInventoryMenu());
+                return;
+            }
+            if(Input.GetKeyUp(KeyCode.Tab))
+            {
+                _menuController.HideUIObject(_menuController.GetWeaponInventoryMenu());
+            }
         }
         #endregion
     }

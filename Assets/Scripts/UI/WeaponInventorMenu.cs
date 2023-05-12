@@ -19,6 +19,7 @@ namespace RPG.UI
         void Start()
         {
             menuController = GetComponent<MenuController>();
+            SetAmmoInventoryText();
         }
 
         public void SetCurrentWeaponActive(int currentWeapon)
@@ -44,16 +45,18 @@ namespace RPG.UI
         public void SetMeleeWeaponSprite(Sprite sprite)
         {
             currentMeleeWeaponSprite = sprite;
+            SetInventoryMeleeSprite();
         }
 
         public void SetRangedWeaponSprite(Sprite sprite)
         {
             currentRangedWeaponSprite = sprite;
+            SetInventoryRangedSprite();
         }
 
         public void SetAmmoText(string ammo)
         {
-            menuController.GetAmmoText().GetComponent<Text>().text = "x"+ammo;
+            inventoryAmmoText.text = "x"+ammo;
         }
 
         public void SetInventoryMeleeSprite()

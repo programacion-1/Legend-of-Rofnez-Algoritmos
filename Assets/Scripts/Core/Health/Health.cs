@@ -132,11 +132,6 @@ namespace RPG.Core
         public abstract void DeathBehaviour();
         #endregion
 
-        public void Heal(float healPoints)
-        {
-            _healthPoints = Mathf.Min(_healthPoints + healPoints, _maxHealthPoints);
-        }
-        
         /*void Start()
         {
             CoreStartingSettings();

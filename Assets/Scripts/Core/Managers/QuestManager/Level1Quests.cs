@@ -9,41 +9,32 @@ namespace RPG.Core
     {
         [SerializeField] GameObject key;
         bool keyHasAppeared = false;
-        [SerializeField] int deathsNeeded = 7;
-        Deathcounter deathcounter;
-        BossHealth boss;
-        EventText eventText;
-        GameObject bossHealthBar;
+        //[SerializeField] int deathsNeeded = 7;
+        KeyBearer _keyBearer;
+        //Deathcounter deathcounter;
 
         public override void LevelStartingSettings()
         {
-            deathcounter = GameObject.FindObjectOfType<Deathcounter>();
-            boss = GameObject.FindObjectOfType<BossHealth>();
-            //boss.SetHealthBar();
+            _keyBearer = FindObjectOfType<KeyBearer>();
             key.SetActive(false);
-            eventText = GameObject.FindObjectOfType<EventText>();
-            bossHealthBar = GameObject.Find("BossHealthBar");
-            bossHealthBar.SetActive(false);
         }
         
         public override void QuestChecker()
         {
             if(!keyHasAppeared)
             {
-                if(deathcounter.GetCounter() >= deathsNeeded)
+                if(_keyBearer.BearerIsDead())
                 {
-                    eventText.SetEventText("You can get the Key hidden in the forest!");
-                    key.SetActive(true);
+                    SetQuestEventText();
+                    BossEntry();
                     keyHasAppeared = true;
-                    bossHealthBar.SetActive(true);
-                }   
-            }
-            else
-            {
-                if(boss.CheckIfIsDead())
-                {
-                    CompleteQuests();
+                    key.SetActive(true);
                 }
+            }
+            
+            if(finalConditionCompleted)
+            {
+                CompleteQuests();
             }
         }
     }

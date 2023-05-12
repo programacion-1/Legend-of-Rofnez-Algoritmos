@@ -103,7 +103,7 @@ RectTransform:
   m_GameObject: {fileID: 513242045}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9729687, y: 0.275, z: 1}
+  m_LocalScale: {x: 1.85, y: 0.36, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1829702596}
@@ -111,7 +111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -52}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &513242048
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 568054314}
   - component: {fileID: 2285350869376450454}
   m_Layer: 5
-  m_Name: Vida
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,10 +337,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 7637842710841231682, guid: 2ac61552835f4ab4e80c0811518da593, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac0e6e5e6fc4a7478ed6c50294a64be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactiveBar: {fileID: 568054314}
+  healBar: {fileID: 568054314}
 --- !u!1 &625995655
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +654,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8c2220bd5fd560c4297e93c4c66a2ba8, type: 3}
+    m_Font: {fileID: 12800000, guid: c69afb6dafb947c45a23951858722157, type: 3}
     m_FontSize: 62
     m_FontStyle: 0
     m_BestFit: 0
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac0e6e5e6fc4a7478ed6c50294a64be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactiveBar: {fileID: 1104547266}
+  healBar: {fileID: 1104547266}
 --- !u!1 &1699086806
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +940,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8c2220bd5fd560c4297e93c4c66a2ba8, type: 3}
+    m_Font: {fileID: 12800000, guid: c69afb6dafb947c45a23951858722157, type: 3}
     m_FontSize: 62
     m_FontStyle: 0
     m_BestFit: 0
@@ -1006,7 +1006,7 @@ GameObject:
   - component: {fileID: 1992379264}
   - component: {fileID: 8195082005147064729}
   m_Layer: 5
-  m_Name: Mana
+  m_Name: ManaBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1019,17 +1019,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992379262}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9729687, y: 0.275, z: 1}
+  m_LocalScale: {x: 0.61, y: 0.88, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1829702596}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -52}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1992379265
@@ -1061,10 +1061,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 3461099566686742665, guid: aa080fa2848ef2d41aae58c3cc145093, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac0e6e5e6fc4a7478ed6c50294a64be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactiveBar: {fileID: 1992379264}
+  healBar: {fileID: 1992379264}
 --- !u!1 &201099110085028551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,8 +1375,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 6834184893730014181}
+        m_TargetAssemblyTypeName: RPG.UI.PauseMenu, Assembly-CSharp
         m_MethodName: QuitGameButton
         m_Mode: 1
         m_Arguments:
@@ -1735,8 +1735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd26a0516c94e0846b50e8f9548c8dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPotQuantityText: {fileID: 888490249}
-  MagicPotQuantityText: {fileID: 1699086808}
+  _healthPotKey: HealPotion
+  _healthPotQuantityText: {fileID: 888490249}
+  _magicPotKey: ManaPotion
+  _magicPotQuantityText: {fileID: 1699086808}
 --- !u!1 &1653504693798559507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,7 +2071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac0e6e5e6fc4a7478ed6c50294a64be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactiveBar: {fileID: 3179837796058714605}
+  healBar: {fileID: 0}
 --- !u!1 &2764328198512524229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2260,7 +2262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9111976384428802902
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2438,7 +2440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6952292, y: 0.22983141}
   m_AnchorMax: {x: 0.7622085, y: 0.32200003}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 58, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &223010540218138009
@@ -2720,7 +2722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.689, y: 0.24472673}
   m_AnchorMax: {x: 1, y: 0.55486333}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 58, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4195044228748462280
@@ -2751,7 +2753,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6b4b2434950527e42b5d6a9e273cd9a1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3202,8 +3204,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 6834184893730014181}
+        m_TargetAssemblyTypeName: RPG.UI.PauseMenu, Assembly-CSharp
         m_MethodName: ResumeButton
         m_Mode: 1
         m_Arguments:
@@ -3247,10 +3249,10 @@ RectTransform:
   m_Father: {fileID: 440932633807670982}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.70512503, y: 0.18422094}
-  m_AnchorMax: {x: 0.9094792, y: 0.24472673}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 661, y: -270}
+  m_SizeDelta: {x: 392, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7552914294113966854
 CanvasRenderer:
@@ -3576,8 +3578,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 6834184893730014181}
+        m_TargetAssemblyTypeName: RPG.UI.PauseMenu, Assembly-CSharp
         m_MethodName: ReturnToMainMenuButton
         m_Mode: 3
         m_Arguments:
@@ -3600,7 +3602,7 @@ GameObject:
   - component: {fileID: 20046829657178400}
   - component: {fileID: 7607669480039270005}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3621,10 +3623,10 @@ RectTransform:
   m_Father: {fileID: 440932633807670982}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.92300004, y: 0.18422094}
-  m_AnchorMax: {x: 0.96900004, y: 0.24472673}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 850, y: -188}
+  m_SizeDelta: {x: 88, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &20046829657178400
 CanvasRenderer:
@@ -3833,7 +3835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac0e6e5e6fc4a7478ed6c50294a64be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactiveBar: {fileID: 945824917841842418}
+  healBar: {fileID: 0}
 --- !u!1 &8919236598648810742
 GameObject:
   m_ObjectHideFlags: 0
