@@ -15,6 +15,7 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] float _lifeSpan = 1f;
     float _lifeTime = 0f;
     [SerializeField] List<int> _impactObjects = new List<int>();
+    [SerializeField] TrailRenderer trail;
     [Header("Audio Clips")]
     public AudioClip _impactClip;
     public AudioClip _launchClip;
@@ -27,11 +28,12 @@ public abstract class Projectile : MonoBehaviour
     
     void Start()
     {
-        _damageTrigger = GetComponent<DamageTrigger>();
+        Reset();
+        /*_damageTrigger = GetComponent<DamageTrigger>();
         _audioManager = GameObject.FindObjectOfType<AudioManager>();
         _audioManager.TryToPlayClip(_audioManager.trapSources, _launchClip);
         transform.LookAt(GetAimLocation());
-        StartCoroutine(DestroyProjectileByLifeSpan());
+        StartCoroutine(DestroyProjectileByLifeSpan());*/
         #region testing
         //SetProjectileTarget(_target, _target.gameObject.layer);
         #endregion
@@ -56,7 +58,27 @@ public abstract class Projectile : MonoBehaviour
         _target = t;
         if(_damageTrigger == null) _damageTrigger = GetComponent<DamageTrigger>();
         _damageTrigger.SetDamageTarget(_target);
-        _impactObjects.Add(impactObjectLayer);
+        TryAddImpactObject(impactObjectLayer);
+        transform.LookAt(GetAimLocation());
+    }
+
+    public void TryAddImpactObject(int objectLayer)
+    {
+        for(int i = 0; i < _impactObjects.Count; i++)
+        {
+            if(_impactObjects[i] != objectLayer)
+            {
+                _impactObjects.Add(objectLayer);
+                break;
+            }
+        }
+    }
+
+    public void SetProjectileTrail(Color trailColor)
+    {
+        Gradient trailColorGradient = new Gradient();
+        trailColorGradient.SetKeys(new GradientColorKey[]{new GradientColorKey(trailColor, 0.0f) , new GradientColorKey(Color.white, 1.0f)}, new GradientAlphaKey[]{new GradientAlphaKey(1.0f, 1.0f)});
+        trail.colorGradient = trailColorGradient;
     }
 
     //Clase para buscar el objetivo a apuntar
@@ -78,17 +100,22 @@ public abstract class Projectile : MonoBehaviour
         return true;
     }  
 
-    private IEnumerator DestroyProjectileByLifeSpan()
+    private IEnumerator DestroyProjectileByLifeSpanCo()
     {
         yield return new WaitForSeconds(_lifeSpan);
-        Destroy(gameObject);
+        ArrowProjectileFactory.Instance.ReturnObject(this);
+    }
+
+    public void DestroyProjectileByLifeSpan()
+    {
+        StartCoroutine("DestroyProjectileByLifeSpanCo");
     }
 
     private void DestroyProjectileByImpact()
     {
-        _speed = 0;
-        StopCoroutine(DestroyProjectileByLifeSpan());
-        Destroy(gameObject);     
+        StopCoroutine(DestroyProjectileByLifeSpanCo());
+        ArrowProjectileFactory.Instance.ReturnObject(this);
+        //Destroy(gameObject);     
     }
 
     private void OnTriggerEnter(Collider other)
@@ -103,5 +130,25 @@ public abstract class Projectile : MonoBehaviour
             }
         }
         if(canBeDestroyed) DestroyProjectileByImpact();
+    }
+
+    private void Reset()
+    { 
+        _damageTrigger = GetComponent<DamageTrigger>();
+        _audioManager = GameObject.FindObjectOfType<AudioManager>();
+        _audioManager.TryToPlayClip(_audioManager.trapSources, _launchClip);
+        transform.LookAt(GetAimLocation());
+    }
+
+    public static void TurnOn(Projectile p)
+    {
+        p.gameObject.SetActive(true);
+        p.Reset();
+        p.DestroyProjectileByLifeSpan();
+    }
+
+    public static void TurnOff(Projectile p)
+    {
+        p.gameObject.SetActive(false);
     }
 }

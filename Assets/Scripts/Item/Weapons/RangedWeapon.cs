@@ -8,10 +8,10 @@ namespace RPG.Item
     public class RangedWeapon : Weapon
     {
         [Header("Ranged Weapon Properties")]
-        [SerializeField] Projectile _projectile;
-        public Projectile projectile{get{return _projectile;}}
         float _projectileDamage;
         [SerializeField] int _ammo;
         public int ammo{get{return _ammo;} set{_ammo = value;}}
+        [SerializeField] Color _trailColor;
+        public Color trailColor{get{return _trailColor;}}
     }
 }

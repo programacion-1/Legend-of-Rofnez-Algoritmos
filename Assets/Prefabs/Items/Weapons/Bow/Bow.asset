@@ -19,5 +19,6 @@ MonoBehaviour:
   _equippedPrefab: {fileID: 5953904553036106882, guid: f92d7d4e3b613dc4f95ea341115bf50d, type: 3}
   _animatorOverride: {fileID: 22100000, guid: 108e9fefc31684a45b29851c6eda622a, type: 2}
   _weaponSprite: {fileID: 21300000, guid: 7439ad70b1962b34ea82fa94d8446b2b, type: 3}
-  _projectile: {fileID: 6222738519282734353, guid: 810b43de4f22d1b4eb78007bef568c94, type: 3}
+  _projectile: {fileID: 8811496973415144223, guid: 4201983a6d84da546849904833e4a90a, type: 3}
   _ammo: 5
+  _trailColor: {r: 0, g: 0.8520973, b: 1, a: 0}
