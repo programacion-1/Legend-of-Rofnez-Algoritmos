@@ -42,6 +42,7 @@ namespace RPG.Control
             if(_health.CheckIfIsDead()) return;
             #region Inputs de Testing
             //if(Input.GetKeyDown(KeyCode.F1)) _health.TakeDamage(10f);
+            //if(Input.GetKeyDown(KeyCode.F1)) ArrowProjectileFactory.Instance.GetObject();
             #endregion
             //Input para activar y desactivar el God Mode
             if(Input.GetKeyDown(KeyCode.F))

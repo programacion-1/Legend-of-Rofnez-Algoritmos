@@ -345,6 +345,7 @@ MonoBehaviour:
   _hitEffect: {fileID: 3819181546433649519, guid: f025e6197a58a8441a94af8237228b33, type: 3}
   _lifeSpan: 1
   _impactObjects: 0b0000000c000000
+  trail: {fileID: 8812913696722934017}
   _impactClip: {fileID: 8300000, guid: bf03f714419c3b048ad4ff8b370d10d4, type: 3}
   _launchClip: {fileID: 8300000, guid: 94fc62564eabf2e429355affe6bee585, type: 3}
   _audioManager: {fileID: 0}

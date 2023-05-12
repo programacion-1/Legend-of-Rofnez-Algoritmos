@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1615409269870580378, guid: 4201983a6d84da546849904833e4a90a, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1616373365052556660, guid: 4201983a6d84da546849904833e4a90a, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2076953366269911983, guid: 4201983a6d84da546849904833e4a90a, type: 3}
       propertyPath: impactSound
@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8095572290885335392, guid: 4201983a6d84da546849904833e4a90a, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8812913696722934017, guid: 4201983a6d84da546849904833e4a90a, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9050961982679651961, guid: 4201983a6d84da546849904833e4a90a, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4201983a6d84da546849904833e4a90a, type: 3}

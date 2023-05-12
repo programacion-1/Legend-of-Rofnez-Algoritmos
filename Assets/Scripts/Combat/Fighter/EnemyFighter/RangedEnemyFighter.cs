@@ -10,7 +10,7 @@ namespace RPG.Combat
         WeaponProjectileSpawner _weaponProjectileSpawner;
         public override void ChildrenAttack()
         {
-            _weaponProjectileSpawner.LaunchProjectile(_target);
+            _weaponProjectileSpawner.LaunchProjectile(_target, gameObject.layer);
         }
 
         public override void ChildrenDeactivateAttack()
@@ -23,7 +23,7 @@ namespace RPG.Combat
             _weaponProjectileSpawner = spawnedWeapon.GetComponent<WeaponProjectileSpawner>();
             _weaponProjectileSpawner.projectileDamage = damage;
             RangedWeapon w = (RangedWeapon) _currentWeapon;
-            _weaponProjectileSpawner.projectileToSpawn = w.projectile;
+            _weaponProjectileSpawner.projectileColorTrail = w.trailColor;
         }
     }
 }

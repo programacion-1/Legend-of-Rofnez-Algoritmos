@@ -63,7 +63,7 @@ namespace RPG.InventorySystem
             _weaponProjectileSpawner = currentWeapon.GetComponent<WeaponProjectileSpawner>();
             _weaponProjectileSpawner.projectileDamage = _activeWeapon.weaponDamage;
             RangedWeapon w = (RangedWeapon) _activeWeapon;
-            _weaponProjectileSpawner.projectileToSpawn = w.projectile;
+            _weaponProjectileSpawner.projectileColorTrail = w.trailColor;
             _rangedWeaponAmmo = w.ammo;
             _weaponInventorMenu.SetAmmoText(_rangedWeaponAmmo.ToString());
         }
@@ -86,10 +86,9 @@ namespace RPG.InventorySystem
 
         public void RangedWeaponAttack(Health t)
         {
-            Debug.Log(t);
             if(CheckIfICanShoot())
             {
-                _weaponProjectileSpawner.LaunchProjectile(t);
+                _weaponProjectileSpawner.LaunchProjectile(t, gameObject.layer);
                 _rangedWeaponAmmo -= 1;
             }
         }
