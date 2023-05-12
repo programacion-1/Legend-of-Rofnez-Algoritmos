@@ -13,7 +13,7 @@ namespace RPG.InventorySystem
         public MeleeWeapon equippedMeleeWeapon{get{return _equippedMeleeWeapon;} set{_equippedMeleeWeapon = value;}}
         [SerializeField] RangedWeapon _equippedRangedWeapon;
         [SerializeField] int _rangedWeaponAmmo;
-        public int rangedWeaponAmmo{get; set;}
+        public int rangedWeaponAmmo{get{return _rangedWeaponAmmo;} set{_rangedWeaponAmmo = value;}}
         public RangedWeapon equippedRangedWeapon{get{return _equippedRangedWeapon;} set{_equippedRangedWeapon = value;}}
         [SerializeField] Weapon _activeWeapon;
         GameObject currentWeapon;

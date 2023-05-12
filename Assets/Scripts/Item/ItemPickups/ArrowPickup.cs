@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Core;
 using RPG.UI;
+using RPG.InventorySystem;
 
-namespace RPG.Item
+namespace RPG.Combat
 {
     public class ArrowPickup : ItemPickup
     {
@@ -13,19 +14,14 @@ namespace RPG.Item
 
         public override void UseItem(GameObject player)
         {
-            /* Pendiente a programar inventario de armas
-            if(player.GetComponent<WeaponInventory>().GetRangedWeapon() != null)
+            arrowQuantity = Random.Range(1, arrowMaxQuantity);
+            if(player.GetComponent<WeaponInventory>().equippedRangedWeapon != null)
             {
-                arrowQuantity = Random.Range(1, arrowMaxQuantity);
-                int currentAmmo = player.GetComponent<RangedWeaponAmmoInventory>().GetAmmo();
-                currentAmmo += arrowQuantity;
-                player.GetComponent<RangedWeaponAmmoInventory>().SetAmmo(currentAmmo);
-                GameObject.FindObjectOfType<WeaponInventorMenu>().SetAmmoText(currentAmmo.ToString());
+                player.GetComponent<WeaponInventory>().rangedWeaponAmmo += arrowQuantity;
+                GameObject.FindObjectOfType<WeaponInventorMenu>().SetAmmoText(player.GetComponent<WeaponInventory>().rangedWeaponAmmo.ToString());
             }
-            else
-            {
-                print("No ranged weapon equipped.");
-            }*/
+
+            else print("No ranged weapon equipped.");
         }
     }
 
