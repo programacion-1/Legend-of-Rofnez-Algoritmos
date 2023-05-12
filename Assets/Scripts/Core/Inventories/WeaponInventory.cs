@@ -37,6 +37,7 @@ namespace RPG.InventorySystem
         public void SetActiveWeapon(Weapon weapon)
         {
             GetComponent<Animator>().runtimeAnimatorController = _defaultAnimatorController;
+            GetComponent<ActionScheduler>().CancelCurrentAction();
             if(_activeWeapon == null) _activeWeapon = _equippedMeleeWeapon;
             else _activeWeapon = weapon;
             currentWeapon = _activeWeapon.Spawn(_rightHand, _leftHand, this.GetComponent<Animator>());
@@ -90,6 +91,7 @@ namespace RPG.InventorySystem
             {
                 _weaponProjectileSpawner.LaunchProjectile(t, gameObject.layer);
                 _rangedWeaponAmmo -= 1;
+                _weaponInventorMenu.SetAmmoText(_rangedWeaponAmmo.ToString());
             }
         }
 

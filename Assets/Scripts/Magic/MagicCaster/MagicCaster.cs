@@ -59,6 +59,7 @@ namespace RPG.Magic
         {
             if(CheckIfCanUseMagic())
             {
+                UpdateAnimatorMagicBool();
                 _actionScheduler.StartAction(this);
                 _anim.ResetTrigger("StopMagicAttack");
                 _anim.SetTrigger("MagicAttack");
