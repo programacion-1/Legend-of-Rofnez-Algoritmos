@@ -16,7 +16,7 @@ namespace RPG.Core
         Dictionary<string, System.Action> _notifications;
         BossHealth _boss;
         protected EventText _eventText;
-        [SerializeField] string _questText;
+        [SerializeField] protected string[] _questTexts;
         [SerializeField] GameObject _bossHealthBar;
         #endregion
         public void StartingSettings()
@@ -55,9 +55,9 @@ namespace RPG.Core
             return nextLevelPortal.GetComponent<Portal>();
         }
 
-        public void SetQuestEventText()
+        public void SetQuestEventText(string questText)
         {
-            _eventText.SetEventText(_questText);
+            _eventText.SetEventText(questText);
         }
 
         public void BossEntry()

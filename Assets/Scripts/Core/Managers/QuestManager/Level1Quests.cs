@@ -9,7 +9,7 @@ namespace RPG.Core
     {
         [SerializeField] GameObject key;
         bool keyHasAppeared = false;
-        //[SerializeField] int deathsNeeded = 7;
+        QuestEnterTrigger _firstQuestEnterTrigger;
         KeyBearer _keyBearer;
         [SerializeField] EnemyHealth[] bossMobs;
         //Deathcounter deathcounter;
@@ -18,20 +18,23 @@ namespace RPG.Core
         {
             _keyBearer = FindObjectOfType<KeyBearer>();
             key.SetActive(false);
+            SetQuestEventText(_questTexts[0]);
         }
         
         public override void QuestChecker()
         {
             if(!keyHasAppeared)
             {
+                if(_firstQuestEnterTrigger.HasPlayerEntered) SetQuestEventText(_questTexts[1]);
                 if(_keyBearer.BearerIsDead())
                 {
-                    SetQuestEventText();
+                    SetQuestEventText(_questTexts[2]);
                     BossEntry();
                     keyHasAppeared = true;
                     key.SetActive(true);
                 }
             }
+            else SetQuestEventText(_questTexts[3]);
             
             if(finalConditionCompleted)
             {
@@ -40,6 +43,7 @@ namespace RPG.Core
                     mob.DisableInvencibility();
                     mob.TakeDamage(mob.GetMaxHP());
                 } 
+                SetQuestEventText(_questTexts[4]);
                 CompleteQuests();
             }
         }

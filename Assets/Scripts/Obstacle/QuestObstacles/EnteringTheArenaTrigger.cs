@@ -10,7 +10,7 @@ namespace RPG.Obstacle
         [SerializeField] int playerLayer = 6;
         private void OnTriggerEnter(Collider other)
         {
-            if(other.gameObject.layer == playerLayer) _arenaObstacle.EnterArena();
+            if(other.gameObject.layer == playerLayer && other.gameObject.tag == "Player") _arenaObstacle.EnterArena();
         }
     }
 }
