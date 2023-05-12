@@ -11,7 +11,7 @@ public abstract class ItemPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == playerLayer)
+        if (other.gameObject.layer == playerLayer && other.gameObject.tag == "Player")
         {
             audioManager = GameObject.FindObjectOfType<AudioManager>();
             audioManager.PlayClip(audioManager.ItemSource, itemClip);

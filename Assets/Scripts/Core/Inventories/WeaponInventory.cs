@@ -32,6 +32,7 @@ namespace RPG.InventorySystem
             GetComponent<Animator>().runtimeAnimatorController = _defaultAnimatorController;
             if(_activeWeapon == null) _activeWeapon = _equippedMeleeWeapon;
             else _activeWeapon = weapon;
+            Debug.Log(_activeWeapon);
             currentWeapon = _activeWeapon.Spawn(_rightHand, _leftHand, this.GetComponent<Animator>());
         }
 
@@ -51,7 +52,6 @@ namespace RPG.InventorySystem
             _weaponProjectileSpawner.projectileDamage = _activeWeapon.weaponDamage;
             RangedWeapon w = (RangedWeapon) _activeWeapon;
             _weaponProjectileSpawner.projectileToSpawn = w.projectile;
-            Debug.Log(_weaponProjectileSpawner.projectileToSpawn);
             _rangedWeaponAmmo = w.ammo;
         }
 
@@ -85,6 +85,12 @@ namespace RPG.InventorySystem
         {
             if(_rangedWeaponAmmo > 0) return true;
             else return false;
+        }
+
+        public void ChangeActiveWeapon()
+        {
+            if(_activeWeapon == _equippedMeleeWeapon && _equippedRangedWeapon != null) EquipRangedWeapon(_equippedRangedWeapon);
+            else if(_activeWeapon == _equippedRangedWeapon && _equippedMeleeWeapon != null) EquipMeeleWeapon(_equippedMeleeWeapon);
         }
     }
 }

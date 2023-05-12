@@ -19,8 +19,10 @@ namespace RPG.Control
         Fighter _fighter;
         PlayerMagicCaster _magicCaster;
         ItemInventory _itemInventory;
+        WeaponInventory _weaponInventory;
         private bool _godMode;
         bool canUseItem = true;
+        bool canChangeWeapon = true;
         
         // Start is called before the first frame update
         void Start()
@@ -29,6 +31,7 @@ namespace RPG.Control
             _fighter = GetComponent<Fighter>();
             _magicCaster = GetComponent<PlayerMagicCaster>();
             _itemInventory = GetComponent<ItemInventory>();
+            _weaponInventory = GetComponent<WeaponInventory>();
         }
 
         // Update is called once per frame
@@ -58,6 +61,8 @@ namespace RPG.Control
                 }
             }
             #endregion
+            //Input para cambiar de arma activa
+            if(canChangeWeapon) if(Input.GetKeyDown(KeyCode.Q)) StartCoroutine("SetPlayerActiveWeapon");
             if(InteractWithMagic()) return;
             if(InteractWithCombat()) return;
             if(InteractWithMovement()) return;
@@ -92,27 +97,6 @@ namespace RPG.Control
                 }
                 _magicCaster.MagicAttack();
                 return true;
-
-                /*bool canActivateMagic = true;
-
-                /f(_magicCaster.getCurrentMagic().GetMagicType() == MagicType.Projectile)
-                {
-                    if(GetProjectileTarget() != null)
-                    {
-                        _magicCaster.SetSpecialTarget(GetProjectileTarget());
-                        canActivateMagic = true;
-                    }
-                    else canActivateMagic = false;
-                }
-
-                if(canActivateMagic)
-                {
-                    _magicCaster.MagicAttack();
-                    return true;
-                }
-
-                else return false;
-            }*/
             }
             else return false;
         }
@@ -191,6 +175,16 @@ namespace RPG.Control
                 _itemInventory.UsePotionOnInventory(_itemInventory.potions[item]);
                 StartCoroutine(useItem());
             }
+        }
+        #endregion
+
+        #region WeaponInventory
+        private IEnumerator SetPlayerActiveWeapon()
+        {
+            canChangeWeapon = false;
+            _weaponInventory.ChangeActiveWeapon();
+            yield return new WaitForSeconds(0.5f);
+            canChangeWeapon = true;
         }
         #endregion
     }

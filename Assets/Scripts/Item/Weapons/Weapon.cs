@@ -52,7 +52,6 @@ namespace RPG.Item
 
         private void DestroyOldWeapon(Transform rightHand, Transform leftHand)
         {
-            if(rightHand.Find(_weaponName) == null) return;
             Transform oldWeapon = rightHand.Find(_weaponName);
             if(oldWeapon == null) oldWeapon = leftHand.Find(_weaponName);
             if(oldWeapon == null) return;
