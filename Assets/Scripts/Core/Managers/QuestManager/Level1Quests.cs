@@ -11,6 +11,7 @@ namespace RPG.Core
         bool keyHasAppeared = false;
         //[SerializeField] int deathsNeeded = 7;
         KeyBearer _keyBearer;
+        [SerializeField] EnemyHealth[] bossMobs;
         //Deathcounter deathcounter;
 
         public override void LevelStartingSettings()
@@ -34,6 +35,11 @@ namespace RPG.Core
             
             if(finalConditionCompleted)
             {
+                foreach(EnemyHealth mob in bossMobs)
+                {
+                    mob.DisableInvencibility();
+                    mob.TakeDamage(mob.GetMaxHP());
+                } 
                 CompleteQuests();
             }
         }

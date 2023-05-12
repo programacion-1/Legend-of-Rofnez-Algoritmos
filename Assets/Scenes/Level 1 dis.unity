@@ -63828,6 +63828,8 @@ MonoBehaviour:
   _questText: The guard has droped the key!
   _bossHealthBar: {fileID: 0}
   key: {fileID: 1171006826}
+  bossMobs:
+  - {fileID: 2084616706}
 --- !u!4 &1593071066
 Transform:
   m_ObjectHideFlags: 0
@@ -82029,6 +82031,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1080376874974949713, guid: 91540bd53abb999488f3ab28a7c4d1df, type: 3}
   m_PrefabInstance: {fileID: 1730642568}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2084616706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6675817253601561181, guid: 91540bd53abb999488f3ab28a7c4d1df, type: 3}
+  m_PrefabInstance: {fileID: 1730642568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0252285fe2b348a4d9cf054acfaaeef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2088365821
 GameObject:
   m_ObjectHideFlags: 0
