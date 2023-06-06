@@ -63,7 +63,10 @@ namespace RPG.InventorySystem
                 //Settings necesarios para evitar un nullReferenceException respecto al potionContainer y que no se actualice correctamente la cantidad de potiones
                 oldQuantity = _potionCollection[potionKey].potionQuantity;
                 _potionCollection[potionKey] = newPotion;
+
             }
+
+            eso pasa porque en el caso de que se intente agregar una pota existente lo que se haga es actualizar la cantidad de potas
             
             _potionCollection[potionKey].potion.EquipSettings(_health);
             SetPotionQuantity(_potionCollection[potionKey], oldQuantity + 1);*/
