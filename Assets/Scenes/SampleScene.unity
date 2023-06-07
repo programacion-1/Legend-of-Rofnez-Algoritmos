@@ -1056,7 +1056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &769649709
 Transform:
   m_ObjectHideFlags: 0
@@ -1994,7 +1994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1080376874974949719, guid: 91540bd53abb999488f3ab28a7c4d1df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6675817253601561181, guid: 91540bd53abb999488f3ab28a7c4d1df, type: 3}
       propertyPath: _maxHealthPoints
