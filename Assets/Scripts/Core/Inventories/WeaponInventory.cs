@@ -12,16 +12,16 @@ namespace RPG.InventorySystem
         [SerializeField] MeleeWeapon _equippedMeleeWeapon;
         public MeleeWeapon equippedMeleeWeapon{get{return _equippedMeleeWeapon;} set{_equippedMeleeWeapon = value;}}
         [SerializeField] RangedWeapon _equippedRangedWeapon;
+        public RangedWeapon equippedRangedWeapon{get{return _equippedRangedWeapon;} set{_equippedRangedWeapon = value;}}
         [SerializeField] int _rangedWeaponAmmo;
         public int rangedWeaponAmmo{get{return _rangedWeaponAmmo;} set{_rangedWeaponAmmo = value;}}
-        public RangedWeapon equippedRangedWeapon{get{return _equippedRangedWeapon;} set{_equippedRangedWeapon = value;}}
         [SerializeField] Weapon _activeWeapon;
         GameObject currentWeapon;
         public Weapon activeWeapon{get{return _activeWeapon;}}
         Transform _rightHand;
-        public Transform rightHand{set{_rightHand = value;}}
+        public Transform rightHand{get{return _rightHand;} set{_rightHand = value;}}
         Transform _leftHand;
-        public Transform leftHand{set{_leftHand = value;}}
+        public Transform leftHand{get{return _leftHand;} set{_leftHand = value;}}
         Transform _rangedWeaponProjectileSpawner;
         [SerializeField] AttackTrigger _attackTrigger;
         [SerializeField] WeaponProjectileSpawner _weaponProjectileSpawner;

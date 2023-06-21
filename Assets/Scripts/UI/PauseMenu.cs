@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.SceneManagement;
+using RPG.GameCore;
 
 namespace RPG.UI
 {    

@@ -1,3 +1,7 @@
+HECHO:
+1) Seteado el namespace RPG.GameCore para los managers del juego
+2) Creada clase PlayerStatsManager para manejar los stats importantes a guardar del Player
+
 BUGS:
 1) Nullreference exception que sale con el sistema de layers
 CORREGIDO: creado DamageTrigger que funciona de intermediario
@@ -5,10 +9,13 @@ entre el AttackTrigger y el CombatTarget
 2) Error al setear la info del proyectil del hechizo de bola
 de fuego del boss
 
+En proceso:
+
+1) Modificando GameManager para el nuevo control de datos del player
+
 TO DO:
 
 1) Implementar Object Pool en Efectos Visuales a spawnear
 2) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
-3) Cambiar el player como singleton a playerstatsmanager y setear los datos con ese manager
-4) Implementar el patrón de diseño Command en el manejo de inputs del player
-5) Implementar MVC
+3) Implementar el patrón de diseño Command en el manejo de inputs del player
+4) Implementar MVC

@@ -10,7 +10,8 @@ namespace RPG.InventorySystem
     public class ItemInventory : MonoBehaviour
     {
         [SerializeField] CharaHealth _health;
-        Dictionary<string, PotionContainer> _potionCollection; //Eliminado porque no se guardan los datos en el diccionario
+        Dictionary<string, PotionContainer> _potionCollection;
+        public Dictionary<string, PotionContainer> potionCollection{get{return _potionCollection;} set{_potionCollection = value;}}
         
         //List<PotionContainer> _potionCollection = new List<PotionContainer>();
         public List<string> potions = new List<string>(); //Mantengo la lista de string de potions por ahora para usarla como referencia a la hora de llamar por teclado desde el playerController (pendiente a cambio)

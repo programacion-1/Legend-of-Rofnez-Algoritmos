@@ -40,6 +40,7 @@ namespace RPG.SceneManagement
 
         private IEnumerator TransitionCo()
         {
+            GameManagerInstance.gameManager.SavePlayerStats();
             GameObject.FindWithTag("Player").GetComponent<ActionScheduler>().CancelCurrentAction();
             audioManager.StopSoruce(audioManager.BGM);
             audioManager.StopSoruce(audioManager.Ambience);
@@ -51,6 +52,7 @@ namespace RPG.SceneManagement
 
             Portal otherPortal = GetOtherPortal();
             if(otherPortal != null) UpdatePlayer(otherPortal);
+            GameManagerInstance.gameManager.LoadPlayerStats();
             yield return sceneLoader.TransitionEndCo();
             Destroy(gameObject);
         }

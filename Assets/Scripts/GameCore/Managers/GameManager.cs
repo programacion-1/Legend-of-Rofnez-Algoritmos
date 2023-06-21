@@ -6,13 +6,15 @@ using RPG.SceneManagement;
 using RPG.Obstacle;
 using RPG.Magic;
 using RPG.InventorySystem;
+using RPG.Core;
 
-namespace RPG.Core
+namespace RPG.GameCore
 {
     public class GameManager : MonoBehaviour
     {
         PlayerHealth player;
         QuestManager questManager;
+        PlayerStatsManager playerStatsManager;
         PauseManager pauseManager;
         AudioManager audioManager;
         LevelMusic levelMusic;
@@ -21,10 +23,13 @@ namespace RPG.Core
         int currentScene;
         bool failCondiction;
         bool isLoadingScene;
-        // Start is called before the first frame update
+
         void Start()
         {
             player = GameObject.FindObjectOfType<PlayerHealth>();
+            playerStatsManager = GetComponent<PlayerStatsManager>();
+            playerStatsManager.SetMainPlayerStats(player);
+            playerStatsManager.SaveMainPlayerStats();
             pauseManager = GetComponent<PauseManager>();
             sceneLoader = GetComponent<SceneLoader>();
             audioManager = GameObject.FindObjectOfType<AudioManager>();
@@ -90,6 +95,7 @@ namespace RPG.Core
             failCondiction = false;
             isLoadingScene = false;
             currentScene = sceneLoader.GetCurrentScene();
+            player = GameObject.FindObjectOfType<PlayerHealth>();
             player.SetPlayerHealthStartingSettings();
             player.GetComponent<MagicPoints>().SetStartingMagicPointsSettings();
             //player.GetComponent<ItemInventory>().SetStartingInventorySettings();
@@ -106,6 +112,17 @@ namespace RPG.Core
             levelMusic = GameObject.FindObjectOfType<LevelMusic>();
             audioManager.PlayClip(audioManager.BGM, levelMusic.GetBGMClip());
             audioManager.PlayClip(audioManager.Ambience, levelMusic.GetAmbienceClip());
+        }
+
+        public void SavePlayerStats()
+        {
+            playerStatsManager.SetMainPlayerStats(player);
+            playerStatsManager.SaveMainPlayerStats();
+        }
+
+        public void LoadPlayerStats()
+        {
+            playerStatsManager.LoadMainPlayerStats(player);
         }
 
         private void OnDestroy()
