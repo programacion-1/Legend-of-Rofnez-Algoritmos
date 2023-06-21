@@ -1,0 +1,7 @@
+1) usar layer en lugar de tags
+2) cambiar instantiates por object pool
+3) controller tomar los inpus
+4) crear un player model para los comportamientos
+5) crear weapon system para la equipación de armas
+6) usar strategy para definir el tipo de magia a la hora de 
+ejecutarla
