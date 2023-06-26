@@ -17,17 +17,18 @@ namespace RPG.Core
         }
         public override void CharaDamageBehaviour()
         {
-
+            base.CharaDamageBehaviour();
         }
 
         public override void CharaDeathBehaviour()
         {
+            base.CharaDeathBehaviour();
             rewardDrop.CheckIfCanDropReward();
         }
 
         public override void HealVisualSettings()
         {
-            //_healthBar.ChangeBarFiller(GetHP(), GetMaxHP());
+            base.HealVisualSettings();
         }
     }
 }

@@ -9,17 +9,17 @@ namespace RPG.Core
     {
         public override void BossChildHealthStartingSettings()
         {
-            
+            base.BossChildHealthStartingSettings();
         }
 
         public override void BossDamageBehaviour()
         {
-
+            base.BossDamageBehaviour();
         }
 
         public override void BossDeathBehaviour()
         {
-            
+            base.BossDeathBehaviour();
         }
         
     }

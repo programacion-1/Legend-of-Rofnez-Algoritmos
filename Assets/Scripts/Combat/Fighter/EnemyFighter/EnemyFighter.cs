@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Item;
+using RPG.Core;
 
 namespace RPG.Combat
 {
@@ -33,6 +34,5 @@ namespace RPG.Combat
         }
 
         public abstract void SetSpawnedWeaponDamage(float damage);
-
     }
 }

@@ -14,27 +14,19 @@ namespace RPG.Core
 
         public override void CharaDamageBehaviour()
         {
+            base.CharaDamageBehaviour();
             TriggerChangeInteractiveBarValuesEvent();
         }
 
         public override void CharaDeathBehaviour()
         {
-            
+            base.CharaDeathBehaviour();
         }
 
         public void SetPlayerHealthStartingSettings()
         {
             CoreStartingSettings();
             TriggerChangeInteractiveBarValuesEvent();
-            /*PlayerMinMaxQuantityText[] playerMinMaxQuantityTexts = GameObject.FindObjectsOfType<PlayerMinMaxQuantityText>();
-            for (int i = 0; i < playerMinMaxQuantityTexts.Length; i++)
-            {
-                if (playerMinMaxQuantityTexts[i].gameObject.name == _healthBarTextName)
-                {
-                    _healthText = playerMinMaxQuantityTexts[i];
-                    break;
-                }
-            }*/
         }
 
         public override void HealVisualSettings()

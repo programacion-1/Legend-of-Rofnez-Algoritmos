@@ -15,6 +15,7 @@ namespace RPG.GameCore
         PlayerHealth player;
         QuestManager questManager;
         PlayerStatsManager playerStatsManager;
+        AutoSavePlayerStatsDataManager autoSavePlayerStatsDataManager;
         PauseManager pauseManager;
         AudioManager audioManager;
         LevelMusic levelMusic;
@@ -30,6 +31,8 @@ namespace RPG.GameCore
             playerStatsManager = GetComponent<PlayerStatsManager>();
             playerStatsManager.SetMainPlayerStats(player);
             playerStatsManager.SaveMainPlayerStats();
+            autoSavePlayerStatsDataManager = GetComponent<AutoSavePlayerStatsDataManager>();
+            autoSavePlayerStatsDataManager.SetPlayerStatsManager(playerStatsManager);
             pauseManager = GetComponent<PauseManager>();
             sceneLoader = GetComponent<SceneLoader>();
             audioManager = GameObject.FindObjectOfType<AudioManager>();
@@ -38,6 +41,7 @@ namespace RPG.GameCore
 
         void Update()
         {
+            if(autoSavePlayerStatsDataManager.CheckIfICanAutoSave()) StartCoroutine(autoSavePlayerStatsDataManager.autoSave());
             if(Input.GetButtonDown("Cancel"))
             {
                 if(pauseManager.GetPauseState()) pauseManager.SetPause(false);

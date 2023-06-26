@@ -17,6 +17,7 @@ namespace RPG.Control
         protected Health _AIhealth{get; set;}
         protected GameObject _AIplayerTarget{get; set;}
         protected Mover _AImover{get; set;}
+        protected bool _hasBeenAttackedByTarget{get; set;}
         public void ParentStartingSettings()
         {
             _AIactionScheduler = GetComponent<ActionScheduler>();

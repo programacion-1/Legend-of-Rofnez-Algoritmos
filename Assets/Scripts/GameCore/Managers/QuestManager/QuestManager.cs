@@ -26,7 +26,6 @@ namespace RPG.Core
             #region Observer Pattern
             FillNotifiesDictionary();
             _objectObserved = FindObjectOfType<BossHealth>();
-            Debug.Log(_objectObserved);
             _objectObserved.Subscribe(this);
             #endregion
             LevelStartingSettings();

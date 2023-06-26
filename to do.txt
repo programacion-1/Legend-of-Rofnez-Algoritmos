@@ -1,6 +1,20 @@
 HECHO:
-1) Seteado el namespace RPG.GameCore para los managers del juego
-2) Creada clase PlayerStatsManager para manejar los stats importantes a guardar del Player
+
+1) Corregir que player no sea mas singleton
+
+1.1) Seteado el namespace RPG.GameCore para los managers del juego
+1.2) Creada clase PlayerStatsManager para manejar los stats importantes a guardar del Player
+1.3) Creada clase AutoSavePlayerStatsDataManager para manejar un pequeño autosave para actualizar el playerstatsmanager cada cierto período de tiempo
+1.4) Implementadas las clases PlayerStatsManager y AutoSavePlayerStatsDataManager en el GameManager para que este vaya guardando y actualizando los datos necesarios del Player para que así este deje de ser singleton y asignar la información a un nuevo player cada vez que se avance de nivel
+1.5) Los stats a guardar de PlayerStatsManager son:
+
+- Salud y salud máxima
+- Mana y mana máximo
+- Listado de pociones
+- Arma melee equipada, arma a distancia equipada y arma activa
+- Posición del jugador
+
+
 
 BUGS:
 1) Nullreference exception que sale con el sistema de layers
@@ -11,11 +25,11 @@ de fuego del boss
 
 En proceso:
 
-1) Modificando GameManager para el nuevo control de datos del player
+1) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
 
 TO DO:
 
+
 1) Implementar Object Pool en Efectos Visuales a spawnear
-2) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
-3) Implementar el patrón de diseño Command en el manejo de inputs del player
-4) Implementar MVC
+2) Implementar el patrón de diseño Command en el manejo de inputs del player
+3) Implementar MVC

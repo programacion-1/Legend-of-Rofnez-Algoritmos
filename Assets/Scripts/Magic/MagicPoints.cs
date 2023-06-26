@@ -8,8 +8,9 @@ namespace RPG.Magic
     public class MagicPoints : MonoBehaviour
     {
         [SerializeField] float _magicPoints;
-        public float magicPoints{get{return _magicPoints;}}        
+        public float magicPoints{get{return _magicPoints;} set{_magicPoints = value;}}        
         [SerializeField] float _maxMagicPoints;
+        public float maxMagicPoints{get{return _maxMagicPoints;} set{_maxMagicPoints = value;}}        
         
         [SerializeField] InteractiveBar _manaBar;
         [SerializeField] string _magicBarName;
@@ -26,17 +27,6 @@ namespace RPG.Magic
         {
             _magicPoints = _maxMagicPoints;
             TriggerChangeInteractiveBarValuesEvent();
-            /*PlayerMinMaxQuantityText[] playerMinMaxQuantityTexts = GameObject.FindObjectsOfType<PlayerMinMaxQuantityText>();
-            for (int i = 0; i < playerMinMaxQuantityTexts.Length; i++)
-            {
-                if (playerMinMaxQuantityTexts[i].gameObject.name == magicBarTextName)
-                {
-                    magicBarText = playerMinMaxQuantityTexts[i];
-                    break;
-                }
-            }
-            bar.ChangeBarFiller(magicPoints, maxMagicPoints);
-            magicBarText.SetQuantityText(magicPoints, maxMagicPoints);*/
         }
 
         public void ConsumeMagicPoints(float mpToConsume)

@@ -20,7 +20,10 @@ namespace RPG.Core
             NotifyToObservers("Begin");
         }
 
-        public abstract void BossChildHealthStartingSettings();
+        public virtual void BossChildHealthStartingSettings()
+        {
+
+        }
 
         void Start()
         {
@@ -28,19 +31,27 @@ namespace RPG.Core
         }
         public override void CharaDamageBehaviour()
         {
+            base.CharaDamageBehaviour();
             TriggerChangeInteractiveBarValuesEvent();
             BossDamageBehaviour();
         }
 
-        public abstract void BossDamageBehaviour();
+        public virtual void BossDamageBehaviour()
+        {
+
+        }
 
         public override void CharaDeathBehaviour()
         {
+            base.CharaDeathBehaviour();
             NotifyToObservers("Die");
             BossDeathBehaviour();
         }
 
-        public abstract void BossDeathBehaviour();
+        public virtual void BossDeathBehaviour()
+        {
+            
+        }
 
         public override void HealVisualSettings()
         {
@@ -61,7 +72,6 @@ namespace RPG.Core
 
         public void NotifyToObservers(string action)
         {
-            Debug.Log(_allObservers.Count);
             //Recorro de atras hacia el principio mis observers registrados y los notifico
             for (int i = _allObservers.Count - 1; i >= 0; i--)
             {

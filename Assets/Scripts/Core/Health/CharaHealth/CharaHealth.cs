@@ -18,11 +18,6 @@ namespace RPG.Core
         public override void ChildrenDamageBehavior()
         {
             CharaDamageBehaviour();
-            InstantiateVFX(hitFX);
-            InstantiateVFX(bloodFX);
-            audioManager.TryToPlayClip(audioManager.PlayerSFXSources, impactClipSound);
-            audioManager.TryToPlayClip(audioManager.PlayerSFXSources, damageClipSound);            
-            EnableInvencibility(_damageRate);
         }
 
         public void InstantiateVFX(GameObject vfx)
@@ -30,17 +25,26 @@ namespace RPG.Core
             GameObject.Instantiate(vfx, _shaderSpawnpoint.position, _shaderSpawnpoint.rotation);
         }
 
-        public abstract void CharaDamageBehaviour();
+        public virtual void CharaDamageBehaviour()
+        {
+            InstantiateVFX(hitFX);
+            InstantiateVFX(bloodFX);
+            audioManager.TryToPlayClip(audioManager.PlayerSFXSources, impactClipSound);
+            audioManager.TryToPlayClip(audioManager.PlayerSFXSources, damageClipSound);            
+            EnableInvencibility(_damageRate);
+        }
 
         public override void DeathBehaviour()
         {
-            audioManager.TryToPlayClip(audioManager.PlayerSFXSources, deadClipSound);
             CharaDeathBehaviour();
+        }
+
+        public virtual void CharaDeathBehaviour()
+        {
+            audioManager.TryToPlayClip(audioManager.PlayerSFXSources, deadClipSound);
             GetComponent<Animator>().SetTrigger(deadTriggerName);
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
-
-        public abstract void CharaDeathBehaviour();
 
         //Clase para definir el color del material del renderer
         public void ChangeRendererColor(Color color)
@@ -66,8 +70,9 @@ namespace RPG.Core
             HealVisualSettings();
         }
 
-        public abstract void HealVisualSettings();
-        
+        public virtual void HealVisualSettings()
+        {
+            Debug.Log($"Heal!");
+        }        
     }
-
 }

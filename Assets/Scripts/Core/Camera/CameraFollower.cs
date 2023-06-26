@@ -8,6 +8,7 @@ namespace RPG.Core
     {
         [SerializeField] float camSpeed;
         [SerializeField] private Transform target;
+        [SerializeField] private string targetName;
         
         private void Start()
         {
@@ -16,6 +17,7 @@ namespace RPG.Core
 
         public void SetCameraStartingSettings()
         {
+            target = GameObject.Find(targetName).transform;
             transform.position = target.position;
         }
 

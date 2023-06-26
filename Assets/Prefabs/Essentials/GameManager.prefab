@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2061962139}
   - component: {fileID: 2061962116}
   - component: {fileID: 2162399170357304031}
+  - component: {fileID: 6212661005904508818}
+  - component: {fileID: -6359437586250965604}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -30,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -89,3 +92,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d19749e993eb940a48ba68866ebbb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6212661005904508818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5908001691909319870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752b30835f40cfc489a661061e426971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _psHealth: 0
+  _psMaxHealth: 0
+  _psMagicPoints: 0
+  _psMaxMagicPoints: 0
+  _psPotionKeys: []
+  _psCurrentMeleeWeapon: {fileID: 0}
+  _psCurrentRangedWeapon: {fileID: 0}
+  _psRangedWeaponAmmo: 0
+  _psActiveWeapon: {fileID: 0}
+  _psRightHand: {fileID: 0}
+  _psLeftHand: {fileID: 0}
+--- !u!114 &-6359437586250965604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5908001691909319870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ef6eecbcedfd342b13f4c4f932671e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoSaveTimer: 10
