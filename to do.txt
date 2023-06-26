@@ -26,6 +26,7 @@ de fuego del boss
 En proceso:
 
 1) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
+2) Setear en la AIController que cuando sea atacado por el player pueda atacar automáticamente independientemente de la chaseDistance
 
 TO DO:
 
