@@ -1,0 +1,6 @@
+magic spawner (abstracta): clase que tendra un transform (que lo seteara el magic
+caster) y tendra la magia a instanciar. Su unica funcion sera instanciar la magia (funcion abstracta)
+
+area magic spawner (hija): Setea la funcion instanciar
+
+area projectile spanwer (hija): Setea la funcion instanciar con sus respectivas variables

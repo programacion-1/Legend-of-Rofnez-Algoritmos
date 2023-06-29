@@ -14,6 +14,9 @@ HECHO:
 - Arma melee equipada, arma a distancia equipada y arma activa
 - Posición del jugador
 
+2) En el AIController cuando el enemigo es atacado por el player puede atacar automáticamente, sin importar la chaseDistance. Esto utilizando un EventManager que conecta la salud del enemigo que, al recibir un daño por el player, setea en true un booleano que detecta si fue atacado por el player para proceder a atacar.
+
+NOTA: fue necesario agregar un id tanto en la salud del enemigo como en el controller debido a que si y solo si seteara en true la variable del script cuyo id sea igual al de la salud, con el fin de evitar que todos los scripts de AIController seteen la variable en true. De momento la id se setea en el inspector pero en un futuro se agregara un script que levante todos los AIController (array) de una escena y le seteara por medio de un for respecto a su indice en el mismo.
 
 
 BUGS:
@@ -21,12 +24,17 @@ BUGS:
 CORREGIDO: creado DamageTrigger que funciona de intermediario
 entre el AttackTrigger y el CombatTarget
 2) Error al setear la info del proyectil del hechizo de bola
-de fuego del boss
+de fuego del boss <en proceso de corrección>
 
 En proceso:
 
 1) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
-2) Setear en la AIController que cuando sea atacado por el player pueda atacar automáticamente independientemente de la chaseDistance
+2) Corrección de bola de fuego para eso necesito:
+
+- Setear los MagicSpawners
+- Reprogramar las magias
+- Testear magias reprogramadas y spawners
+- Setear el fireball en el boss y testear su funcionamiento
 
 TO DO:
 
@@ -34,3 +42,13 @@ TO DO:
 1) Implementar Object Pool en Efectos Visuales a spawnear
 2) Implementar el patrón de diseño Command en el manejo de inputs del player
 3) Implementar MVC
+
+Correcciones:
+
+1) usar layer en lugar de tags <hecho>
+2) cambiar instantiates por object pool <en proceso>
+3) controller tomar los inpus
+4) crear un player model para los comportamientos
+5) crear weapon system para la equipación de armas <hecho>
+6) usar strategy para definir el tipo de magia a la hora de 
+ejecutarla
