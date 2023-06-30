@@ -12,6 +12,7 @@ namespace RPG.GameCore
 {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager instance;
         PlayerHealth player;
         QuestManager questManager;
         PlayerStatsManager playerStatsManager;
@@ -27,10 +28,11 @@ namespace RPG.GameCore
 
         void Start()
         {
+            if(instance == null) instance = this;
+            else Destroy(gameObject);
             player = GameObject.FindObjectOfType<PlayerHealth>();
             playerStatsManager = GetComponent<PlayerStatsManager>();
-            playerStatsManager.SetMainPlayerStats(player);
-            playerStatsManager.SaveMainPlayerStats();
+            SavePlayerStats();
             autoSavePlayerStatsDataManager = GetComponent<AutoSavePlayerStatsDataManager>();
             autoSavePlayerStatsDataManager.SetPlayerStatsManager(playerStatsManager);
             pauseManager = GetComponent<PauseManager>();

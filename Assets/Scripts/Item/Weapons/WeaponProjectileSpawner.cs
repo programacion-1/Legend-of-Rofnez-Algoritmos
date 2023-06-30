@@ -16,7 +16,7 @@ public class WeaponProjectileSpawner : MonoBehaviour
     public void LaunchProjectile(Health t, int layerToSet)
     {
         _target = t;
-        Projectile projectileInstance = ArrowProjectileFactory.Instance.GetObject();
+        WeaponProjectile projectileInstance = ArrowProjectileFactory.Instance.GetObject();
         projectileInstance.transform.position = _projectileSpawner.transform.position;
         projectileInstance.transform.rotation = Quaternion.identity;
         projectileInstance.gameObject.layer = layerToSet;

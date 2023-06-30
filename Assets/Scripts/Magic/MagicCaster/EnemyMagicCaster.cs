@@ -12,12 +12,12 @@ namespace RPG.Magic
         }
         public override void ChildSetCurrentMagicSettings()
         {
-            
+            base.ChildSetCurrentMagicSettings();
         }
 
         public override bool MagicAttackChildCondition()
         {
-            return true;
+            return base.MagicAttackChildCondition();
         }
 
         public override void MagicAttackChildSettings()

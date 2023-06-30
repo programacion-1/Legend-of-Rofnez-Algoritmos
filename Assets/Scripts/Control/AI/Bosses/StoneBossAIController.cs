@@ -32,13 +32,19 @@ namespace RPG.Control
             
             if(!_castedFireball)
             {
-                if (InAttackRangeOfPlayer()) CastFireball(); 
+                if (InAttackRangeOfPlayer() || _hasBeenAttackedByTarget) CastFireball(); 
             }
             else
             {
                 if(_timeUntilICanAttack >= _attackBehaviourTime)
                 {
-                    if (InAttackRangeOfPlayer() && _AIfighter.CanAttack(_AIplayerTarget)) AttackBehaviour();
+                    //Chequeo si puedo atacar y si el player esta en mi rango de ataque o si he sido atacado por el mismo
+                    if(_AIfighter.CanAttack(_AIplayerTarget) && (InAttackRangeOfPlayer() || _hasBeenAttackedByTarget))
+                    {
+                        Debug.Log("Attack");
+                        if(InAttackRangeOfPlayer()) _hasBeenAttackedByTarget = false; //En el caso de que el player este en mi rango de ataque desactivo el bool de que fui atacado
+                        AttackBehaviour();
+                    } 
                 }
             }
         }
@@ -66,10 +72,16 @@ namespace RPG.Control
         {        
             _castedFireball = true;
             _timeSinceThrewFireball = 0;
-            _timeUntilICanAttack = 0;
+            if(!_hasBeenAttackedByTarget) _timeUntilICanAttack = 0;
             /* Se da un bug a la hora de instanciar la bola de fuego en donde no se ejecuta nada pasado el Awake. Pendiente a corregir en el segundo parcial
             _enemyMagicCaster.target = _AIplayerTarget.GetComponent<PlayerHealth>();
             _enemyMagicCaster.MagicAttack();*/
+        }
+
+        public override void DetectTargetByHit(params object[] p)
+        {
+            base.DetectTargetByHit(p);
+            _timeUntilICanAttack = Mathf.Infinity;
         }
     }
 }

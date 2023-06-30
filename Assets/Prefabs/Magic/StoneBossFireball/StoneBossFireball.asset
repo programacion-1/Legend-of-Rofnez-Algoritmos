@@ -17,4 +17,4 @@ MonoBehaviour:
   _magicCooldown: 1
   _equippedPrefab: {fileID: 0}
   _magicSprite: {fileID: 0}
-  _projectile: {fileID: 6987407998333974604, guid: dc7277f3cbd4d8e4e883ce2318b3d084, type: 3}
+  _projectile: {fileID: 1623772613003047458, guid: dc7277f3cbd4d8e4e883ce2318b3d084, type: 3}
