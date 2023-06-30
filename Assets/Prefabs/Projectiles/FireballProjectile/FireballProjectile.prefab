@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5949824491859072103}
   - component: {fileID: 1146021769943624775}
-  - component: {fileID: 1623772613003047458}
+  - component: {fileID: 6987407998333974604}
   - component: {fileID: 8369533060652231597}
   m_Layer: 7
   m_Name: FireballProjectile
@@ -49,7 +49,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25023845, y: 0.5, z: 1.2375717}
   m_Center: {x: -0.021812182, y: -3.2857458e-15, z: -0.76878595}
---- !u!114 &1623772613003047458
+--- !u!114 &6987407998333974604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,15 +58,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8095572290885335392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d33c2b2d89306f4b887042dbd5cf0cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 91d76bdc90ad07645a7a23b0321eef48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _speed: 0
+  _speed: 20
   _isHoming: 0
   _hitEffect: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
-  _lifeSpan: 1
-  _impactObjects: 
+  _lifeSpan: 2
+  _impactObjects: 0b0000000c000000
   _impactClip: {fileID: 8300000, guid: da0093ebe4323b846a8f67e40229df09, type: 3}
   _launchClip: {fileID: 8300000, guid: 14a12d2846061f74f8d8793806f0a966, type: 3}
   _audioManager: {fileID: 0}
@@ -164,10 +164,6 @@ PrefabInstance:
     - target: {fileID: 19801364, guid: 5cd5599e01f32bd418f20a3b9eac1c57, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
       value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 19998858, guid: 5cd5599e01f32bd418f20a3b9eac1c57, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cd5599e01f32bd418f20a3b9eac1c57, type: 3}

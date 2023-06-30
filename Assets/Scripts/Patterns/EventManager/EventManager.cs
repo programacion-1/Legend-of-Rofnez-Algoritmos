@@ -7,8 +7,8 @@ public static class EventManager
     //Creo el enum con todos los eventos a utilizar
     public enum Events
     {
-        Event_ChangeInteractiveBarValues, //Evento para cambiar el valor de las barras interactivas
-        Event_AIHasBeenAttacked //Evento para indicar a la IA que fue atacada por el player
+        Event_PlayerDead,
+        Event_ChangeInteractiveBarValues
     }
 
     //Creo un delegado donde voy a obligar a las funciones que se quieran suscribir

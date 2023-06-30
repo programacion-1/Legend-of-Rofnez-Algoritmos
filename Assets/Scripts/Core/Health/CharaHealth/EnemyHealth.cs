@@ -18,7 +18,6 @@ namespace RPG.Core
         public override void CharaDamageBehaviour()
         {
             base.CharaDamageBehaviour();
-            TriggerAIHasBeenAttacked();
         }
 
         public override void CharaDeathBehaviour()
@@ -31,13 +30,5 @@ namespace RPG.Core
         {
             base.HealVisualSettings();
         }
-
-        #region EventManager
-        void TriggerAIHasBeenAttacked()
-        {
-            EventManager.TriggerEvent(EventManager.Events.Event_AIHasBeenAttacked, _healthID);
-        }
-        #endregion
-
     }
 }

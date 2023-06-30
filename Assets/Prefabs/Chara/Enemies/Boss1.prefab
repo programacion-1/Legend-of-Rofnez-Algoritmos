@@ -144,15 +144,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -91.67
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.204
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 73.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
       propertyPath: m_Name
-      value: Boss
+      value: Boss1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 5cf0c894239f7be46bb4d1fe9f6325c5, type: 3}
       propertyPath: m_Layer
@@ -491,7 +491,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chaseDistance: 6.5
-  _AiID: 100
   _fireballAttackTime: 8
   _attackBehaviourTime: 3
 --- !u!114 &6288903240607301788
@@ -564,6 +563,7 @@ MonoBehaviour:
   hitFX: {fileID: 66467482925399531, guid: e293ba5db78eaf046971a1fa16835ba7, type: 3}
   bloodFX: {fileID: 9110215784254510012, guid: 8dfca03007bc7f24584fb16d41f3054a, type: 3}
   deadTriggerName: Die
+  _bossHealthBar: {fileID: 0}
   _bossHealthBarName: 
 --- !u!114 &8589910883275114580
 MonoBehaviour:

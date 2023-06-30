@@ -73,8 +73,6 @@ namespace RPG.Core
         public virtual void HealVisualSettings()
         {
             Debug.Log($"Heal!");
-        }
-
-        
+        }        
     }
 }

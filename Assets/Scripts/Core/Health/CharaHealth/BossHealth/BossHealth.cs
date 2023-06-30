@@ -32,13 +32,13 @@ namespace RPG.Core
         public override void CharaDamageBehaviour()
         {
             base.CharaDamageBehaviour();
+            TriggerChangeInteractiveBarValuesEvent();
             BossDamageBehaviour();
         }
 
         public virtual void BossDamageBehaviour()
         {
-            TriggerChangeInteractiveBarValuesEvent();
-            TriggerAIHasBeenAttacked();
+
         }
 
         public override void CharaDeathBehaviour()
@@ -91,11 +91,6 @@ namespace RPG.Core
         void TriggerChangeInteractiveBarValuesEvent()
         {
             EventManager.TriggerEvent(EventManager.Events.Event_ChangeInteractiveBarValues, _bossHealthBarName, GetHP(), GetMaxHP());
-        }
-
-        void TriggerAIHasBeenAttacked()
-        {
-            EventManager.TriggerEvent(EventManager.Events.Event_AIHasBeenAttacked, _healthID);
         }
         #endregion
     }

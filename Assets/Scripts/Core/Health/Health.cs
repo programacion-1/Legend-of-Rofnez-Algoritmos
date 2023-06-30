@@ -19,8 +19,6 @@ namespace RPG.Core
         public AudioClip damageClipSound;
         public AudioClip impactClipSound;
 
-        protected int _healthID;
-
         #region StartingSettings
         //Seteo las configuraciones iniciales que usarán
         public void CoreStartingSettings()
@@ -134,9 +132,10 @@ namespace RPG.Core
         public abstract void DeathBehaviour();
         #endregion
 
-        public void SetID(int id)
+        /*void Start()
         {
-            _healthID = id;
-        }
+            CoreStartingSettings();
+            ChildrenStartingSettings();
+        }*/
     }
 }
