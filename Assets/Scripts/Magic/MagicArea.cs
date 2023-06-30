@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Core;
-using GeneralEnums;
 
 namespace RPG.Magic
 {
@@ -10,7 +9,7 @@ namespace RPG.Magic
     public class MagicArea : Magic
     {
         MagicAreaTrigger _magicAreaTrigger;
-        [SerializeField] MagicAreaSpawner _magicAreaSpawner;
+        const string _magicTypeName = "Area";
         public override void InstantiateMagic(Transform t, Health h)
         {
             GameObject magicInstance = Instantiate(equippedPrefab, t.position, t.rotation);
@@ -18,13 +17,10 @@ namespace RPG.Magic
             _magicAreaTrigger.SetAreaDamage(magicDamage);
         }
 
-        
         public override void SetMagicType()
         {
-            _magicType = MagicType.Expansive;
-            _magicTypeName = "Area";
+            _magicType = _magicTypeName;
         }
-
     }
 
 }

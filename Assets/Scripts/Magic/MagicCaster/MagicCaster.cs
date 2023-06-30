@@ -18,7 +18,6 @@ namespace RPG.Magic
         float _timeToActivateMagic = Mathf.Infinity;
         private Health _target;
         public Health target{get{return _target;} set{_target = value;}}
-        [SerializeField] protected MagicSpawner _magicSpawner;
 
         //MagicInventory magicInventory;
         //MagicInventoryMenu magicInventoryMenu;
@@ -52,12 +51,6 @@ namespace RPG.Magic
             _currentMagic.SetMagicType();
             UpdateAnimatorMagicBool();
             ChildSetCurrentMagicSettings();
-            SetMagicSpawnerType();
-        }
-
-        public void SetMagicSpawnerType()
-        {
-            
         }
 
         public void UpdateAnimatorMagicBool()

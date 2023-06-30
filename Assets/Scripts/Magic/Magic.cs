@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Core;
-using GeneralEnums;
 
 namespace RPG.Magic
 {
@@ -18,9 +17,7 @@ namespace RPG.Magic
         public GameObject equippedPrefab{get{return _equippedPrefab;}}
         [SerializeField] Sprite _magicSprite;
         public Sprite magicSprite{get{return _magicSprite;}}
-        protected string _magicTypeName;
-        public string magicTypeName{get{return _magicTypeName;}}
-        protected MagicType _magicType;
+        protected string _magicType;
         public abstract void InstantiateMagic(Transform t, Health h);
 
         public abstract void SetMagicType();
@@ -29,12 +26,10 @@ namespace RPG.Magic
         {
             for(int i = 0; i < magicAnims.Length; i++)
             {
-                if(magicAnims[i] == _magicTypeName) anim.SetBool(magicAnims[i], true);
+                if(magicAnims[i] == _magicType) anim.SetBool(magicAnims[i], true);
                 else anim.SetBool(magicAnims[i], false);
             }
         }
-
-
     }
 
 }

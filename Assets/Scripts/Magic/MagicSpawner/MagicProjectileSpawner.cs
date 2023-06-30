@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RPG.Magic
+public class MagicProjectileSpawner : MonoBehaviour
 {
-    public class MagicProjectileSpawner : MagicSpawner
+    // Start is called before the first frame update
+    void Start()
     {
-        public override void CastMagic()
-        {
-            throw new System.NotImplementedException();
-        }
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

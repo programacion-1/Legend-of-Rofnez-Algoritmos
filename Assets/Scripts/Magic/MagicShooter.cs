@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Core;
-using GeneralEnums;
 
 namespace RPG.Magic
 {
@@ -10,7 +9,7 @@ namespace RPG.Magic
     public class MagicShooter : Magic
     {
         [SerializeField] Projectile _projectile;
-        [SerializeField] MagicProjectileSpawner _magicProjectileSpawner;
+        const string _magicTypeName = "Projectile";
 
         public override void InstantiateMagic(Transform t, Health h)
         {
@@ -28,9 +27,7 @@ namespace RPG.Magic
 
         public override void SetMagicType()
         {
-            _magicType = MagicType.Projectile;
-            _magicTypeName = MagicType.Projectile.ToString();
+            _magicType = _magicTypeName;
         }
-
     }
 }
