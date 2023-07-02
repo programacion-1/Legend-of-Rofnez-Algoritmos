@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 using RPG.Core;
+using RPG.GameCore;
 
 namespace RPG.SceneManagement
 {
@@ -40,7 +41,7 @@ namespace RPG.SceneManagement
 
         private IEnumerator TransitionCo()
         {
-            GameManagerInstance.gameManager.SavePlayerStats();
+            GameManager.instance.SavePlayerStats();
             GameObject.FindWithTag("Player").GetComponent<ActionScheduler>().CancelCurrentAction();
             audioManager.StopSoruce(audioManager.BGM);
             audioManager.StopSoruce(audioManager.Ambience);
@@ -52,7 +53,7 @@ namespace RPG.SceneManagement
 
             Portal otherPortal = GetOtherPortal();
             if(otherPortal != null) UpdatePlayer(otherPortal);
-            GameManagerInstance.gameManager.LoadPlayerStats();
+            GameManager.instance.LoadPlayerStats();
             yield return sceneLoader.TransitionEndCo();
             Destroy(gameObject);
         }

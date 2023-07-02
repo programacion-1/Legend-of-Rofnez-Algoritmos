@@ -20,8 +20,6 @@ public abstract class Projectile : MonoBehaviour
     float _lifeTime = 0f;
     //Lista de objectos (layers) con los que puedo impactar
     [SerializeField] List<int> _impactObjects = new List<int>();
-    //Variable para definir el color del efecto. Principalmente por si es proyectil de player o de enemy
-    [SerializeField] TrailRenderer trail;
     [Header("Audio Clips")]
     public AudioClip _impactClip;
     public AudioClip _launchClip;
@@ -69,13 +67,6 @@ public abstract class Projectile : MonoBehaviour
         }
     }
 
-    public void SetProjectileTrail(Color trailColor)
-    {
-        Gradient trailColorGradient = new Gradient();
-        trailColorGradient.SetKeys(new GradientColorKey[]{new GradientColorKey(trailColor, 0.0f) , new GradientColorKey(Color.white, 1.0f)}, new GradientAlphaKey[]{new GradientAlphaKey(1.0f, 1.0f)});
-        trail.colorGradient = trailColorGradient;
-    }
-
     //Clase para buscar el objetivo a apuntar
     private Vector3 GetAimLocation()
     {
@@ -98,8 +89,10 @@ public abstract class Projectile : MonoBehaviour
     private IEnumerator DestroyProjectileByLifeSpanCo()
     {
         yield return new WaitForSeconds(_lifeSpan);
-        ArrowProjectileFactory.Instance.ReturnObject(this);
+        ReturnProjectile();
     }
+
+    public abstract void ReturnProjectile();
 
     public void DestroyProjectileByLifeSpan()
     {
@@ -109,7 +102,7 @@ public abstract class Projectile : MonoBehaviour
     private void DestroyProjectileByImpact()
     {
         StopCoroutine(DestroyProjectileByLifeSpanCo());
-        ArrowProjectileFactory.Instance.ReturnObject(this);
+        ReturnProjectile();
         //Destroy(gameObject);     
     }
 

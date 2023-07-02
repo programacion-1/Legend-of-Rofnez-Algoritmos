@@ -23,7 +23,13 @@ namespace RPG.Control
 
         public override void UpdateBehaviour()
         {
-            if ((InAttackRangeOfPlayer() && _AIfighter.CanAttack(_AIplayerTarget)) || _hasBeenAttackedByTarget) AttackBehaviour(); //Chequeo si el player está en mi rango de ataque y si puedo atacar. También chequeo si fui golpeado por el player
+            //Chequeo si puedo atacar y si el player esta en mi rango de ataque o si he sido atacado por el mismo
+            if(_AIfighter.CanAttack(_AIplayerTarget) && (InAttackRangeOfPlayer() || _hasBeenAttackedByTarget))
+            {
+                if(InAttackRangeOfPlayer()) _hasBeenAttackedByTarget = false; //En el caso de que el player este en mi rango de ataque desactivo el bool de que fui atacado
+                AttackBehaviour();
+
+            } 
             else if (_timeSinceLastSawPlayer <= _suspicionTime) SuspicionBehaviour(); //Chequeo si aún está en guardia o vuelvo a patrullar
             else PatrolBehaviour(); //Patrulla
             #region Codigo viejo para cuando se vuelva a implementar el hechizo de congelamiento
@@ -53,6 +59,7 @@ namespace RPG.Control
 
         private void SuspicionBehaviour()
         {
+            Debug.Log("Suspicion");
             _AIactionScheduler.CancelCurrentAction();
         }
 

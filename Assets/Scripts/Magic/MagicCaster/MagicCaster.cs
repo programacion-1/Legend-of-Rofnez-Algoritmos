@@ -33,7 +33,10 @@ namespace RPG.Magic
             //magicInventoryMenu = GameObject.FindObjectOfType<MagicInventoryMenu>();   
         }
 
-        public abstract void ChildSetCurrentMagicSettings();
+        public virtual void ChildSetCurrentMagicSettings()
+        {
+
+        }
 
         // Update is called once per frame
         void Update()
@@ -88,9 +91,15 @@ namespace RPG.Magic
             else return false;
         }
 
-        public abstract bool MagicAttackChildCondition();
+        public virtual bool MagicAttackChildCondition()
+        {
+            return true;
+        }
         
-        public abstract void MagicAttackChildSettings();
+        public virtual void MagicAttackChildSettings()
+        {
+
+        }
 
         public void Cancel()
         {

@@ -67,6 +67,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2162399171727863636}
     m_Modifications:
+    - target: {fileID: 2061962139, guid: 6d0f2a48b80154b448a33b7bd4031d8e, type: 3}
+      propertyPath: lastPlayableScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3963528703389177201, guid: 6d0f2a48b80154b448a33b7bd4031d8e, type: 3}
       propertyPath: m_RootOrder
       value: 1
