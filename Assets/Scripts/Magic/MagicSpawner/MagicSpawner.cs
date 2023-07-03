@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD
 namespace RPG.Magic
 {
     public abstract class MagicSpawner : MonoBehaviour
@@ -26,19 +25,3 @@ namespace RPG.Magic
     }
 
 }
-=======
-public class MagicSpawner : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
->>>>>>> parent of 9053899 (Revert "actualizacion de assets")
