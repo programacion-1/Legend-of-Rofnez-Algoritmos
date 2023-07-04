@@ -12802,37 +12802,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 434388, guid: 1378514d79bd4bb4d98191df08121fb1, type: 3}
   m_PrefabInstance: {fileID: 319443246}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &319810005
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 319810006}
-  m_Layer: 7
-  m_Name: FireballSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &319810006
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319810005}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1620044182}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &321632937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65191,11 +65160,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 9c94b89ac7bc73748951463086a4dbab, type: 3}
   m_PrefabInstance: {fileID: 1618363962}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1620044182 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 780030557550938775, guid: b201d4b6c9db2264fa86ea3e9eff225f, type: 3}
-  m_PrefabInstance: {fileID: 1341185015}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1620854878
 PrefabInstance:

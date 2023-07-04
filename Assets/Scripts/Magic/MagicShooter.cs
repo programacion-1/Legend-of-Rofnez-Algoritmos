@@ -12,18 +12,12 @@ namespace RPG.Magic
         [SerializeField] Projectile _projectile;
         [SerializeField] MagicProjectileSpawner _magicProjectileSpawner;
 
-        public override void InstantiateMagic(Transform t, Health h)
+        public override MagicSpawner InstantiateMagicSpawner(params object[] p)
         {
-            LaunchProjectile(t, h);
-        }
-
-        public void LaunchProjectile(Transform t, Health h)
-        {
-            Debug.Log(t.position);
-            Projectile projectileInstance = Instantiate(_projectile, t.position, Quaternion.identity);
-            Debug.Log(projectileInstance.transform.position);
-            projectileInstance.SetProjectileTarget(h, t.gameObject.layer);
-            projectileInstance.SetProjectileDamage(magicDamage);
+            Transform t = (Transform) p[0];
+            GameObject magicSpawner = Instantiate(_magicProjectileSpawner.gameObject, t.position, t.rotation);
+            magicSpawner.GetComponent<MagicProjectileSpawner>().magicProjectileDamage = magicDamage;
+            return magicSpawner.GetComponent<MagicProjectileSpawner>();
         }
 
         public override void SetMagicType()

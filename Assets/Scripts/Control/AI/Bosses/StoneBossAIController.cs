@@ -16,14 +16,11 @@ namespace RPG.Control
         bool _castedFireball;
         [SerializeField] float _attackBehaviourTime = 1f;
         float _timeUntilICanAttack = 0;
-        //MagicPoints magicPoints;
-        //Special special;
+
         void Start()
         {
             ParentStartingSettings();
             _enemyMagicCaster = GetComponent<EnemyMagicCaster>();
-            //magicPoints = GetComponent<MagicPoints>();
-            //special = GetComponent<Special>();
         }
 
         public override void UpdateBehaviour()
@@ -73,9 +70,8 @@ namespace RPG.Control
             _castedFireball = true;
             _timeSinceThrewFireball = 0;
             if(!_hasBeenAttackedByTarget) _timeUntilICanAttack = 0;
-            /* Se da un bug a la hora de instanciar la bola de fuego en donde no se ejecuta nada pasado el Awake. Pendiente a corregir en el segundo parcial
             _enemyMagicCaster.target = _AIplayerTarget.GetComponent<PlayerHealth>();
-            _enemyMagicCaster.MagicAttack();*/
+            _enemyMagicCaster.MagicAttack();
         }
 
         public override void DetectTargetByHit(params object[] p)

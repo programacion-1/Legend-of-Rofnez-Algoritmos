@@ -62,11 +62,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _speed: 0
+  _speed: 20
   _isHoming: 0
   _hitEffect: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
   _lifeSpan: 1
-  _impactObjects: 
+  _impactObjects: 06000000
   _impactClip: {fileID: 8300000, guid: da0093ebe4323b846a8f67e40229df09, type: 3}
   _launchClip: {fileID: 8300000, guid: 14a12d2846061f74f8d8793806f0a966, type: 3}
   _audioManager: {fileID: 0}

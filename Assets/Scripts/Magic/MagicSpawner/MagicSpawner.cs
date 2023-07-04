@@ -10,7 +10,10 @@ namespace RPG.Magic
         protected GameObject _magicToSpawn;
         protected Magic _equippedMagic;
 
-        public abstract void CastMagic();
+        public virtual void CastMagic(params object[] p)
+        {
+            _magicToSpawn = _equippedMagic.equippedPrefab;
+        }
 
         public void EquipMagicOnSpawner(Magic m)
         {
@@ -21,6 +24,7 @@ namespace RPG.Magic
         {
             _spawnerTransform = t;
             transform.position = _spawnerTransform.position;
+            transform.SetParent(_spawnerTransform);
         }
     }
 

@@ -21,7 +21,7 @@ namespace RPG.Magic
         protected string _magicTypeName;
         public string magicTypeName{get{return _magicTypeName;}}
         protected MagicType _magicType;
-        public abstract void InstantiateMagic(Transform t, Health h);
+        public abstract MagicSpawner InstantiateMagicSpawner(params object[] p);
 
         public abstract void SetMagicType();
 

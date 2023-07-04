@@ -8,8 +8,10 @@ namespace RPG.Magic
     public class MagicAreaSpawner : MagicSpawner
     {
         MagicAreaTrigger _magicAreaTrigger;
-        public override void CastMagic()
+
+        public override void CastMagic(params object[] p)
         {
+            base.CastMagic();
             GameObject magicInstance = Instantiate(_magicToSpawn, _spawnerTransform.position, _spawnerTransform.rotation);
             _magicAreaTrigger = magicInstance.GetComponent<MagicAreaTrigger>();
             _magicAreaTrigger.SetAreaDamage(_equippedMagic.magicDamage);

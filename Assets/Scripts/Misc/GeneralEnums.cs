@@ -8,7 +8,7 @@ namespace GeneralEnums
     public enum MagicType
     {
         Projectile,
-        Expansive,
+        Area,
         Melee,
         Defensive,
         Heal
