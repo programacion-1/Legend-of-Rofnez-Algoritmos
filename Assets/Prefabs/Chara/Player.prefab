@@ -2649,6 +2649,7 @@ MonoBehaviour:
   _rangedWeaponAmmo: 0
   _activeWeapon: {fileID: 0}
   _attackTrigger: {fileID: 0}
+  _playerDamageTrigger: {fileID: 1048988967}
   _weaponProjectileSpawner: {fileID: 0}
 --- !u!114 &3941247847641947573
 MonoBehaviour:
@@ -2676,8 +2677,9 @@ GameObject:
   - component: {fileID: 8012440135007860230}
   - component: {fileID: 8012440135007860233}
   - component: {fileID: 8012440135007860232}
+  - component: {fileID: 1048988967}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: DamageTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2761,3 +2763,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1048988967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8012440135007860234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b782a63d35f6443808eff9314c9948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

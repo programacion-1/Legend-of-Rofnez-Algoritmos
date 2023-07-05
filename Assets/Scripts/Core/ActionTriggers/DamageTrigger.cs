@@ -7,9 +7,18 @@ namespace RPG.Core
     public class DamageTrigger : MonoBehaviour
     {
         Health _target;
-        
+        BoxCollider boxCollider;
         public float _damageToDeal {get; set;}
-        //public float _damageToDeal;
+        void OnEnable()
+        {
+            boxCollider = GetComponent<BoxCollider>();
+        }
+
+        public void SetDamageTriggerColliderStats(Vector3 center, Vector3 size)
+        {
+            boxCollider.center = center;
+            boxCollider.size = size;
+        }
 
         public void SetDamageTarget(Health health)
         {

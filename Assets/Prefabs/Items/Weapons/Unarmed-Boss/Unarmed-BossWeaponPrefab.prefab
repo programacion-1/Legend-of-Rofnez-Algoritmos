@@ -103,4 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c832840d56f7745b53f51d60118200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponCollider: {fileID: 7154973120363529315}
+  _weaponCollider: {fileID: 0}
+  _damageTriggerCenter: {x: 0.17, y: 0.34, z: 0.18}
+  _damageTriggerSize: {x: 0.51, y: 0.87, z: 1.35}

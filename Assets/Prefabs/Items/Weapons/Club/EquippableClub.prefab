@@ -58,7 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b782a63d35f6443808eff9314c9948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageToDeal: 0
 --- !u!1 &7549051083786947283
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,8 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c832840d56f7745b53f51d60118200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponCollider: {fileID: 6985759193936964735}
-  _triggerDamage: 0
+  _weaponCollider: {fileID: 0}
+  _damageTriggerCenter: {x: -0.7, y: 0.48, z: 0}
+  _damageTriggerSize: {x: 0.81, y: 0.93, z: 0.88}
 --- !u!1001 &3008946281869609320
 PrefabInstance:
   m_ObjectHideFlags: 0

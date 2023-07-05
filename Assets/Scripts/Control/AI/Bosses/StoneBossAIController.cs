@@ -25,25 +25,27 @@ namespace RPG.Control
 
         public override void UpdateBehaviour()
         {
-            if(_timeSinceThrewFireball >= _fireballAttackTime) _castedFireball = false;
             
-            if(!_castedFireball)
+            if(_timeSinceThrewFireball >= _fireballAttackTime)
             {
-                if (InAttackRangeOfPlayer() || _hasBeenAttackedByTarget) CastFireball(); 
-            }
-            else
-            {
-                if(_timeUntilICanAttack >= _attackBehaviourTime)
+                if (InAttackRangeOfPlayer() || _hasBeenAttackedByTarget)
                 {
-                    //Chequeo si puedo atacar y si el player esta en mi rango de ataque o si he sido atacado por el mismo
-                    if(_AIfighter.CanAttack(_AIplayerTarget) && (InAttackRangeOfPlayer() || _hasBeenAttackedByTarget))
-                    {
-                        Debug.Log("Attack");
-                        if(InAttackRangeOfPlayer()) _hasBeenAttackedByTarget = false; //En el caso de que el player este en mi rango de ataque desactivo el bool de que fui atacado
-                        AttackBehaviour();
-                    } 
-                }
+                    if(InAttackRangeOfPlayer()) _hasBeenAttackedByTarget = false;
+                    CastFireball(); 
+                    return;
+                } 
             }
+
+            if(_timeUntilICanAttack >= _attackBehaviourTime && !_enemyMagicCaster.CheckIfIsCastingMagic())
+            {
+                //Chequeo si puedo atacar y si el player esta en mi rango de ataque o si he sido atacado por el mismo
+                if(_AIfighter.CanAttack(_AIplayerTarget) && (InAttackRangeOfPlayer() || _hasBeenAttackedByTarget))
+                {
+                    if(InAttackRangeOfPlayer()) _hasBeenAttackedByTarget = false; //En el caso de que el player este en mi rango de ataque desactivo el bool de que fui atacado
+                    AttackBehaviour();
+                } 
+            }
+            
         }
 
         public override void UpdateTimers()
@@ -67,9 +69,8 @@ namespace RPG.Control
         // Funciones Propias del Stone Boss
         public void CastFireball()
         {        
-            _castedFireball = true;
             _timeSinceThrewFireball = 0;
-            if(!_hasBeenAttackedByTarget) _timeUntilICanAttack = 0;
+            _timeUntilICanAttack = 0;
             _enemyMagicCaster.target = _AIplayerTarget.GetComponent<PlayerHealth>();
             _enemyMagicCaster.MagicAttack();
         }

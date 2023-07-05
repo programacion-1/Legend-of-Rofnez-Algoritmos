@@ -24,6 +24,7 @@ namespace RPG.InventorySystem
         public Transform leftHand{get{return _leftHand;} set{_leftHand = value;}}
         Transform _rangedWeaponProjectileSpawner;
         [SerializeField] AttackTrigger _attackTrigger;
+        [SerializeField] DamageTrigger _playerDamageTrigger;
         [SerializeField] WeaponProjectileSpawner _weaponProjectileSpawner;
         RuntimeAnimatorController _defaultAnimatorController;
         public RuntimeAnimatorController defaultAnimatorController{get{return _defaultAnimatorController;} set{_defaultAnimatorController = value;}}
@@ -32,6 +33,7 @@ namespace RPG.InventorySystem
         void Start()
         {
             _weaponInventorMenu = FindObjectOfType<WeaponInventorMenu>();
+            _playerDamageTrigger.gameObject.SetActive(false);
         }
 
         public void SetActiveWeapon(Weapon weapon)
@@ -51,6 +53,8 @@ namespace RPG.InventorySystem
             SetActiveWeapon(_equippedMeleeWeapon);
             _weaponInventorMenu.SetCurrentWeaponActive(0);
             _attackTrigger = currentWeapon.GetComponent<AttackTrigger>();
+            _attackTrigger.SetWeaponCollider(_playerDamageTrigger);
+            _playerDamageTrigger.SetDamageTriggerColliderStats(_attackTrigger.damageTriggerCenter, _attackTrigger.damageTriggerSize);
             _attackTrigger._triggerDamage = _activeWeapon.weaponDamage;
         }
 

@@ -84,18 +84,23 @@ namespace RPG.Magic
         {
             if(CheckIfCanUseMagic())
             {
+                MagicAttackChildSettings();
                 UpdateAnimatorMagicBool();
                 _actionScheduler.StartAction(this);
                 _anim.ResetTrigger("StopMagicAttack");
                 _anim.SetTrigger("MagicAttack");
-                _timeToActivateMagic = 0f;
             }
         }
 
         public void ActivateMagic()
         {
-            MagicAttackChildSettings();
             _magicSpawner.CastMagic(_target, gameObject.layer);
+            ActionsAfterActivatingMagic();
+        }
+
+        public virtual void ActionsAfterActivatingMagic()
+        {
+            _timeToActivateMagic = 0f;
         }
 
         protected bool CheckIfCanUseMagic()

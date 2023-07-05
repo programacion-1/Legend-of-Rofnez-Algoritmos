@@ -18,37 +18,48 @@ HECHO:
 
 NOTA: fue necesario agregar un id tanto en la salud del enemigo como en el controller debido a que si y solo si seteara en true la variable del script cuyo id sea igual al de la salud, con el fin de evitar que todos los scripts de AIController seteen la variable en true. De momento la id se setea en el inspector pero en un futuro se agregara un script que levante todos los AIController (array) de una escena y le seteara por medio de un for respecto a su indice en el mismo.
 
+3) Corregido bug de que no funcionaba la fireball del Boss. Para esto se realizaron los siguientes cambios:
+
+3.1) Se crearon MagicSpawners para que las magias al ser "equipadas" no deriven la responsabilidad de instanciar los hechizos en los spawners
+3.2) Se creo un spawner para la MagicArea y MagicProjecile
+3.3) Se creo en el MagicCaster un diccionario que setea el transform desde donde se instanciará el spawner según su tipo de magia:
+- Si es magia en area, su transform será el transform del caster
+- Si es magia de proyectil, su transform será (de momento) la mano derecha del caster
+
+4) Corregido Feature de DamageTrigger. PAra esto se realizaron los siguientes cambios:
+4.1) Se creo un DamageTrigger individual por cada personaje (jugador y enemigos)
+4.2) El attackTrigger de las armas ahora seteará el DamageTrigger del personaje en lugar de uno propio. Además de que tendrá la información para setear el center y el size del boxCollider del DamageTrigger (además de setear el daño y demás)
+4.3) Por último al atacar, el attackTrigger activa y desactiva el DamageTrigger del personaje
+
+5) Corregido pequeño bug de que el fireball no se casteaba correctamente ya que era interrumpido por el ataque del boss, se solucionó con setear en EnemyCaster un booleano para que chequee si está casteando o no un hechizo. En el caso de que esté casteando no podrá atacar
+
 
 BUGS:
 1) Nullreference exception que sale con el sistema de layers
 CORREGIDO: creado DamageTrigger que funciona de intermediario
 entre el AttackTrigger y el CombatTarget
 2) Error al setear la info del proyectil del hechizo de bola
-de fuego del boss <en proceso de corrección>
+de fuego del boss <Corregido>
 
 En proceso:
 
 1) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
-2) Corrección de bola de fuego para eso necesito:
+2) Cambiar colliders de las armas por un collider universal por personaje y cambiar rango/tamaño según arma. ¿Qué necesito para lograr esto?
 
-- Setear los MagicSpawners
-- Reprogramar las magias
-- Testear magias reprogramadas y spawners
-- Setear el fireball en el boss y testear su funcionamiento
+2.1) Setear en los characters un damageTrigger universal <hecho>
+2.2) Cambiar el tamaño y posición del collider según un collider de ejemplo que esté apagado. <En progreso>
+2.3) Poder apagar y prenderlo y setearle los valores como venía haciendo anteriormente sin que se rompa <hecho>
+2.4) Testear que funcione en todas las armas melee creadas hasta el momento y que el daño se haga correctamente en cada personaje.
+2.5) ÉXITO :v
 
-TO DO:
+PATRONES
 
+1) MVC en los characters (player, enemies y boss)
+1.1) Model tomará casi toda las funciones de los scripts PlayerController y AIController
+1.2) Controller tomará los inputs del PlayerController y el Mover de AIController
+1.3) View se encargará del feedback visual y auditivo (pendiente a corregir/modificar código en los scripts Health y sus derivados, Mover, Fighter, MagicCaster, etc)
+2) Command en las acciones de los personajes (atacar, moverse, activar una magia, tomar una pota y equipar un objeto)
+3) Screen Manager (Esto lo haría sol y si se le complica veo de ayudarla)
+4) Setear mas ObjectPools/Factories + Consultar al profe por pools con mismo script pero distinto gameObject (Buscar todo lo que tenga un Instantiate y cambiarlo por el patrón)
 
-1) Implementar Object Pool en Efectos Visuales a spawnear
-2) Implementar el patrón de diseño Command en el manejo de inputs del player
-3) Implementar MVC
-
-Correcciones:
-
-1) usar layer en lugar de tags <hecho>
-2) cambiar instantiates por object pool <en proceso>
-3) controller tomar los inpus
-4) crear un player model para los comportamientos
-5) crear weapon system para la equipación de armas <hecho>
-6) usar strategy para definir el tipo de magia a la hora de 
-ejecutarla
+CRITICO: cuando sol termine el UI implementarlo ingame y setear/corregir lo necesario en cuestión de programación

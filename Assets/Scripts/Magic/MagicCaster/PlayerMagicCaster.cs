@@ -39,6 +39,11 @@ namespace RPG.Magic
         {
             return _currentMagic.mpToConsume <= _magicPoints.magicPoints;
         }
+
+        public override void ActionsAfterActivatingMagic()
+        {
+            base.ActionsAfterActivatingMagic();
+        }
     }
 
 }

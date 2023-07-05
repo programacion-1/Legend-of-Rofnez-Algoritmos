@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4309094890514785231
 Transform:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c832840d56f7745b53f51d60118200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponCollider: {fileID: 1032252651762454017}
+  _weaponCollider: {fileID: 0}
 --- !u!1001 &1587321793706718220
 PrefabInstance:
   m_ObjectHideFlags: 0
