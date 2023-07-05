@@ -7,6 +7,7 @@ using RPG.Core;
 using RPG.InventorySystem;
 using RPG.Magic;
 using RPG.UI;
+using System;
 
 namespace RPG.MVC.Player
 {
@@ -24,6 +25,8 @@ namespace RPG.MVC.Player
         [field: SerializeField] public ActionScheduler ActionScheduler { get; private set; }
         [field: SerializeField] public PlayerHealth PlayerHealth { get; private set; }
         [field: SerializeField] public PlayerFighter PlayerFighter { get; private set; }
+        [field: SerializeField] public CombatTarget PlayerCombatTarget { get; private set; }
+        [field: SerializeField] public Mover PlayerMover { get; private set; }
         [field: SerializeField] public PlayerMagicCaster PlayerMagicCaster { get; private set; }
         [field: SerializeField] public ItemInventory ItemInventory { get; private set; }
         [field: SerializeField] public WeaponInventory WeaponInventory { get; private set; }
@@ -48,6 +51,7 @@ namespace RPG.MVC.Player
             MenuController = GameObject.FindObjectOfType<MenuController>();
             PlayerView playerView = new PlayerView(this);
             _playerModel.OnActivatingGodMode += playerView.CheckGodModeView;
+            _playerModel.OnInteractingWithMenu += playerView.ShowOrHideMenu;
             _controller = new PlayerController(_playerModel);
         }
 
@@ -70,41 +74,88 @@ namespace RPG.MVC.Player
         {
             if(_playerModel.CheckIfImDead()) return;
             _controller.ListenKeys();
+            _controller.ListenFixedKeys();
         }
 
         void FixedUpdate()
         {
             if(_playerModel.CheckIfImDead()) return;
-            _controller.ListenFixedKeys();
+            //_controller.ListenFixedKeys();
         }
 
-         #region EventManager
+        #region EventManager
         private void OnEnable()
         {
             EventManager.SubscribeToEvent(EventManager.Events.Event_UseItem, UseItem);
+            EventManager.SubscribeToEvent(EventManager.Events.Event_ChangeActiveWeapon, ChangeActiveWeapon);
+            EventManager.SubscribeToEvent(EventManager.Events.Event_FindPlayerCombatTarget, FindPlayerCombatTarget);
         }
 
         private void OnDisable()
         {
             EventManager.UnsubscribeToEvent(EventManager.Events.Event_UseItem, UseItem);
+            EventManager.UnsubscribeToEvent(EventManager.Events.Event_ChangeActiveWeapon, ChangeActiveWeapon);
+            EventManager.UnsubscribeToEvent(EventManager.Events.Event_FindPlayerCombatTarget, FindPlayerCombatTarget);
         }
 
+        #region UseItemEvent
         public void UseItem(params object[] p)
         {
             bool canUseItem = (bool) p[0];
             if(canUseItem) 
             {
                 _playerModel.SetCanIUseItem(false);
-                StartCoroutine(useItem());
+                StartCoroutine(useItemCo());
             }
             
         }
 
-        private IEnumerator useItem()
+        private IEnumerator useItemCo()
         {
             yield return new WaitForSeconds(1f);
             _playerModel.SetCanIUseItem(true);
         }
+        #endregion
+
+        #region ChangeActiveWeaponEvent
+        public void ChangeActiveWeapon(params object[] p)
+        {
+            bool canChangeWeapon = (bool) p[0];
+            if(canChangeWeapon)
+            {
+                _playerModel.SetCanIChangeWeapon(false);
+                StartCoroutine(changeWeaponCo());
+            }
+        }
+
+        private IEnumerator changeWeaponCo()
+        {
+            yield return new WaitForSeconds(0.5f);
+            _playerModel.SetCanIChangeWeapon(true);
+        }
+        #endregion
+
+        #region FindPlayerMagicTarget
+        public void FindPlayerMagicTarget(params object[] p)
+        {
+            RaycastHit hit = (RaycastHit) p[0];
+            CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
+            if(target == null) return;
+            if(target == PlayerCombatTarget) PlayerMagicCaster.target = PlayerHealth;
+            PlayerMagicCaster.target = target.GetComponent<Health>();
+            _playerModel.SetMagicTarget(PlayerMagicCaster.target);
+        }
+        #endregion
+
+        #region FindPlayerCombatTarget
+        public void FindPlayerCombatTarget(params object[] p)
+        {
+            RaycastHit hit = (RaycastHit) p[0];
+            CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
+            _playerModel.SetCombatTarget(target);
+        }
+        #endregion
+
         #endregion
     }
 

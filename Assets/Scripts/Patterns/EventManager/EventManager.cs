@@ -9,7 +9,10 @@ public static class EventManager
     {
         Event_ChangeInteractiveBarValues, //Evento para cambiar el valor de las barras interactivas
         Event_AIHasBeenAttacked, //Evento para indicar a la IA que fue atacada por el player
-        Event_UseItem // Evento para que el player use un item
+        Event_UseItem, // Evento para que el player use un item
+        Event_ChangeActiveWeapon, // Evento para que el player cambie el arma activa
+        Event_FindPlayerMagicTarget, // Evento para buscar un combat target para la magia del player
+        Event_FindPlayerCombatTarget // Evento para buscar un combat target para el player
     }
 
     //Creo un delegado donde voy a obligar a las funciones que se quieran suscribir

@@ -65,11 +65,11 @@ namespace RPG.Control
             }*/
             #endregion
             //Input para cambiar de arma activa
-            if(canChangeWeapon) if(Input.GetKeyDown(KeyCode.Q)) StartCoroutine("SetPlayerActiveWeapon");
-            InteractWithInventoryMenu();
-            if(InteractWithMagic()) return;
-            if(InteractWithCombat()) return;
-            if(InteractWithMovement()) return;
+            //if(canChangeWeapon) if(Input.GetKeyDown(KeyCode.Q)) StartCoroutine("SetPlayerActiveWeapon");
+            //InteractWithInventoryMenu();
+            //if(InteractWithMagic()) return;
+            //if(InteractWithCombat()) return;
+            //if(InteractWithMovement()) return;
         }
 
         #region God Mode

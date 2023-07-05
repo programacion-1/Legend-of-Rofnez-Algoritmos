@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponCollider: {fileID: 0}
+  _damageTriggerCenter: {x: 0.78, y: 0.28, z: 0}
+  _damageTriggerSize: {x: 1.79, y: 1.41, z: 1.67}
 --- !u!1001 &1587321793706718220
 PrefabInstance:
   m_ObjectHideFlags: 0

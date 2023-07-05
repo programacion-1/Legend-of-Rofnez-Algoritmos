@@ -55,6 +55,12 @@ namespace RPG.MVC.Player
             else _menuController.HideUIObject(_menuController.GetGodModeText());
         }
 
+        public void ShowOrHideMenu(bool value)
+        {
+            if(value) _menuController.ShowUIObject(_menuController.GetWeaponInventoryMenu());
+            else _menuController.HideUIObject(_menuController.GetWeaponInventoryMenu());
+        }
+
         #endregion
     }
 }

@@ -2356,7 +2356,6 @@ GameObject:
   - component: {fileID: 6450686872365591722}
   - component: {fileID: 7808648453545543605}
   - component: {fileID: 7728357046130000598}
-  - component: {fileID: 4424714602934427123}
   - component: {fileID: 552618450792025908}
   - component: {fileID: 3836124194544175527}
   - component: {fileID: 350899885960186329}
@@ -2507,18 +2506,6 @@ CapsuleCollider:
   m_Height: 2.25
   m_Direction: 1
   m_Center: {x: 0, y: 0.75, z: 0}
---- !u!114 &4424714602934427123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3810658928676046845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f9e758e7fe5dc4baf08e166637cccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &552618450792025908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2683,6 +2670,8 @@ MonoBehaviour:
   <ActionScheduler>k__BackingField: {fileID: 552618450792025908}
   <PlayerHealth>k__BackingField: {fileID: 350899885960186329}
   <PlayerFighter>k__BackingField: {fileID: 6016132443323725300}
+  <PlayerCombatTarget>k__BackingField: {fileID: 3836124194544175527}
+  <PlayerMover>k__BackingField: {fileID: 970811454}
   <PlayerMagicCaster>k__BackingField: {fileID: 7173218899589490050}
   <ItemInventory>k__BackingField: {fileID: 3941247847641947573}
   <WeaponInventory>k__BackingField: {fileID: 2253082583425601405}

@@ -33,6 +33,19 @@ NOTA: fue necesario agregar un id tanto en la salud del enemigo como en el contr
 
 5) Corregido pequeño bug de que el fireball no se casteaba correctamente ya que era interrumpido por el ataque del boss, se solucionó con setear en EnemyCaster un booleano para que chequee si está casteando o no un hechizo. En el caso de que esté casteando no podrá atacar
 
+6) Aplicado en MVC en Player reemplazando PlayerController (ahora renombrado como PlayerController Old) por PlayerMVC que funciona como User para manejar el Model, View y Controller del Player (PlayerModel, PlayerView y PlayerController).
+
+PlayerController: Se encarga del manejo de Inputs y Raycasts del Player para que interactúe con el PlayerModel
+PlayerModel: Se encarga de la lógica de interacción de Inputs del PlayerController
+PlayerView: Controla el feedback visual y sonoro del Player
+PlayerMVC: Maneja los updates, los eventos del PlayerModel y la integración del PlayerView al PlayerModel
+
+Cosas a tener en cuenta:
+
+- Surge una advertencia de "You are trying to create a MonoBehaviour using the 'new' keyword.  This is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively, your script can inherit from ScriptableObject or no base class at all" en PlayerModel y PlayerView. Esto conlleva a que dentro de ambos scripts no pueda realizar acciones de MonoBehaviour tales como GetComponent, StartCoroutine, Invoke, etc ya que me genera un NullReferenceExcepcion. Por el momento está solucionado con el patrón EventManager en donde el PlayerMVC maneja eventos con acciones de MonoBehaviour, el PlayerModel y el PlayerView llaman a los eventos del PlayerMVC y así realizan sus acciones correctamente y no se genera el NullReference.
+
+- El PlayerView aún está muy verde ya que gran parte del feedback visual y sonoro aún se ejecutan en scripts externos a los del PlayerMVC y derivados.
+
 
 BUGS:
 1) Nullreference exception que sale con el sistema de layers
@@ -40,10 +53,8 @@ CORREGIDO: creado DamageTrigger que funciona de intermediario
 entre el AttackTrigger y el CombatTarget
 2) Error al setear la info del proyectil del hechizo de bola
 de fuego del boss <Corregido>
-3) Al setear en el PlayerMVC el PlayerModel y el PlayerView me sale un warning de:
-"You are trying to create a MonoBehaviour using the 'new' keyword.  This is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively, your script can inherit from ScriptableObject or no base class at all" y por ende cuando intento realizar la siguiente acción:
-
-- UseItemOnInventory(Keycode key) en el model, me salta un NullReference y no se me ejecuta la corrutina UseItem() <ARREGLADO> Aplicado EventManager para que la corrutina se haga en el MVC donde no genera este nullreference
+3) En el PlayerMVC el PlayerModel y el PlayerView me sale un warning de:
+"You are trying to create a MonoBehaviour using the 'new' keyword.  This is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively, your script can inherit from ScriptableObject or no base class at all" y al querer realizar acciones de MonoBehaviour me sale NullReferenceError <Arreglado... Kinda>
 
 En proceso:
 

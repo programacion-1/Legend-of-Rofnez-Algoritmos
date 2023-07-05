@@ -28,49 +28,35 @@ namespace RPG.MVC.Player
             if(Input.GetKeyDown(KeyCode.Alpha2)) _playerModel.UseItemOnInventory(KeyCode.Alpha2);
 
             //Cambiar Arma activa
-            if(Input.GetKeyDown(KeyCode.Q)) Debug.Log("Change Active Weapon");
+            if(Input.GetKeyDown(KeyCode.Q)) _playerModel.ChangeActiveWeapon();
 
             //Interact with InventoryMenu
-            if(Input.GetKeyDown(KeyCode.Tab)) Debug.Log("Show Inventory");
-            if(Input.GetKeyUp(KeyCode.Tab)) Debug.Log("Hide Inventory"); 
+            if(Input.GetKeyDown(KeyCode.Tab)) _playerModel.InteractWithInventoryMenu(true);
+            if(Input.GetKeyUp(KeyCode.Tab)) _playerModel.InteractWithInventoryMenu(false);
         }
 
         private bool InteractWithMagicController()
         {
-            if(Input.GetMouseButtonDown(1) && true) // Se seteará en el model la condición de magic
+            if(Input.GetMouseButtonDown(1)) // Se seteará en el model la condición de magic
             {
                 RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-                foreach(RaycastHit hit in hits)
-                {
-                    Debug.Log("Set Target on Model");
-                    /*CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
-                    Health magicTarget = null;
-                    if(target == null) continue;
-                    if(target == GetComponent<CombatTarget>()) magicTarget = GetComponent<Health>();
-                    magicTarget.target = target.GetComponent<Health>();*/
-                }
-                Debug.Log("Magic Attack on Model");
-                return true;
+                if(_playerModel.InteractWithMagic(hits)) return true;
+                else return false;
             }
-            else return false;                 
+            else return false;
         }
 
         private bool InteractWithCombatController()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-            foreach(RaycastHit hit in hits)
+            if(_playerModel.FindCombatTarget(hits))
             {
-                Debug.Log("Set Target on Model");
-                /*CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
-                if(target == null) continue;
-                if(target == GetComponent<CombatTarget>()) continue;
-                if(!_fighter.CanAttack(target.gameObject)) continue;
-                Debug.Log($"Encontre un objetivo");*/
+                Debug.Log($"Encontre un objetivo");
                 if(Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log("Attack on Model");
-                } 
-                return true;
+                    _playerModel.InteractWithCombat();
+                }
+                return true; 
             }
             return false;
         }
@@ -82,7 +68,11 @@ namespace RPG.MVC.Player
             if (hasHit && !CheckRaycastTags(hit))
             {
                 //playerCursor.SetMoveCursor();
-                if (Input.GetMouseButtonDown(0)) Debug.Log("Movement by Model");
+                if (Input.GetMouseButtonDown(0))
+                {
+                    _playerModel.Move(hit);
+                    Debug.Log($"Move");
+                } 
                 return true;
             }
             //playerCursor.SetDefaultCursor();
