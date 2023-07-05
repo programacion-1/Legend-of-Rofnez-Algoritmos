@@ -13,7 +13,7 @@ using System;
 namespace RPG.Control
 {
     //Funcion dedicada para el control del player
-    public class PlayerController : MonoBehaviour
+    public class PlayerControllerOld : MonoBehaviour
     {
         PlayerHealth _health;
         Fighter _fighter;
@@ -45,13 +45,13 @@ namespace RPG.Control
             //if(Input.GetKeyDown(KeyCode.F1)) ArrowProjectileFactory.Instance.GetObject();
             #endregion
             //Input para activar y desactivar el God Mode
-            if(Input.GetKeyDown(KeyCode.F))
+            /*if(Input.GetKeyDown(KeyCode.F))
             {
                 if(_godMode) DisableGodMode();
                 else EnableGodMode();
-            }
+            }*/
             #region Inputs para consumir pociones. Por el momento, hardcodeado
-            if(canUseItem)
+            /*if(canUseItem)
             {
                 if(Input.GetKeyDown(KeyCode.Alpha1))
                 {
@@ -62,7 +62,7 @@ namespace RPG.Control
                 {
                     UseItemOnInventory(1);
                 }
-            }
+            }*/
             #endregion
             //Input para cambiar de arma activa
             if(canChangeWeapon) if(Input.GetKeyDown(KeyCode.Q)) StartCoroutine("SetPlayerActiveWeapon");
@@ -98,7 +98,7 @@ namespace RPG.Control
                 {
                     CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
                     if(target == null) continue;
-                    if(target == GetComponent<CombatTarget>()) continue;
+                    if(target == GetComponent<CombatTarget>()) _magicCaster.target = GetComponent<Health>();
                     _magicCaster.target = target.GetComponent<Health>();
                 }
                 _magicCaster.MagicAttack();

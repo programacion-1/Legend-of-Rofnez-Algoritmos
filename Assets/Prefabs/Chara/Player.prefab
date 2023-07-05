@@ -2366,6 +2366,9 @@ GameObject:
   - component: {fileID: 5623221010749139124}
   - component: {fileID: 2253082583425601405}
   - component: {fileID: 3941247847641947573}
+  - component: {fileID: 1810293419}
+  - component: {fileID: 648174639147386945}
+  - component: {fileID: 375736311264438979}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2665,6 +2668,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 0}
   potions: []
+--- !u!114 &1810293419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810658928676046845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdec348842d999c439c9eca808768c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ActionScheduler>k__BackingField: {fileID: 552618450792025908}
+  <PlayerHealth>k__BackingField: {fileID: 350899885960186329}
+  <PlayerFighter>k__BackingField: {fileID: 6016132443323725300}
+  <PlayerMagicCaster>k__BackingField: {fileID: 7173218899589490050}
+  <ItemInventory>k__BackingField: {fileID: 3941247847641947573}
+  <WeaponInventory>k__BackingField: {fileID: 2253082583425601405}
+  <RunClip>k__BackingField: {fileID: 8300000, guid: 4ee9f1d66b3a5584181b21c7f0be34de, type: 3}
+--- !u!114 &648174639147386945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810658928676046845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c637994c0b575a845826deebde824a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &375736311264438979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810658928676046845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0f7568e39f54646b08d5e129eb2d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8012440135007860234
 GameObject:
   m_ObjectHideFlags: 0

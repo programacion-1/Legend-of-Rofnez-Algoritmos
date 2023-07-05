@@ -29,7 +29,7 @@ namespace RPG.Control
             _AIfighter = GetComponent<Fighter>();
             _AIhealth = GetComponent<Health>();
             _AIhealth.SetID(_AiID);
-            _AIplayerTarget = GameObject.FindObjectOfType<PlayerController>().gameObject;
+            _AIplayerTarget = GameObject.FindObjectOfType<PlayerControllerOld>().gameObject;
             _AImover = GetComponent<Mover>();
             _hasBeenAttackedByTarget = false;
         }

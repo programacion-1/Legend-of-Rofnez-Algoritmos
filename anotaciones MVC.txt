@@ -1,0 +1,7 @@
+- model y view pueden o no pueden heredar de monoBehaviour dependiendo si es necesario
+- en el model creo public event Action<T> var = delegate {}; (necesario using System) para poderle delegar cosas al model del view sin necesidad de que el model tenga conocimiento del view
+- en el User suscribo las funciones del view al event Action<T> var del model
+
+- en mi caso para interactuar entre el movimiento del model y el feedback del view tendría que hacer lo siguiente:
+1. Setear en el PlayerModel un event Action<variable que comparta el action del model y la funcion del view>
+2. Sumar en el Awake del PlayerMVC la funcion del view al event action

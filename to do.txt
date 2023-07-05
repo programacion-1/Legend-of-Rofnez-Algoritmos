@@ -40,25 +40,28 @@ CORREGIDO: creado DamageTrigger que funciona de intermediario
 entre el AttackTrigger y el CombatTarget
 2) Error al setear la info del proyectil del hechizo de bola
 de fuego del boss <Corregido>
+3) Al setear en el PlayerMVC el PlayerModel y el PlayerView me sale un warning de:
+"You are trying to create a MonoBehaviour using the 'new' keyword.  This is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively, your script can inherit from ScriptableObject or no base class at all" y por ende cuando intento realizar la siguiente acción:
+
+- UseItemOnInventory(Keycode key) en el model, me salta un NullReference y no se me ejecuta la corrutina UseItem() <ARREGLADO> Aplicado EventManager para que la corrutina se haga en el MVC donde no genera este nullreference
 
 En proceso:
 
 1) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
-2) Cambiar colliders de las armas por un collider universal por personaje y cambiar rango/tamaño según arma. ¿Qué necesito para lograr esto?
-
-2.1) Setear en los characters un damageTrigger universal <hecho>
-2.2) Cambiar el tamaño y posición del collider según un collider de ejemplo que esté apagado. <En progreso>
-2.3) Poder apagar y prenderlo y setearle los valores como venía haciendo anteriormente sin que se rompa <hecho>
-2.4) Testear que funcione en todas las armas melee creadas hasta el momento y que el daño se haga correctamente en cada personaje.
-2.5) ÉXITO :v
+2) Aplicando MVC al Character. Lo que falta setear:
+- WeaponInventory
+- InventoryMenu
+- MagicCaster
+- Fighter
+- Movement
 
 PATRONES
 
 1) MVC en los characters (player, enemies y boss)
 1.1) Model tomará casi toda las funciones de los scripts PlayerController y AIController
-1.2) Controller tomará los inputs del PlayerController y el Mover de AIController
+1.2) Controller tomará los inputs y los raycasts del PlayerController y el Mover de AIController
 1.3) View se encargará del feedback visual y auditivo (pendiente a corregir/modificar código en los scripts Health y sus derivados, Mover, Fighter, MagicCaster, etc)
-2) Command en las acciones de los personajes (atacar, moverse, activar una magia, tomar una pota y equipar un objeto)
+2) Ver Flyweight, si no convence Decorator, si no convence Localization Manager
 3) Screen Manager (Esto lo haría sol y si se le complica veo de ayudarla)
 4) Setear mas ObjectPools/Factories + Consultar al profe por pools con mismo script pero distinto gameObject (Buscar todo lo que tenga un Instantiate y cambiarlo por el patrón)
 
