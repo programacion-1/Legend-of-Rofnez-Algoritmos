@@ -86,15 +86,7 @@ namespace RPG.MVC.Player
             {
                 FindMagicTarget(hits);
                 _playerMagicCaster.MagicAttack();
-                return true;            
-                /*foreach(RaycastHit hit in hits)
-                {
-                    CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
-                    if(target == null) continue;
-                    if(target == GetComponent<CombatTarget>()) _playerMagicCaster.target = GetComponent<Health>();
-                    _playerMagicCaster.target = target.GetComponent<Health>();
-                }*/
-                
+                return true;                            
             }
             else return false;
         }

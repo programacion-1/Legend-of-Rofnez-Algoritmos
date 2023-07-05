@@ -11,23 +11,21 @@ namespace RPG.Core
         [SerializeField] string _bossHealthBarName;
         const string barName = "BossHealthBar";
         List<IObserver> _allObservers = new List<IObserver>();
-        public void SetBossHealthStartingSettings()
+
+        public override void CoreStartingSettings(params object[] p)
         {
-            CoreStartingSettings();
+            base.CoreStartingSettings(p);
+            SetBossHealthStartingSettings((float) p[0], (float) p[1], (string) p[2]);
+        }
+
+        public virtual void SetBossHealthStartingSettings(params object[] p)
+        {
             _bossHealthBarName = barName;
             TriggerChangeInteractiveBarValuesEvent();
-            BossChildHealthStartingSettings();
             NotifyToObservers("Begin");
-        }
-
-        public virtual void BossChildHealthStartingSettings()
-        {
-
-        }
-
-        void Start()
-        {
-            SetBossHealthStartingSettings();
+            _damageRate = (float) p[0];
+            _returnToWhiteColourTimer = (float) p[1];
+            _deadTriggerName = (string) p[2];
         }
         public override void CharaDamageBehaviour()
         {
@@ -35,6 +33,7 @@ namespace RPG.Core
             BossDamageBehaviour();
         }
 
+        
         public virtual void BossDamageBehaviour()
         {
             TriggerChangeInteractiveBarValuesEvent();

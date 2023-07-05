@@ -329,7 +329,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8006936652865474539, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
       propertyPath: _chaseDistance
-      value: 10
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006936652865474539, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+      propertyPath: _chaseDistanceModifier
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006936652865474539, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+      propertyPath: _movementSpeedModifier
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8212890988055871080, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
       propertyPath: healthPoints

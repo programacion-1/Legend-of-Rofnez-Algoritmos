@@ -46,6 +46,26 @@ Cosas a tener en cuenta:
 
 - El PlayerView aún está muy verde ya que gran parte del feedback visual y sonoro aún se ejecutan en scripts externos a los del PlayerMVC y derivados.
 
+7) Aplicado Flyweight para stats de los enemigos y boss. Se  crearon los siguientes scripts: 
+
+- EnemyFlyweight: Un struct que contiene las variables a utilizar para los enemiogs y boss
+- EnemyFlyweightPointer: Un clase con readonlys de EnemyFlyweight que setearan distintos varlos de las variables a utilizar
+
+Las variables a utilizar son las siguientes:
+- movementSpeed: float que definirá la velocidad del movimiento en el NavMeshAgent del Moder del Enemigo/Boss
+- chaseDistance: float que definirá la distancia a perseguir al Player
+- attackers: un array de enteros que tendrá los layers que serán considerados como atacantes para el combatTarget a la hora de calcular daños
+- damageRate: flotante que seteará cada cuanto tiempo puede recibir daño
+- returnToWhiteColourTimer: flotante que seteará un tiempo para que el color del material base vuelva a ser blanco
+- DeadTriggerName: string con el nombre del trigger a llamar por el animator cuando el enemigo/boss muera
+
+Modificaciones en los scripts:
+- Mover: Creada función SetNavMeshSpeed que pide un float para setear la velocidad del NaveMeshAgent. (Necesaria para setear la movementSpeed desde GuardAIController y StoneBossAIController)
+- CombatTarget: Creada función SetAttackers que pide un array de ints para setear los attackers. (Necesaria para setear attackers desde AIController)
+- GuardAIController: Se crearon las variables float _chaseDistanceModifier y _movementSpeedModifier que se sumarán al chaseDistance y al movementSpeed respectivamente seteados desde el Flyweight. Ahora la variable _chaseDistance será el resultado de la suma de chaseDistance de Flyweight y _chaseDistanceModifier. Y la variable speed a setear en SetNavMeshSpeed será el resultado de la suma de movementSpeed de Flyweight y _movementSpeedModifier.
+- Health: Se modificó la función CoreStartingSettings por virtual y recibirá un params object[].
+- Boss Health y Enemy Health: Se setearon funciones nuevas que recibirán parámetros del CoreStartingSettings(params object[]) las cuales se ejecutarán dentro del CoreStartingSettings de sus respectivos overrides y setearán las variables _damageRate, _returnToWhiteColourTimer y _deadTriggerName (Las cuales serán provistas desde StoneBossAIController y GuardAIController respectivamente con sus respectivas variables del Flyweight).
+
 
 BUGS:
 1) Nullreference exception que sale con el sistema de layers
@@ -59,21 +79,13 @@ de fuego del boss <Corregido>
 En proceso:
 
 1) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
-2) Aplicando MVC al Character. Lo que falta setear:
-- WeaponInventory
-- InventoryMenu
-- MagicCaster
-- Fighter
-- Movement
+2) 
 
 PATRONES
 
-1) MVC en los characters (player, enemies y boss)
-1.1) Model tomará casi toda las funciones de los scripts PlayerController y AIController
-1.2) Controller tomará los inputs y los raycasts del PlayerController y el Mover de AIController
-1.3) View se encargará del feedback visual y auditivo (pendiente a corregir/modificar código en los scripts Health y sus derivados, Mover, Fighter, MagicCaster, etc)
-2) Ver Flyweight, si no convence Decorator, si no convence Localization Manager
-3) Screen Manager (Esto lo haría sol y si se le complica veo de ayudarla)
+1) Ver Decorator, si no convence Localization Manager
+2) Screen Manager (Esto lo haría sol y si se le complica veo de ayudarla)
+3) MVC en los enemies y boss
 4) Setear mas ObjectPools/Factories + Consultar al profe por pools con mismo script pero distinto gameObject (Buscar todo lo que tenga un Instantiate y cambiarlo por el patrón)
 
 CRITICO: cuando sol termine el UI implementarlo ingame y setear/corregir lo necesario en cuestión de programación

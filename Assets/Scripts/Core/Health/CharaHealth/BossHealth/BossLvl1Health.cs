@@ -7,9 +7,9 @@ namespace RPG.Core
 {
     public class BossLvl1Health : BossHealth
     {
-        public override void BossChildHealthStartingSettings()
+        public override void SetBossHealthStartingSettings(params object[] p)
         {
-            base.BossChildHealthStartingSettings();
+            base.SetBossHealthStartingSettings(p);
         }
 
         public override void BossDamageBehaviour()

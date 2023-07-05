@@ -15,11 +15,16 @@ namespace RPG.Movement
         AudioManager audioManager;
         [SerializeField] AudioClip runClip;
 
-        private void Start()
+        private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
             audioManager = GameObject.FindObjectOfType<AudioManager>();
+        }
+
+        public void SetNaveMeshSpeed(float speedModifier)
+        {
+            navMeshAgent.speed = speedModifier;
         }
 
         private void Update()

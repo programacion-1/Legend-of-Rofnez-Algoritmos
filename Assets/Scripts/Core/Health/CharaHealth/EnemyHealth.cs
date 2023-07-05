@@ -10,10 +10,18 @@ namespace RPG.Core
         private RewardDrop rewardDrop;
 
         // Start is called before the first frame update
-        void Start()
+        public override void CoreStartingSettings(params object[] p)
         {
+            base.CoreStartingSettings(p);
             rewardDrop = GetComponent<RewardDrop>();
-            CoreStartingSettings();
+            SetHealthEnemyStats((float)p[0], (float)p[1], (string)p[2]);
+        }
+        
+        public void SetHealthEnemyStats(float damageRate, float returonToWhiteColourTimer, string deadTriggerName)
+        {
+            _damageRate = damageRate;
+            _returnToWhiteColourTimer = returonToWhiteColourTimer;
+            _deadTriggerName = deadTriggerName;
         }
         public override void CharaDamageBehaviour()
         {

@@ -10,18 +10,19 @@ namespace RPG.Control
 {
     public abstract class AIController: MonoBehaviour
     {
-        [SerializeField] float _chaseDistance = 5f;
+        protected float _chaseDistance;
         [Header("Variable necesaria para el evento AIHasBeenAttacked")]
         [Header("ADVERTENCIA: NO PUEDE HABER MAS DE UNA ID")]
         [Header("IDENTICA O SE PRODUCIRA UN BUG")]
         [SerializeField] int _AiID;
-
         protected ActionScheduler _AIactionScheduler{get; set;}
         protected Fighter _AIfighter{get; set;}
         protected Health _AIhealth{get; set;}
         protected GameObject _AIplayerTarget{get; set;}
         protected Mover _AImover{get; set;}
+        CombatTarget _AICombatTarget;
         public bool _hasBeenAttackedByTarget;
+        protected EnemyFlyweight _AIStats;
         //[SerializeField] protected bool _hasBeenAttackedByTarget{get; set;}
         public void ParentStartingSettings()
         {
@@ -29,6 +30,8 @@ namespace RPG.Control
             _AIfighter = GetComponent<Fighter>();
             _AIhealth = GetComponent<Health>();
             _AIhealth.SetID(_AiID);
+            _AICombatTarget = GetComponent<CombatTarget>();
+            _AICombatTarget.SetAttackers(EnemyFlyweightPointer.AIController.attackers);
             _AIplayerTarget = GameObject.Find("Player");
             _AImover = GetComponent<Mover>();
             _hasBeenAttackedByTarget = false;

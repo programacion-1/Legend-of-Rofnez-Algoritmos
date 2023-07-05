@@ -7,14 +7,14 @@ namespace RPG.Core
     public abstract class CharaHealth : Health
     {
         [Header("Character Health Stats")]
-        [SerializeField] float _damageRate;
-        [SerializeField] float _returnToWhiteColourTimer;
+        [SerializeField] protected float _damageRate;
+        [SerializeField] protected float _returnToWhiteColourTimer;
         [SerializeField] Renderer charaRenderer;
         [SerializeField] Transform _shaderSpawnpoint;
         [SerializeField] protected GameObject hitFX;
         [SerializeField] protected GameObject bloodFX;
-        [SerializeField] string deadTriggerName;
-
+        [SerializeField] protected string _deadTriggerName;
+        
         public override void ChildrenDamageBehavior()
         {
             CharaDamageBehaviour();
@@ -42,7 +42,7 @@ namespace RPG.Core
         public virtual void CharaDeathBehaviour()
         {
             audioManager.TryToPlayClip(audioManager.PlayerSFXSources, deadClipSound);
-            GetComponent<Animator>().SetTrigger(deadTriggerName);
+            GetComponent<Animator>().SetTrigger(_deadTriggerName);
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
 

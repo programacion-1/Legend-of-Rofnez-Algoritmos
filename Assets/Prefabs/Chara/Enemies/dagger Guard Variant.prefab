@@ -77,11 +77,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8006936652865474539, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
       propertyPath: _chaseDistance
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8006936652865474539, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
       propertyPath: _suspicionTime
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006936652865474539, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
+      propertyPath: _chaseDistanceModifier
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8212890988055871080, guid: 78698cf7a23a12347a02382a2e58bf96, type: 3}
       propertyPath: impactClipSound

@@ -543,7 +543,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 2
+  m_Speed: 0
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 5000
@@ -579,7 +579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c241f4739a016db4f9f8fef42138bbc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chaseDistance: 6.5
   _AiID: 100
   _hasBeenAttackedByTarget: 0
   _fireballAttackTime: 8
@@ -628,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d339e67ab5afbcc4dafa573c70654ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackers: 06000000
+  attackers: 
 --- !u!114 &7369800620154545691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,7 +653,7 @@ MonoBehaviour:
   _shaderSpawnpoint: {fileID: 8046056893070945994}
   hitFX: {fileID: 66467482925399531, guid: e293ba5db78eaf046971a1fa16835ba7, type: 3}
   bloodFX: {fileID: 9110215784254510012, guid: 8dfca03007bc7f24584fb16d41f3054a, type: 3}
-  deadTriggerName: Die
+  _deadTriggerName: 
   _bossHealthBarName: 
 --- !u!114 &8589910883275114580
 MonoBehaviour:

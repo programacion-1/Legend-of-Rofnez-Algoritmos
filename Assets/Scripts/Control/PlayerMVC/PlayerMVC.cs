@@ -89,6 +89,7 @@ namespace RPG.MVC.Player
             EventManager.SubscribeToEvent(EventManager.Events.Event_UseItem, UseItem);
             EventManager.SubscribeToEvent(EventManager.Events.Event_ChangeActiveWeapon, ChangeActiveWeapon);
             EventManager.SubscribeToEvent(EventManager.Events.Event_FindPlayerCombatTarget, FindPlayerCombatTarget);
+            EventManager.SubscribeToEvent(EventManager.Events.Event_FindPlayerMagicTarget, FindPlayerMagicTarget);
         }
 
         private void OnDisable()
@@ -96,6 +97,7 @@ namespace RPG.MVC.Player
             EventManager.UnsubscribeToEvent(EventManager.Events.Event_UseItem, UseItem);
             EventManager.UnsubscribeToEvent(EventManager.Events.Event_ChangeActiveWeapon, ChangeActiveWeapon);
             EventManager.UnsubscribeToEvent(EventManager.Events.Event_FindPlayerCombatTarget, FindPlayerCombatTarget);
+            EventManager.UnsubscribeToEvent(EventManager.Events.Event_FindPlayerMagicTarget, FindPlayerMagicTarget);
         }
 
         #region UseItemEvent
@@ -106,8 +108,7 @@ namespace RPG.MVC.Player
             {
                 _playerModel.SetCanIUseItem(false);
                 StartCoroutine(useItemCo());
-            }
-            
+            }           
         }
 
         private IEnumerator useItemCo()
@@ -141,8 +142,8 @@ namespace RPG.MVC.Player
             RaycastHit hit = (RaycastHit) p[0];
             CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
             if(target == null) return;
-            if(target == PlayerCombatTarget) PlayerMagicCaster.target = PlayerHealth;
-            PlayerMagicCaster.target = target.GetComponent<Health>();
+            else if(target == PlayerCombatTarget) PlayerMagicCaster.target = PlayerHealth;
+            else PlayerMagicCaster.target = target.GetComponent<Health>();
             _playerModel.SetMagicTarget(PlayerMagicCaster.target);
         }
         #endregion

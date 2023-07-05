@@ -1,0 +1,16 @@
+1) usar flyweight los enemigos con los siguientes stats:
+
+- movementSpeed (setear un modificador)
+- chaseDistance (setear un modificador)
+- Attackers[] (array con los layers con los que pueden ser dañados)
+- DamageRate
+- Return to WhiteColor
+- DeadTriggerName
+
+
+modificador:
+1) chaseDistance:
+- Archer: 10
+- daggerGuard: 8
+- clubGuard: 7.5
+- unarmedGuard: 5

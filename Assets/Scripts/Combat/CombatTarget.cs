@@ -14,6 +14,11 @@ namespace RPG.Combat
         {
             _health = GetComponent<Health>();
         }
+
+        public void SetAttackers(int[] newAttackers)
+        {
+            attackers = newAttackers;
+        }
         
         private void OnTriggerEnter(Collider other)
         {

@@ -7,6 +7,8 @@ namespace RPG.Control
     public class GuardAIController : AIController
     {
         [Header("Guard AI Variables")]
+        [SerializeField] float _chaseDistanceModifier;
+        [SerializeField] float _movementSpeedModifier = 0;
         [SerializeField] float _suspicionTime = 5f;
         [SerializeField] PatrolPath _patrolPath;
         Vector3 _guardPosition;
@@ -18,6 +20,10 @@ namespace RPG.Control
         void Start()
         {
             ParentStartingSettings();
+            _chaseDistance = EnemyFlyweightPointer.GuardAIController.chaseDistance + _chaseDistanceModifier; //Seteo la distancia de chase con la base del flyweight de GuardAIController más el valor del modificador
+            _AIhealth.CoreStartingSettings(EnemyFlyweightPointer.GuardAIController.damageRate, EnemyFlyweightPointer.GuardAIController.returnToWhiteColorTimer, EnemyFlyweightPointer.AIController.DeadTriggerName); //Seteo los stats a modificar del Health desde el Flyweight con distintos pointers dependiendo lo que necesito
+            float speed = EnemyFlyweightPointer.GuardAIController.movementSpeed + _movementSpeedModifier; //Seteo la velocidad del AgentNaveMesh desde el Flyweight
+            _AImover.SetNaveMeshSpeed(speed); 
             _guardPosition = transform.position;
         }
 

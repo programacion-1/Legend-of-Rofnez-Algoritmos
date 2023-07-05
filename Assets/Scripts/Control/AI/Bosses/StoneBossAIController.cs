@@ -21,6 +21,9 @@ namespace RPG.Control
         {
             ParentStartingSettings();
             _enemyMagicCaster = GetComponent<EnemyMagicCaster>();
+            _chaseDistance = EnemyFlyweightPointer.StoneBossAIController.chaseDistance; //Seteo la distancia de chase con la base del flyweight de StoneBossAIController
+            _AIhealth.CoreStartingSettings(EnemyFlyweightPointer.StoneBossAIController.damageRate, EnemyFlyweightPointer.StoneBossAIController.returnToWhiteColorTimer, EnemyFlyweightPointer.AIController.DeadTriggerName); //Seteo los stats a modificar del Health desde el Flyweight con distintos pointers dependiendo lo que necesito
+            _AImover.SetNaveMeshSpeed(EnemyFlyweightPointer.StoneBossAIController.movementSpeed); //Seteo la velocidad del AgentNaveMesh desde el Flyweight
         }
 
         public override void UpdateBehaviour()

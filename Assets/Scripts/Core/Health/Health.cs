@@ -23,7 +23,7 @@ namespace RPG.Core
 
         #region StartingSettings
         //Seteo las configuraciones iniciales que usarán
-        public void CoreStartingSettings()
+        public virtual void CoreStartingSettings(params object[] p)
         {
             audioManager = GameObject.FindObjectOfType<AudioManager>();
             _healthPoints = _maxHealthPoints;
