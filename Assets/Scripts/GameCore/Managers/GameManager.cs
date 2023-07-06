@@ -15,6 +15,7 @@ namespace RPG.GameCore
         public static GameManager instance;
         PlayerHealth player;
         QuestManager questManager;
+        GameScreenManager gameScreenManager;
         PlayerStatsManager playerStatsManager;
         AutoSavePlayerStatsDataManager autoSavePlayerStatsDataManager;
         PauseManager pauseManager;
@@ -38,17 +39,19 @@ namespace RPG.GameCore
             pauseManager = GetComponent<PauseManager>();
             sceneLoader = GetComponent<SceneLoader>();
             audioManager = GameObject.FindObjectOfType<AudioManager>();
+            gameScreenManager = GameObject.FindObjectOfType<GameScreenManager>();
             SetLevelSettings();
         }
 
         void Update()
         {
             if(autoSavePlayerStatsDataManager.CheckIfICanAutoSave()) StartCoroutine(autoSavePlayerStatsDataManager.autoSave());
-            if(Input.GetButtonDown("Cancel"))
+            gameScreenManager.ListenScreenManagerKeys();
+            /*if(Input.GetButtonDown("Cancel"))
             {
                 if(pauseManager.GetPauseState()) pauseManager.SetPause(false);
                 else pauseManager.SetPause(true);
-            }
+            }*/
         }
         
         void LateUpdate()
@@ -107,6 +110,7 @@ namespace RPG.GameCore
             //player.GetComponent<ItemInventory>().SetStartingInventorySettings();
             CameraFollower camaraFollower = GameObject.FindObjectOfType<CameraFollower>();
             questManager = GameObject.FindObjectOfType<QuestManager>();
+            gameScreenManager.StartSettings();
             GameObject.FindObjectOfType<QuestManager>().StartingSettings();
             //GetComponent<Deathcounter>().RestartCounter();
             GameObject.FindObjectOfType<ArenaObstacle>().SetEventText();

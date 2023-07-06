@@ -12,7 +12,9 @@ public static class EventManager
         Event_UseItem, // Evento para que el player use un item
         Event_ChangeActiveWeapon, // Evento para que el player cambie el arma activa
         Event_FindPlayerMagicTarget, // Evento para buscar un combat target para la magia del player
-        Event_FindPlayerCombatTarget // Evento para buscar un combat target para el player
+        Event_FindPlayerCombatTarget, // Evento para buscar un combat target para el player
+        Event_SetIfIsAScreenActiveOnScene //Evento para decirle al GameScreenManager que si hay una screen activa o no
+
     }
 
     //Creo un delegado donde voy a obligar a las funciones que se quieran suscribir

@@ -31,8 +31,8 @@ namespace RPG.MVC.Player
             if(Input.GetKeyDown(KeyCode.Q)) _playerModel.ChangeActiveWeapon();
 
             //Interact with InventoryMenu
-            if(Input.GetKeyDown(KeyCode.Tab)) _playerModel.InteractWithInventoryMenu(true);
-            if(Input.GetKeyUp(KeyCode.Tab)) _playerModel.InteractWithInventoryMenu(false);
+            //if(Input.GetKeyDown(KeyCode.Tab)) _playerModel.InteractWithInventoryMenu(true);
+            //if(Input.GetKeyUp(KeyCode.Tab)) _playerModel.InteractWithInventoryMenu(false);
         }
 
         private bool InteractWithMagicController()

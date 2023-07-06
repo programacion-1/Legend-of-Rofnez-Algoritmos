@@ -1,18 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using RPG.UI;
 
-public class ScreenPause : MonoBehaviour
+public class ScreenPause : MonoBehaviour, IScreen
 {
-    // Start is called before the first frame update
-    void Start()
+    PauseMenu _pauseMenu;
+    public void Activate()
     {
-        
+        Debug.Log("Activate Inventory Screen");
+        TriggerSetScreenActiveEvent(true);
+        _pauseMenu = GameObject.FindObjectOfType<PauseMenu>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Deactivate()
     {
-        
+        Debug.Log("Deactivate Inventory Screen");
+        TriggerSetScreenActiveEvent(false);
     }
+
+    public void Free()
+    {
+        Destroy(gameObject);
+    }
+
+    public void ContinueButton()
+    {        
+        TriggerSetScreenActiveEvent(false);
+    }
+
+    public void QuitMenuButton()
+    {
+        _pauseMenu.ReturnToMainMenu();
+        TriggerSetScreenActiveEvent(false);
+    }
+
+    public void QuitGameButton()
+    {
+        _pauseMenu.QuitGame();
+        TriggerSetScreenActiveEvent(false);
+    }
+
+    #region EventManager
+    void TriggerSetScreenActiveEvent(bool active)
+    {
+        EventManager.TriggerEvent(EventManager.Events.Event_SetIfIsAScreenActiveOnScene, active);
+    }
+    #endregion
 }

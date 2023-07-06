@@ -27,10 +27,15 @@ namespace RPG.UI
         {
             sceneLoader.SetSceneToLoad(sceneToLoad);
             pauseManager.SetPause(false);
-            StartCoroutine(ReturnToMainMenu());
+            StartCoroutine(ReturnToMainMenuCo());
         }
 
-        private IEnumerator ReturnToMainMenu()
+        public void ReturnToMainMenu()
+        {
+            StartCoroutine(ReturnToMainMenuCo());
+        }
+
+        private IEnumerator ReturnToMainMenuCo()
         {
             ResumeButton();
             yield return sceneLoader.TransitionBeginCo();
@@ -40,6 +45,11 @@ namespace RPG.UI
         public void QuitGameButton()
         {
             pauseManager.SetPause(false);
+            StartCoroutine(QuitCo());
+        }
+
+        public void QuitGame()
+        {
             StartCoroutine(QuitCo());
         }
         

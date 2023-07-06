@@ -103,6 +103,7 @@ namespace RPG.InventorySystem
                 _weaponProjectileSpawner.LaunchProjectile(t, gameObject.layer);
                 _rangedWeaponAmmo -= 1;
                 _weaponInventorMenu.SetAmmoText(_rangedWeaponAmmo.ToString());
+                _weaponInventorMenu.inventoryRangedWeaponAmmoText = _rangedWeaponAmmo.ToString();
             }
         }
 
