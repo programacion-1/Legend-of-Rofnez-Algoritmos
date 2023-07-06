@@ -1,0 +1,8 @@
+Para el correcto funcionamiento del ScreenManager voy a necesitar las siguientes Screens:
+
+- InventoryScreen: Pantalla que se cargará desde el PlayerController y se activará cuando se esté manteniendo apretado el botón Tab y se desactivará cuando se suelte
+- Pause Screen: Pantalla que se cargará desde el Config del ScreenManager y se activará cuando se aprete la tecla escape y se chequee que la pantalla no haya sido instanciada, y se desactivará cuando se apriete la tecla escape y se chequee que la pantalla haya sido instanciada
+- MainGame Screen: Pantalla por defecto que tendrá todo el GamePlay y estará activada desde el inicio y se "desactivará" cuando se llame a las otras pantallas
+
+Para crear el PauseScreen voy a tener que crear un canvas aparte del UICanvas que se instanciará y se borrará según lo que se toque en el Config del ScreenManager
+

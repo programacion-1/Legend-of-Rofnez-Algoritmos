@@ -10,11 +10,26 @@ namespace RPG.UI
         MenuController menuController;
         [SerializeField] Sprite currentMeleeWeaponSprite;
         [SerializeField] Sprite currentRangedWeaponSprite;
+        #region New
+        string _inventoryMeleeWeaponText;
+        public string inventoryMeleeWeaponText {get{return _inventoryMeleeWeaponText;} set{_inventoryMeleeWeaponText = value;}}
+        string _inventoryRangedWeaponText;
+        public string inventoryRangedWeaponText {get{return _inventoryRangedWeaponText;} set{_inventoryRangedWeaponText = value;}}
+        string _inventoryRangedWeaponAmmoText;
+        public string inventoryRangedWeaponAmmoText {get{return _inventoryRangedWeaponAmmoText;} set{_inventoryRangedWeaponAmmoText = value;}}
+        Sprite _inventoryMeleeWeaponSprite;
+        public Sprite inventoryMeleeWeaponSprite{get{return _inventoryMeleeWeaponSprite;} set{_inventoryMeleeWeaponSprite = value;}}
+        Sprite _inventoryRangedWeaponSprite;
+        public Sprite inventoryRangedWeaponSprite{get{return _inventoryRangedWeaponSprite;} set{_inventoryRangedWeaponSprite = value;}}        
+        #endregion
+        
+        #region Old
         [SerializeField] Image inventoryMeleeSprite;
         [SerializeField] Image inventoryRangedSprite;
         [SerializeField] Text inventoryMeleeText;
         [SerializeField] Text inventoryRangedText;
         [SerializeField] Text inventoryAmmoText;
+        #endregion
         // Start is called before the first frame update
         void Start()
         {
@@ -40,6 +55,12 @@ namespace RPG.UI
                     menuController.HideUIObject(menuController.GetAmmoText());
                     break;
             }
+        }
+
+        public void SetCurrentActiveWeapon(Sprite weaponSprite)
+        {
+            Image activeWeaponImage = menuController.GetCurrentWeaponActive().GetComponent<Image>();
+            activeWeaponImage.sprite = weaponSprite;
         }
 
         public void SetMeleeWeaponSprite(Sprite sprite)

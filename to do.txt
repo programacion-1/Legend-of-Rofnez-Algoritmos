@@ -79,13 +79,19 @@ de fuego del boss <Corregido>
 En proceso:
 
 1) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
-2) 
+2) Aplicación de ScreenManager para las pantallas de Gameplay, Pause e Inventory. Qué falta para terminar:
+
+InventoryScreen:
+- Modificar valores en scripts relacionados para mejorar su performance
+
+PauseScreen: Todo :V
+
+GameplayScreen: Chequear que se pausen los Behaviours y ver que no se rompa nada
 
 PATRONES
 
 1) Ver Decorator, si no convence Localization Manager
-2) Screen Manager (Esto lo haría sol y si se le complica veo de ayudarla)
-3) MVC en los enemies y boss
-4) Setear mas ObjectPools/Factories + Consultar al profe por pools con mismo script pero distinto gameObject (Buscar todo lo que tenga un Instantiate y cambiarlo por el patrón)
+2) MVC en los enemies y boss
+3) Setear mas ObjectPools/Factories + Consultar al profe por pools con mismo script pero distinto gameObject (Buscar todo lo que tenga un Instantiate y cambiarlo por el patrón)
 
 CRITICO: cuando sol termine el UI implementarlo ingame y setear/corregir lo necesario en cuestión de programación

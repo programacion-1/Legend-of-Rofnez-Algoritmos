@@ -71,7 +71,6 @@ namespace RPG.MVC.Player
                 if (Input.GetMouseButtonDown(0))
                 {
                     _playerModel.Move(hit);
-                    Debug.Log($"Move");
                 } 
                 return true;
             }

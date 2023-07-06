@@ -65,7 +65,6 @@ namespace RPG.Control
 
         private void SuspicionBehaviour()
         {
-            Debug.Log("Suspicion");
             _AIactionScheduler.CancelCurrentAction();
         }
 

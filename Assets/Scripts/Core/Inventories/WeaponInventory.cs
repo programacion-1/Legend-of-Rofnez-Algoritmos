@@ -49,9 +49,12 @@ namespace RPG.InventorySystem
         {
             _equippedMeleeWeapon = weapon;
             _weaponInventorMenu.SetMeleeWeaponSprite(weapon.weaponSprite);
+            _weaponInventorMenu.inventoryMeleeWeaponSprite = weapon.weaponSprite;
             _weaponInventorMenu.SetMeleeInventoryText(weapon.name);
+            _weaponInventorMenu.inventoryMeleeWeaponText = weapon.name;
             SetActiveWeapon(_equippedMeleeWeapon);
-            _weaponInventorMenu.SetCurrentWeaponActive(0);
+            //_weaponInventorMenu.SetCurrentWeaponActive(0);
+            _weaponInventorMenu.SetCurrentActiveWeapon(weapon.weaponSprite);
             _attackTrigger = currentWeapon.GetComponent<AttackTrigger>();
             _attackTrigger.SetWeaponCollider(_playerDamageTrigger);
             _playerDamageTrigger.SetDamageTriggerColliderStats(_attackTrigger.damageTriggerCenter, _attackTrigger.damageTriggerSize);
@@ -62,15 +65,19 @@ namespace RPG.InventorySystem
         {
             _equippedRangedWeapon = weapon;
             _weaponInventorMenu.SetRangedWeaponSprite(weapon.weaponSprite);
+            _weaponInventorMenu.inventoryRangedWeaponSprite = weapon.weaponSprite;
             _weaponInventorMenu.SetRangedInventoryText(weapon.name);
+            _weaponInventorMenu.inventoryRangedWeaponText = weapon.name;
             SetActiveWeapon(_equippedRangedWeapon);
-            _weaponInventorMenu.SetCurrentWeaponActive(1);
+            //_weaponInventorMenu.SetCurrentWeaponActive(1);
+            _weaponInventorMenu.SetCurrentActiveWeapon(weapon.weaponSprite);
             _weaponProjectileSpawner = currentWeapon.GetComponent<WeaponProjectileSpawner>();
             _weaponProjectileSpawner.projectileDamage = _activeWeapon.weaponDamage;
             RangedWeapon w = (RangedWeapon) _activeWeapon;
             _weaponProjectileSpawner.projectileColorTrail = w.trailColor;
             _rangedWeaponAmmo = w.ammo;
             _weaponInventorMenu.SetAmmoText(_rangedWeaponAmmo.ToString());
+            _weaponInventorMenu.inventoryRangedWeaponAmmoText = _rangedWeaponAmmo.ToString();
         }
 
         public void SelectAttack(Health target = null)

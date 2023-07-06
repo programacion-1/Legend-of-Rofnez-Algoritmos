@@ -19,7 +19,10 @@ namespace RPG.Movement
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
-            audioManager = GameObject.FindObjectOfType<AudioManager>();
+        }
+        private void Start()
+        {
+            audioManager = GameObject.FindObjectOfType<AudioManager>();   
         }
 
         public void SetNaveMeshSpeed(float speedModifier)
