@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 2076fa60a73803145b4b171ee19b4b3e
+guid: ab752481c42478641a9dc1c2d4b19a00
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4990081622815396301
+    second: Barra de vida  2.0_0
+  - first:
+      213: 7637842710841231682
+    second: Barra de vida  2.0_1
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -33,7 +39,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +48,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +121,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Barra de vida  2.0 1_0
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 1353
+        width: 1966
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97892612fe70af548ad98cbefc1262b5
+      internalID: -551202131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra de vida  2.0 1_1
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 766
+        width: 1845
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792e8884aa6f749489c93738b8f6b8ad
+      internalID: 819319450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +174,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Barra de vida  2.0 1_0: -551202131
+      Barra de vida  2.0 1_1: 819319450
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

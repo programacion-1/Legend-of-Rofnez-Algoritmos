@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 2076fa60a73803145b4b171ee19b4b3e
+guid: ad2a91394d1b2964990eb4c63bbe72a8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2784468965456250579
+    second: mana_0
+  - first:
+      213: 7127817309117235897
+    second: mana_1
+  - first:
+      213: 3461099566686742665
+    second: mana_2
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -33,7 +42,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +51,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,18 +124,62 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: mana_1
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 93
+        width: 599
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2de458342d45814c8c405ebb98210c7
+      internalID: 7127817309117235897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mana_2
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 93
+        width: 599
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43a5cc081395ab84e94e29c43d2d2fe7
+      internalID: 3461099566686742665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: fa31969bd194a784bbc50a8e21a0566f
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mana_1: 7127817309117235897
+      mana_2: 3461099566686742665
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
