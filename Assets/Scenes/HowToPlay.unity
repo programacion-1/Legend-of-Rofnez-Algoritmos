@@ -195,8 +195,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "- move by left clicking anywhere on the stage\n-attack by left clicking
-    on an enemy and \robject\n- special attack:right click\n- open inventory: hold
-    tab\n- change weapon: Q\n- enable/disable God Mode: F"
+    on an enemy and \robject\n- special attack:right click\n- enable/disable God
+    Mode: F"
 --- !u!222 &240093325
 CanvasRenderer:
   m_ObjectHideFlags: 0

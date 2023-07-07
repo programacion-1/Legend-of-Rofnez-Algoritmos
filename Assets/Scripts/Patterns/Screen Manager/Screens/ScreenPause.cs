@@ -33,13 +33,13 @@ public class ScreenPause : MonoBehaviour, IScreen
     public void QuitMenuButton(int mainMenuScene)
     {
         _pauseMenu.ReturnToMainMenu(mainMenuScene);
-        TriggerSetScreenActiveEvent(false);
+        ContinueButton();
     }
 
     public void QuitGameButton()
     {
         _pauseMenu.QuitGame();
-        TriggerSetScreenActiveEvent(false);
+        ContinueButton();
     }
 
     #region EventManager
