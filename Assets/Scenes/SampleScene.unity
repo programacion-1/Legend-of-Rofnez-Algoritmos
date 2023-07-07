@@ -9821,10 +9821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd26a0516c94e0846b50e8f9548c8dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPotKey: 
-  _healthPotQuantityText: {fileID: 0}
-  _magicPotKey: 
-  _magicPotQuantityText: {fileID: 0}
   _itemContainerUIs:
   - {fileID: 5140618261157454366}
   - {fileID: 882917}
@@ -9880,10 +9876,8 @@ MonoBehaviour:
   weaponInventoryMenu: {fileID: 5140618262738594156}
   currentWeaponActive: {fileID: 748036744}
   currentMagicActive: {fileID: 0}
-  ammoText: {fileID: 0}
+  ammoText: {fileID: 5140618262394399475}
   godModeText: {fileID: 5140618262394399475}
-  hpPotQuantityText: {fileID: 0}
-  mpPotQuantityText: {fileID: 0}
 --- !u!1 &5140618262808738964
 GameObject:
   m_ObjectHideFlags: 0
@@ -11123,8 +11117,6 @@ MonoBehaviour:
   currentMagicActive: {fileID: 0}
   ammoText: {fileID: 3593335390958658556}
   godModeText: {fileID: 3045275161921927413}
-  hpPotQuantityText: {fileID: 0}
-  mpPotQuantityText: {fileID: 0}
 --- !u!1001 &6759137803788766838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11274,10 +11266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd26a0516c94e0846b50e8f9548c8dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPotKey: HealPotion
-  _healthPotQuantityText: {fileID: 140598996}
-  _magicPotKey: ManaPotion
-  _magicPotQuantityText: {fileID: 1506940421}
   _itemContainerUIs: []
 --- !u!222 &7141102482335402799
 CanvasRenderer:
