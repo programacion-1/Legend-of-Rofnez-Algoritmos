@@ -51,13 +51,13 @@ namespace RPG.SceneManagement
             DontDestroyOnLoad(gameObject);
             yield return sceneLoader.TransitionBeginCo();
 
-            Portal otherPortal = GetOtherPortal();
+            /*Portal otherPortal = GetOtherPortal();
             if(otherPortal != null)
             {
                 UpdatePlayer(otherPortal);
                 GameManager.instance.LoadPlayerStats();
-            } 
-            
+            }*/
+
             yield return sceneLoader.TransitionEndCo();
             Destroy(gameObject);
         }

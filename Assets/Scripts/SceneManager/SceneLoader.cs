@@ -57,6 +57,7 @@ namespace RPG.SceneManagement
             yield return fader.FadeOut(fadeOutTime);
             yield return new WaitForSeconds(fadeWaitTime);
             SetLevelSetChecker(true);
+            Debug.Log(GetCurrentScene());
             if(GetCurrentScene() == 0 || GetCurrentScene() > lastPlayableScene)
             {
                 if(GameObject.FindObjectOfType<Menu>() != null) GameObject.FindObjectOfType<Menu>().SetRetryLevel(previousScene);
