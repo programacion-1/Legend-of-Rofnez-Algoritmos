@@ -52,8 +52,12 @@ namespace RPG.SceneManagement
             yield return sceneLoader.TransitionBeginCo();
 
             Portal otherPortal = GetOtherPortal();
-            if(otherPortal != null) UpdatePlayer(otherPortal);
-            GameManager.instance.LoadPlayerStats();
+            if(otherPortal != null)
+            {
+                UpdatePlayer(otherPortal);
+                GameManager.instance.LoadPlayerStats();
+            } 
+            
             yield return sceneLoader.TransitionEndCo();
             Destroy(gameObject);
         }
