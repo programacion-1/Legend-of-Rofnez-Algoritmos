@@ -28,7 +28,6 @@ namespace RPG.UI
         public void ResetEventText()
         {
             eventText.text = beginningText;
-            Debug.Log($"reset");
         }
     }
 }

@@ -17,12 +17,15 @@ namespace RPG.Core
         BossHealth _boss;
         protected EventText _eventText;
         [SerializeField] protected string[] _questTexts;
+        protected List<bool> _questTextCheckers = new List<bool>();
         [SerializeField] GameObject _bossHealthBar;
         #endregion
         public void StartingSettings()
         {
             nextLevelPortal.SetActive(false);
             _eventText = FindObjectOfType<EventText>();
+            for(int i = 0; i < _questTexts.Length; i++) _questTextCheckers.Add(false);
+            SetQuestEventText(0);
             #region Observer Pattern
             FillNotifiesDictionary();
             _objectObserved = FindObjectOfType<BossHealth>();
@@ -55,9 +58,13 @@ namespace RPG.Core
             return nextLevelPortal.GetComponent<Portal>();
         }
 
-        public void SetQuestEventText(string questText)
+        public void SetQuestEventText(int text)
         {
-            _eventText.SetEventOnText(questText);
+            if(!_questTextCheckers[text])
+            {
+                _eventText.SetEventOnText(_questTexts[text]);
+                _questTextCheckers[text] = true;
+            }
         }
 
         public void BossEntry()
