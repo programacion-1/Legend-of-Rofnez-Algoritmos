@@ -102,7 +102,7 @@ namespace RPG.UI
 
         public void SetAmmoInventoryText()
         {
-            inventoryAmmoText.text = menuController.GetAmmoText().GetComponent<Text>().text;
+            //inventoryAmmoText.text = menuController.GetAmmoText().GetComponent<Text>().text;
         }
 
     }

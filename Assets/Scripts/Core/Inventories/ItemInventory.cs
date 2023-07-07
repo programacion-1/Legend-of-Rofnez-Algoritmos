@@ -76,6 +76,7 @@ namespace RPG.InventorySystem
             //eso pasa porque en el caso de que se intente agregar una pota existente lo que se haga es actualizar la  cantidad de potas
             
             _potionCollection[potionKey].potion.EquipSettings(_health);
+            _itemInventoryMenu.SetItemOnContainer(potions.IndexOf(potionKey), _potionCollection[potionKey].potionSprite, _potionCollection[potionKey].potionQuantity.ToString());
             SetPotionQuantity(_potionCollection[potionKey], oldQuantity + 1);
             Debug.Log(_potionCollection.Keys);
         }
@@ -88,7 +89,7 @@ namespace RPG.InventorySystem
             Debug.Log(potionToModify.potionName+" : "+potionToModify.potionQuantity);
             
             //Hardcodeado full, pendiente a cambio para el segundo parcial
-            if(potionToModify.potionName == _itemInventoryMenu.healthPotKey)
+            /*if(potionToModify.potionName == _itemInventoryMenu.healthPotKey)
             {
                 _itemInventoryMenu.SetHealthPotQuantityText(potionToModify.potionQuantity.ToString());
                 _itemInventoryMenu.SetTextColor(SetQuantityColor(potionToModify), _itemInventoryMenu.healthPotQuantityText);
@@ -97,6 +98,15 @@ namespace RPG.InventorySystem
             {
                 _itemInventoryMenu.SetMagicPotQuantityText(potionToModify.potionQuantity.ToString());
                 _itemInventoryMenu.SetTextColor(SetQuantityColor(potionToModify), _itemInventoryMenu.magicPotQuantityText);
+            }*/
+
+            for(int i = 0; i < potions.Count; i++)
+            {
+                if(potions[i] == potionToModify.potionName)
+                {
+                    _itemInventoryMenu.SetTextQuantityOnContainer(i, potionToModify.potionQuantity.ToString());
+                    _itemInventoryMenu.SetTextQuantityColorOnContainer(i, SetQuantityColor(potionToModify));
+                }
             }
         }
 

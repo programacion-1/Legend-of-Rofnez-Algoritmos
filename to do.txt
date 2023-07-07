@@ -66,6 +66,14 @@ Modificaciones en los scripts:
 - Health: Se modificó la función CoreStartingSettings por virtual y recibirá un params object[].
 - Boss Health y Enemy Health: Se setearon funciones nuevas que recibirán parámetros del CoreStartingSettings(params object[]) las cuales se ejecutarán dentro del CoreStartingSettings de sus respectivos overrides y setearán las variables _damageRate, _returnToWhiteColourTimer y _deadTriggerName (Las cuales serán provistas desde StoneBossAIController y GuardAIController respectivamente con sus respectivas variables del Flyweight).
 
+8) Aplicado Screen Manager (Detallar después)
+
+9) Aplicado nuevo UI:
+
+- Barras de Vida y Maná funcionan correctamente
+- Aplicado nuevo método de inventario de items. Ahora es un panel de 6 celdas y, dependiendo el orden del diccionario de ItemInventory se setearán los items (ItemContainerUI) en cada celda del array de ItemInventoryMenu (ItemContainerUIs). El ItemContainerUI pedirá un sprite para setear una representación visual del item equipado en cuestión y un texto con la cantidad de unidades del mismo.
+- 
+
 
 BUGS:
 1) Nullreference exception que sale con el sistema de layers
@@ -78,20 +86,23 @@ de fuego del boss <Corregido>
 
 En proceso:
 
-1) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
-2) Aplicación de ScreenManager para las pantallas de Gameplay, Pause e Inventory. Qué falta para terminar:
+1) Aplicar nueva UI
 
-InventoryScreen:
-- Modificar valores en scripts relacionados para mejorar su performance
+2) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
+3) Aplicación de ScreenManager para las pantallas de Gameplay, Pause e Inventory. Qué falta para terminar:
 
-PauseScreen: Todo :V
+InventoryScreen: Modificar valores en scripts relacionados para mejorar su performance
 
-GameplayScreen: Chequear que se pausen los Behaviours y ver que no se rompa nada
+PauseScreen: Modificar valores en scripts relacionados para mejorar su performance
+
+
+4) Correcciones:
+
+- Setear el array de ids para evitar el error del evento AIHasBeenAttacked
+- Corregir errores que salten entre una escena y la otra
 
 PATRONES
 
 1) Ver Decorator, si no convence Localization Manager
 2) MVC en los enemies y boss
 3) Setear mas ObjectPools/Factories + Consultar al profe por pools con mismo script pero distinto gameObject (Buscar todo lo que tenga un Instantiate y cambiarlo por el patrón)
-
-CRITICO: cuando sol termine el UI implementarlo ingame y setear/corregir lo necesario en cuestión de programación

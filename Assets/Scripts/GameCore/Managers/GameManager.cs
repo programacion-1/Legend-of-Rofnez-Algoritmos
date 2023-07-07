@@ -44,8 +44,6 @@ namespace RPG.GameCore
 
         void Update()
         {
-            if(autoSavePlayerStatsDataManager.CheckIfICanAutoSave()) StartCoroutine(autoSavePlayerStatsDataManager.autoSave());
-            gameScreenManager.ListenScreenManagerKeys();
             /*if(Input.GetButtonDown("Cancel"))
             {
                 if(pauseManager.GetPauseState()) pauseManager.SetPause(false);
@@ -57,6 +55,8 @@ namespace RPG.GameCore
         {
             if(!isLoadingScene)
             {
+                if(autoSavePlayerStatsDataManager.CheckIfICanAutoSave()) StartCoroutine(autoSavePlayerStatsDataManager.autoSave());
+                gameScreenManager.ListenScreenManagerKeys();
                 if(!failCondiction)
                 {
                     if(!player.CheckIfIsDead()) // Si el personaje no está muerto, chequeo las quests del nivel para saber si puedo acceder al siguiente nivel

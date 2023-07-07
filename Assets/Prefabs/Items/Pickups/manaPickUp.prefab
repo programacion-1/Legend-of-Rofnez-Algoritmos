@@ -61,6 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _potion: {fileID: 2926336182348678267}
   _maxQuantity: 5
+  _potionSprite: {fileID: 21300000, guid: 2e5866d2388ad92448334cb3aa02064a, type: 3}
 --- !u!1001 &7466121724408775846
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,29 +7,35 @@ namespace RPG.UI
 {
     public class ItemInventoryMenu : MonoBehaviour
     {
-        [SerializeField] string _healthPotKey;
-        public string healthPotKey{get{return _healthPotKey;}}
-        [SerializeField] Text _healthPotQuantityText;
-        public Text healthPotQuantityText{get{return _healthPotQuantityText;}}
-        [SerializeField] string _magicPotKey;
-        public string magicPotKey{get{return _magicPotKey;}}
-        [SerializeField] Text _magicPotQuantityText;
-        public Text magicPotQuantityText{get{return _magicPotQuantityText;}}
+        [SerializeField] ItemContainerUI[] _itemContainerUIs;
 
-        public void SetHealthPotQuantityText(string quantity)
+        void Start()
         {
-            _healthPotQuantityText.text = "X" + quantity;
+            foreach(ItemContainerUI itemContainerUI in _itemContainerUIs) itemContainerUI.SetDefaultValues();
+        }
+        
+        public void SetItemOnContainer(int item, Sprite itemSprite, string text)
+        {
+            if(item < _itemContainerUIs.Length)
+            {
+                _itemContainerUIs[item].ActivateItemContainer();
+                _itemContainerUIs[item].SetItemValues(itemSprite, text);
+            }
         }
 
-        public void SetMagicPotQuantityText(string quantity)
+        public void SetTextQuantityOnContainer(int item, string text)
         {
-            _magicPotQuantityText.text = "X" + quantity;
+            if(item < _itemContainerUIs.Length) _itemContainerUIs[item].SetItemQuantityText(text);
         }
 
-        public void SetTextColor(Color newColor, Text myText)
+        public void SetTextQuantityColorOnContainer(int item, Color newColor)
         {
-            myText.color = newColor;
+            if(item < _itemContainerUIs.Length) _itemContainerUIs[item].SetItemQuantityTextColor(newColor);
         }
+
+        
+
+
     }
 }
 

@@ -13,8 +13,6 @@ namespace RPG.UI
         [SerializeField] GameObject currentMagicActive;
         [SerializeField] GameObject ammoText;
         [SerializeField] GameObject godModeText;
-        [SerializeField] GameObject hpPotQuantityText;
-        [SerializeField] GameObject mpPotQuantityText;
 
         public GameObject GetPauseMenu()
         {
@@ -49,16 +47,6 @@ namespace RPG.UI
         public GameObject GetGodModeText()
         {
             return godModeText;
-        }
-
-        public GameObject GetHpPotionQuantityText()
-        {
-            return hpPotQuantityText;
-        }
-
-        public GameObject GetMpPotionQuantityText()
-        {
-            return mpPotQuantityText;
         }
         
         public void ShowUIObject(GameObject UIObject)

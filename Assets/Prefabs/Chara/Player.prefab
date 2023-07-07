@@ -2556,7 +2556,7 @@ MonoBehaviour:
   _shaderSpawnpoint: {fileID: 2013218034227970706}
   hitFX: {fileID: 66467482925399531, guid: e293ba5db78eaf046971a1fa16835ba7, type: 3}
   bloodFX: {fileID: 9110215784254510012, guid: 8dfca03007bc7f24584fb16d41f3054a, type: 3}
-  deadTriggerName: Die
+  _deadTriggerName: Die
   _healthBarName: HealthBar
 --- !u!114 &970811454
 MonoBehaviour:
