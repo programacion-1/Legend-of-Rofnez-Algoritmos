@@ -30,8 +30,9 @@ namespace RPG.UI
             StartCoroutine(ReturnToMainMenuCo());
         }
 
-        public void ReturnToMainMenu()
+        public void ReturnToMainMenu(int sceneToLoad)
         {
+            sceneLoader.SetSceneToLoad(sceneToLoad);
             StartCoroutine(ReturnToMainMenuCo());
         }
 

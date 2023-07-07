@@ -30,9 +30,9 @@ public class ScreenPause : MonoBehaviour, IScreen
         TriggerSetScreenActiveEvent(false);
     }
 
-    public void QuitMenuButton()
+    public void QuitMenuButton(int mainMenuScene)
     {
-        _pauseMenu.ReturnToMainMenu();
+        _pauseMenu.ReturnToMainMenu(mainMenuScene);
         TriggerSetScreenActiveEvent(false);
     }
 

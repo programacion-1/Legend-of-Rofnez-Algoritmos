@@ -123,6 +123,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6351771021426650893, guid: ebcdd79463fa89d42b6b312ff4543e29, type: 3}
   m_PrefabInstance: {fileID: 1212595094800409504}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5256271167587929266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6351771021426650898, guid: ebcdd79463fa89d42b6b312ff4543e29, type: 3}
+  m_PrefabInstance: {fileID: 1212595094800409504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b369e49281451340a80ff66688c2750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1665362097463418057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +145,14 @@ PrefabInstance:
       propertyPath: lastPlayableScene
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2041675511430659751, guid: 6d0f2a48b80154b448a33b7bd4031d8e, type: 3}
+      propertyPath: loseScene
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2041675511430659751, guid: 6d0f2a48b80154b448a33b7bd4031d8e, type: 3}
+      propertyPath: gameScreenManager
+      value: 
+      objectReference: {fileID: 5256271167587929266}
     - target: {fileID: 3963528703389177201, guid: 6d0f2a48b80154b448a33b7bd4031d8e, type: 3}
       propertyPath: m_RootOrder
       value: 1

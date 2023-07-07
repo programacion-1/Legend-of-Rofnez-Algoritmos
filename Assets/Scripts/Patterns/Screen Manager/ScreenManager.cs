@@ -13,6 +13,12 @@ public class ScreenManager : MonoBehaviour
         Instance = this;
 
         _stack = new Stack<IScreen>();
+        
+    }
+
+    public void ResetManager()
+    {
+        _stack.Clear();
     }
 
     public void Push(IScreen newScreen)

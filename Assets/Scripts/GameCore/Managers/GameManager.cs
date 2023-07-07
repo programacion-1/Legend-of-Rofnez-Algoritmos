@@ -15,7 +15,7 @@ namespace RPG.GameCore
         public static GameManager instance;
         PlayerHealth player;
         QuestManager questManager;
-        GameScreenManager gameScreenManager;
+        [SerializeField] GameScreenManager gameScreenManager;
         PlayerStatsManager playerStatsManager;
         AutoSavePlayerStatsDataManager autoSavePlayerStatsDataManager;
         PauseManager pauseManager;
@@ -39,7 +39,6 @@ namespace RPG.GameCore
             pauseManager = GetComponent<PauseManager>();
             sceneLoader = GetComponent<SceneLoader>();
             audioManager = GameObject.FindObjectOfType<AudioManager>();
-            gameScreenManager = GameObject.FindObjectOfType<GameScreenManager>();
             SetLevelSettings();
         }
 
