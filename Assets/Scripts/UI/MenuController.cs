@@ -11,6 +11,7 @@ namespace RPG.UI
         [SerializeField] GameObject weaponInventoryMenu;
         [SerializeField] GameObject currentWeaponActive;
         [SerializeField] GameObject currentMagicActive;
+        [SerializeField] GameObject questEventText;
         [SerializeField] GameObject ammoText;
         [SerializeField] GameObject godModeText;
 

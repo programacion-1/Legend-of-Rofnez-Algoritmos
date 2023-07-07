@@ -51,7 +51,7 @@ namespace RPG.Obstacle
 
         public void SetBridgeEventText(string myText)
         {
-            eventText.SetEventText(myText);
+            eventText.SetEventOnText(myText);
         }
 
         public bool CheckIfBridgeIsBuild()

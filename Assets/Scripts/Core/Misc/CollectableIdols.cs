@@ -41,12 +41,12 @@ public class CollectableIdols : MonoBehaviour
 
     public void IdolsRemainingText()
     {
-        eventText.SetEventText("You need to collect " + IdolsRemaining() + " idols in order to advance.");
+        eventText.SetEventOnText("You need to collect " + IdolsRemaining() + " idols in order to advance.");
     }
 
     public void AllIdolsCollectedText()
     {
-        eventText.SetEventText(EventTextWhenAllIdolsAreCollected);
+        eventText.SetEventOnText(EventTextWhenAllIdolsAreCollected);
     }
 
     public void SetEventText()

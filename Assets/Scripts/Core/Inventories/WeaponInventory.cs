@@ -48,12 +48,12 @@ namespace RPG.InventorySystem
         public void EquipMeeleWeapon(MeleeWeapon weapon)
         {
             _equippedMeleeWeapon = weapon;
-            _weaponInventorMenu.SetMeleeWeaponSprite(weapon.weaponSprite);
             _weaponInventorMenu.inventoryMeleeWeaponSprite = weapon.weaponSprite;
-            _weaponInventorMenu.SetMeleeInventoryText(weapon.name);
             _weaponInventorMenu.inventoryMeleeWeaponText = weapon.name;
+            _weaponInventorMenu.SetMeleeWeaponSprite();
             SetActiveWeapon(_equippedMeleeWeapon);
             //_weaponInventorMenu.SetCurrentWeaponActive(0);
+            _weaponInventorMenu.CurrentMeleeWeaponSprite = weapon.weaponSprite;
             _weaponInventorMenu.SetCurrentActiveWeapon(weapon.weaponSprite);
             _attackTrigger = currentWeapon.GetComponent<AttackTrigger>();
             _attackTrigger.SetWeaponCollider(_playerDamageTrigger);
@@ -64,19 +64,17 @@ namespace RPG.InventorySystem
         public void EquipRangedWeapon(RangedWeapon weapon)
         {
             _equippedRangedWeapon = weapon;
-            _weaponInventorMenu.SetRangedWeaponSprite(weapon.weaponSprite);
             _weaponInventorMenu.inventoryRangedWeaponSprite = weapon.weaponSprite;
-            _weaponInventorMenu.SetRangedInventoryText(weapon.name);
             _weaponInventorMenu.inventoryRangedWeaponText = weapon.name;
+            _weaponInventorMenu.SetRangedWeaponSprite();
             SetActiveWeapon(_equippedRangedWeapon);
-            //_weaponInventorMenu.SetCurrentWeaponActive(1);
-            _weaponInventorMenu.SetCurrentActiveWeapon(weapon.weaponSprite);
+            RangedWeapon w = (RangedWeapon) _activeWeapon;
+            _rangedWeaponAmmo = w.ammo;
             _weaponProjectileSpawner = currentWeapon.GetComponent<WeaponProjectileSpawner>();
             _weaponProjectileSpawner.projectileDamage = _activeWeapon.weaponDamage;
-            RangedWeapon w = (RangedWeapon) _activeWeapon;
             _weaponProjectileSpawner.projectileColorTrail = w.trailColor;
-            _rangedWeaponAmmo = w.ammo;
-            _weaponInventorMenu.SetAmmoText(_rangedWeaponAmmo.ToString());
+            _weaponInventorMenu.CurrentRangedWeaponSprite = weapon.weaponSprite;
+            _weaponInventorMenu.SetCurrentActiveWeapon(weapon.weaponSprite, w.ammo.ToString());
             _weaponInventorMenu.inventoryRangedWeaponAmmoText = _rangedWeaponAmmo.ToString();
         }
 
@@ -102,8 +100,16 @@ namespace RPG.InventorySystem
             {
                 _weaponProjectileSpawner.LaunchProjectile(t, gameObject.layer);
                 _rangedWeaponAmmo -= 1;
-                _weaponInventorMenu.SetAmmoText(_rangedWeaponAmmo.ToString());
-                _weaponInventorMenu.inventoryRangedWeaponAmmoText = _rangedWeaponAmmo.ToString();
+                if(_rangedWeaponAmmo <= 0)
+                {
+                    _weaponInventorMenu.SetAmmoText("X");
+                    _weaponInventorMenu.inventoryRangedWeaponAmmoText = "X";
+                } 
+                else
+                {
+                    _weaponInventorMenu.SetAmmoText(_rangedWeaponAmmo.ToString());
+                    _weaponInventorMenu.inventoryRangedWeaponAmmoText = _rangedWeaponAmmo.ToString();
+                } 
             }
         }
 
@@ -112,11 +118,14 @@ namespace RPG.InventorySystem
             if(_rangedWeaponAmmo > 0) return true;
             else return false;
         }
-
-        public void ChangeActiveWeapon()
+        public void ChangeActiveWeaponToMelee()
         {
-            if(_activeWeapon == _equippedMeleeWeapon && _equippedRangedWeapon != null) EquipRangedWeapon(_equippedRangedWeapon);
-            else if(_activeWeapon == _equippedRangedWeapon && _equippedMeleeWeapon != null) EquipMeeleWeapon(_equippedMeleeWeapon);
+            if(_activeWeapon == _equippedRangedWeapon && _equippedMeleeWeapon != null) EquipMeeleWeapon(_equippedMeleeWeapon);
+        }
+
+        public void ChangeActiveWeaponToRanged()
+        {
+            if (_activeWeapon == _equippedMeleeWeapon && _equippedRangedWeapon != null) EquipRangedWeapon(_equippedRangedWeapon);
         }
     }
 }

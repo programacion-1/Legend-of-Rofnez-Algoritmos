@@ -7,11 +7,12 @@ namespace RPG.UI
 {
     public class EventText : MonoBehaviour
     {
-        [SerializeField] Text eventText;
+        Text eventText;
+        [SerializeField] string beginningText;
         void Awake()
         {
             eventText = GetComponent<Text>();
-            SetEventText("");
+            ResetEventText();
         }
 
         public string GetEventText()
@@ -19,9 +20,15 @@ namespace RPG.UI
             return eventText.text;
         }
 
-        public void SetEventText(string newText)
+        public void SetEventOnText(string newText)
         {
-            eventText.text = newText;
+            eventText.text += "\r\n~" + newText;
+        }
+
+        public void ResetEventText()
+        {
+            eventText.text = beginningText;
+            Debug.Log($"reset");
         }
     }
 }

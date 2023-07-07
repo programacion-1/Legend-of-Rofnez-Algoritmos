@@ -72,7 +72,7 @@ Modificaciones en los scripts:
 
 - Barras de Vida y Maná funcionan correctamente
 - Aplicado nuevo método de inventario de items. Ahora es un panel de 6 celdas y, dependiendo el orden del diccionario de ItemInventory se setearán los items (ItemContainerUI) en cada celda del array de ItemInventoryMenu (ItemContainerUIs). El ItemContainerUI pedirá un sprite para setear una representación visual del item equipado en cuestión y un texto con la cantidad de unidades del mismo.
-- 
+- Aplicada nueva visualización del inventario de armas e implementación del cambio de las mismas. Ahora en el panel principal se mostrará el arma melee y a distancia a equipar, las cuales ahora se intercalarán equipando con la tecla q para la melee y la tecla w para la de a distancia. Además de que el sprite del arma activa quedará en la parte inferior derecha y tendrá un contenedor con la munición que solo se mostrará cuando el arma a distancia sea el arma equipada activa.
 
 10) Correcciones de testing:
 
@@ -90,7 +90,10 @@ de fuego del boss <Corregido>
 
 En proceso:
 
-1) Aplicar nueva UI
+1) Aplicar nueva UI. Queda aplicar:
+
+- EventText.
+- Probar que la barra de vida de boss se ejecute correctamente con los scripts ya seteados
 
 2) En lugar de abstract cambiar por virtual y aplicar base.Clase() a las clases vacías
 3) Aplicación de ScreenManager para las pantallas de Gameplay, Pause e Inventory. Qué falta para terminar:
@@ -102,7 +105,7 @@ PauseScreen: Modificar valores en scripts relacionados para mejorar su performan
 
 4) Correcciones:
 
-- Corregir errores que salten entre una escena y la otra
+- Corregir errores que salten entre una escena y la otra (de momento no surgió ningún otro)
 
 PATRONES
 

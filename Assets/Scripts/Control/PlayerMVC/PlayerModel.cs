@@ -156,11 +156,20 @@ namespace RPG.MVC.Player
         #endregion
 
         #region WeaponInventory_Model
-        public void ChangeActiveWeapon()
+        public void ChangeActiveWeaponToMelee()
         {
             if(_canChangeWeapon)
             {
-                _weaponInventory.ChangeActiveWeapon();
+                _weaponInventory.ChangeActiveWeaponToMelee();
+                TriggerChangeActiveWeaponEvent();
+            }
+        }
+
+        public void ChangeActiveWeaponToRanged()
+        {
+            if(_canChangeWeapon)
+            {
+                _weaponInventory.ChangeActiveWeaponToRanged();
                 TriggerChangeActiveWeaponEvent();
             }
         }

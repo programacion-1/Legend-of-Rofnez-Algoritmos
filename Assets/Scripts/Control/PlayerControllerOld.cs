@@ -188,7 +188,7 @@ namespace RPG.Control
         private IEnumerator SetPlayerActiveWeapon()
         {
             canChangeWeapon = false;
-            _weaponInventory.ChangeActiveWeapon();
+            //_weaponInventory.ChangeActiveWeapon();
             yield return new WaitForSeconds(0.5f);
             canChangeWeapon = true;
         }

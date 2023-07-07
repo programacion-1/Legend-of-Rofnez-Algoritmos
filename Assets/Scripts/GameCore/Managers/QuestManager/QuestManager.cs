@@ -57,7 +57,7 @@ namespace RPG.Core
 
         public void SetQuestEventText(string questText)
         {
-            _eventText.SetEventText(questText);
+            _eventText.SetEventOnText(questText);
         }
 
         public void BossEntry()

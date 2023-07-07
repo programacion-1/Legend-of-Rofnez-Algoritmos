@@ -27,8 +27,10 @@ namespace RPG.MVC.Player
             if(Input.GetKeyDown(KeyCode.Alpha1)) _playerModel.UseItemOnInventory(KeyCode.Alpha1);
             if(Input.GetKeyDown(KeyCode.Alpha2)) _playerModel.UseItemOnInventory(KeyCode.Alpha2);
 
-            //Cambiar Arma activa
-            if(Input.GetKeyDown(KeyCode.Q)) _playerModel.ChangeActiveWeapon();
+            //Cambia Arma Activa al arma melee
+            if(Input.GetKeyDown(KeyCode.Q)) _playerModel.ChangeActiveWeaponToMelee();
+            //Cambia Arma Activa al arma a distancia
+            if(Input.GetKeyDown(KeyCode.W)) _playerModel.ChangeActiveWeaponToRanged();
 
             //Interact with InventoryMenu
             //if(Input.GetKeyDown(KeyCode.Tab)) _playerModel.InteractWithInventoryMenu(true);

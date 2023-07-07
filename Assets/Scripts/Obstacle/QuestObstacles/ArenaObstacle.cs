@@ -41,7 +41,7 @@ namespace RPG.Obstacle
         public void pickUpTheKey()
         {
             _hasPlayerPickedUpTheKey = true;
-            eventText.SetEventText("You can enter the Arena and fight the boss!");
+            eventText.SetEventOnText("You can enter the Arena and fight the boss!");
         }
 
         public void EnterArena()
