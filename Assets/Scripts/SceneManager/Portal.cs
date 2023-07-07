@@ -43,8 +43,8 @@ namespace RPG.SceneManagement
         {
             GameManager.instance.SavePlayerStats();
             GameObject.FindWithTag("Player").GetComponent<ActionScheduler>().CancelCurrentAction();
-            audioManager.StopSoruce(audioManager.BGM);
-            audioManager.StopSoruce(audioManager.Ambience);
+            audioManager.StopSource(audioManager.BGM);
+            audioManager.StopSource(audioManager.Ambience);
             audioManager.PlayClip(audioManager.ItemSource, portalClip);
             SceneLoader sceneLoader = GameObject.FindObjectOfType<SceneLoader>();
             sceneLoader.SetSceneToLoad(sceneDestination);

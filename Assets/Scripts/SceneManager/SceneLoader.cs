@@ -42,20 +42,20 @@ namespace RPG.SceneManagement
 
         public IEnumerator TransitionBeginCo()
         {
+            UIFade fader = FindObjectOfType<UIFade>();
+            yield return fader.FadeIn(fadeInTime);
             previousScene = GetCurrentScene();
             transform.parent = null;
             DontDestroyOnLoad(gameObject);
-            UIFade fader = FindObjectOfType<UIFade>();
-
-            yield return fader.FadeOut(fadeOutTime);
+            yield return new WaitForSeconds(fadeWaitTime);
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
         }
 
         public IEnumerator TransitionEndCo()
         {
             UIFade fader = FindObjectOfType<UIFade>();
+            yield return fader.FadeOut(fadeOutTime);
             yield return new WaitForSeconds(fadeWaitTime);
-            yield return fader.FadeIn(fadeInTime);
             SetLevelSetChecker(true);
             if(GetCurrentScene() == 0 || GetCurrentScene() > lastPlayableScene)
             {

@@ -66,7 +66,7 @@ namespace RPG.Core
             }
         }
 
-        public void StopSoruce(AudioSource source)
+        public void StopSource(AudioSource source)
         {
             source.Stop();
         }

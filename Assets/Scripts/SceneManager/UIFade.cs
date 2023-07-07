@@ -26,6 +26,7 @@ namespace RPG.SceneManagement
             while(canvasGroup.alpha < 1)
             {
                 canvasGroup.alpha += Time.deltaTime / time;
+                Debug.Log($"fading out");
                 yield return null;
             }
         }
@@ -35,6 +36,7 @@ namespace RPG.SceneManagement
             while(canvasGroup.alpha > 0)
             {
                 canvasGroup.alpha -= Time.deltaTime / time;
+                Debug.Log($"fading in");
                 yield return null;
             }
             mainCanvas.SetActive(true);

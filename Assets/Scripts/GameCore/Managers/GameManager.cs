@@ -44,15 +44,6 @@ namespace RPG.GameCore
             audioManager = GameObject.FindObjectOfType<AudioManager>();
             SetLevelSettings();
         }
-
-        void Update()
-        {
-            /*if(Input.GetButtonDown("Cancel"))
-            {
-                if(pauseManager.GetPauseState()) pauseManager.SetPause(false);
-                else pauseManager.SetPause(true);
-            }*/
-        }
         
         void LateUpdate()
         {
