@@ -69,7 +69,7 @@ MonoBehaviour:
   fadeInTime: 2
   fadeWaitTime: 0.5
   persistantObjectDestroyer: {fileID: 0}
-  lastPlayableScene: 3
+  lastPlayableScene: 1
 --- !u!114 &2061962116
 MonoBehaviour:
   m_ObjectHideFlags: 0
