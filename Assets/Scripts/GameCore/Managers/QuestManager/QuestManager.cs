@@ -105,8 +105,8 @@ namespace RPG.Core
         void DeadBoss()
         {
             finalConditionCompleted = true;
-            _objectObserved.Unsubscribe(this);
             _bossHealthBar.SetActive(false);
+            _objectObserved.Unsubscribe(this);
         }
     }
 }
