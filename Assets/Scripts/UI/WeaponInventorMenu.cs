@@ -8,9 +8,18 @@ namespace RPG.UI
     public class WeaponInventorMenu : MonoBehaviour
     {
         MenuController menuController;
-        [SerializeField] Sprite currentMeleeWeaponSprite;
-        [SerializeField] Sprite currentRangedWeaponSprite;
+        Sprite _currentMeleeWeaponSprite;
+        Sprite _currentRangedWeaponSprite;
         #region New
+        [Header("Variables para la barra del UI principal")]
+        [SerializeField] Image _inventoryMeleeImage; 
+        [SerializeField] Image _inventoryRangedImage;
+        [SerializeField] Text _inventoryMeleeText;
+        [SerializeField] Text _inventoryRangedText;
+        [SerializeField] Image _currentInventoryWeaponImage;
+        [SerializeField] Text _inventoryAmmoText;
+
+        [Header("Variables para el Menu")]
         string _inventoryMeleeWeaponText;
         public string inventoryMeleeWeaponText {get{return _inventoryMeleeWeaponText;} set{_inventoryMeleeWeaponText = value;}}
         string _inventoryRangedWeaponText;
@@ -23,19 +32,17 @@ namespace RPG.UI
         public Sprite inventoryRangedWeaponSprite{get{return _inventoryRangedWeaponSprite;} set{_inventoryRangedWeaponSprite = value;}}        
         #endregion
         
-        #region Old
-        [SerializeField] Image inventoryMeleeSprite;
-        [SerializeField] Image inventoryRangedSprite;
-        [SerializeField] Text inventoryMeleeText;
-        [SerializeField] Text inventoryRangedText;
-        [SerializeField] Text inventoryAmmoText;
-        #endregion
-        // Start is called before the first frame update
         void Start()
         {
             menuController = GetComponent<MenuController>();
-            SetAmmoInventoryText();
         }
+
+        public void SetCurrentWeaponActive(Sprite currentSprite, string ammo)
+        {
+            _currentInventoryWeaponImage.sprite = currentSprite;
+        }
+        
+        #region Old
 
         public void SetCurrentWeaponActive(int currentWeapon)
         {
@@ -43,15 +50,15 @@ namespace RPG.UI
             switch(currentWeapon)
             {
                 case 0:
-                    activeWeaponImage.sprite = currentMeleeWeaponSprite;
+                    activeWeaponImage.sprite = _currentMeleeWeaponSprite;
                     menuController.HideUIObject(menuController.GetAmmoText());
                     break;
                 case 1:
-                    activeWeaponImage.sprite = currentRangedWeaponSprite;
+                    activeWeaponImage.sprite = _currentRangedWeaponSprite;
                     menuController.ShowUIObject(menuController.GetAmmoText());
                     break;
                 default:
-                    activeWeaponImage.sprite = currentMeleeWeaponSprite;
+                    activeWeaponImage.sprite = _currentMeleeWeaponSprite;
                     menuController.HideUIObject(menuController.GetAmmoText());
                     break;
             }
@@ -65,45 +72,47 @@ namespace RPG.UI
 
         public void SetMeleeWeaponSprite(Sprite sprite)
         {
-            currentMeleeWeaponSprite = sprite;
+            _currentMeleeWeaponSprite = sprite;
             SetInventoryMeleeSprite();
         }
 
         public void SetRangedWeaponSprite(Sprite sprite)
         {
-            currentRangedWeaponSprite = sprite;
+            _currentRangedWeaponSprite = sprite;
             SetInventoryRangedSprite();
         }
 
         public void SetAmmoText(string ammo)
         {
-            inventoryAmmoText.text = "x"+ammo;
+            _inventoryAmmoText.text = "x"+ammo;
         }
 
         public void SetInventoryMeleeSprite()
         {
-            inventoryMeleeSprite.sprite = currentMeleeWeaponSprite;
+            _inventoryMeleeImage.sprite = _currentMeleeWeaponSprite;
         }
 
         public void SetInventoryRangedSprite()
         {
-            inventoryRangedSprite.sprite = currentRangedWeaponSprite;
+            _inventoryRangedImage.sprite = _currentRangedWeaponSprite;
         }
 
         public void SetMeleeInventoryText(string weapoName)
         {
-            inventoryMeleeText.text = weapoName;
+            _inventoryMeleeText.text = weapoName;
         }
 
         public void SetRangedInventoryText(string weaponName)
         {
-            inventoryRangedText.text = weaponName;
+            _inventoryRangedText.text = weaponName;
         }
 
         public void SetAmmoInventoryText()
         {
             //inventoryAmmoText.text = menuController.GetAmmoText().GetComponent<Text>().text;
         }
+
+         #endregion
 
     }
 

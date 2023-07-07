@@ -74,6 +74,10 @@ Modificaciones en los scripts:
 - Aplicado nuevo método de inventario de items. Ahora es un panel de 6 celdas y, dependiendo el orden del diccionario de ItemInventory se setearán los items (ItemContainerUI) en cada celda del array de ItemInventoryMenu (ItemContainerUIs). El ItemContainerUI pedirá un sprite para setear una representación visual del item equipado en cuestión y un texto con la cantidad de unidades del mismo.
 - 
 
+10) Correcciones de testing:
+
+- Creado script AiIDSetter que tomará una array de AiControllers y les seteará un id a cada AiController según la posición en su array.
+
 
 BUGS:
 1) Nullreference exception que sale con el sistema de layers
@@ -98,7 +102,6 @@ PauseScreen: Modificar valores en scripts relacionados para mejorar su performan
 
 4) Correcciones:
 
-- Setear el array de ids para evitar el error del evento AIHasBeenAttacked
 - Corregir errores que salten entre una escena y la otra
 
 PATRONES

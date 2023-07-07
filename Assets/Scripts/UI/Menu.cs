@@ -23,14 +23,7 @@ namespace RPG.UI
         {
             retryLevel = level;
         }
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (GameIsPaused) { MenuContinue(); }
-                else { MenuPause(); }
-            }
-        }
+
         public void LoadScene(int sceneNumber)
         {
             SceneManager.LoadScene(sceneNumber);

@@ -11,10 +11,8 @@ namespace RPG.Control
     public abstract class AIController: MonoBehaviour
     {
         protected float _chaseDistance;
-        [Header("Variable necesaria para el evento AIHasBeenAttacked")]
-        [Header("ADVERTENCIA: NO PUEDE HABER MAS DE UNA ID")]
-        [Header("IDENTICA O SE PRODUCIRA UN BUG")]
         [SerializeField] int _AiID;
+        public int AiID{get{return _AiID;} set{_AiID = value;}}
         protected ActionScheduler _AIactionScheduler{get; set;}
         protected Fighter _AIfighter{get; set;}
         protected Health _AIhealth{get; set;}

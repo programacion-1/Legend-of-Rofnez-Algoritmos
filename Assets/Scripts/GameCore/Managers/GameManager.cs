@@ -7,6 +7,7 @@ using RPG.Obstacle;
 using RPG.Magic;
 using RPG.InventorySystem;
 using RPG.Core;
+using RPG.Control;
 
 namespace RPG.GameCore
 {
@@ -15,6 +16,7 @@ namespace RPG.GameCore
         public static GameManager instance;
         PlayerHealth player;
         QuestManager questManager;
+        AiIDSetter aiIDSetter;
         [SerializeField] GameScreenManager gameScreenManager;
         PlayerStatsManager playerStatsManager;
         AutoSavePlayerStatsDataManager autoSavePlayerStatsDataManager;
@@ -36,6 +38,7 @@ namespace RPG.GameCore
             SavePlayerStats();
             autoSavePlayerStatsDataManager = GetComponent<AutoSavePlayerStatsDataManager>();
             autoSavePlayerStatsDataManager.SetPlayerStatsManager(playerStatsManager);
+            aiIDSetter = GetComponent<AiIDSetter>();
             pauseManager = GetComponent<PauseManager>();
             sceneLoader = GetComponent<SceneLoader>();
             audioManager = GameObject.FindObjectOfType<AudioManager>();
@@ -110,6 +113,7 @@ namespace RPG.GameCore
             CameraFollower camaraFollower = GameObject.FindObjectOfType<CameraFollower>();
             questManager = GameObject.FindObjectOfType<QuestManager>();
             gameScreenManager.StartSettings();
+            aiIDSetter.SetControllers(GameObject.FindObjectsOfType<AIController>());
             GameObject.FindObjectOfType<QuestManager>().StartingSettings();
             //GetComponent<Deathcounter>().RestartCounter();
             GameObject.FindObjectOfType<ArenaObstacle>().SetEventText();

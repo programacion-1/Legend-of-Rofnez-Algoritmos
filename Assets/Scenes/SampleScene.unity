@@ -8236,7 +8236,7 @@ GameObject:
   - component: {fileID: 5140618262011992487}
   - component: {fileID: 5140618262011992484}
   m_Layer: 5
-  m_Name: Arco
+  m_Name: A distancia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8923,7 +8923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &5140618262394399476
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9840,13 +9840,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe734d23875b99408ddf23e67dd8f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMeleeWeaponSprite: {fileID: 0}
-  currentRangedWeaponSprite: {fileID: 0}
-  inventoryMeleeSprite: {fileID: 0}
-  inventoryRangedSprite: {fileID: 0}
-  inventoryMeleeText: {fileID: 0}
-  inventoryRangedText: {fileID: 0}
-  inventoryAmmoText: {fileID: 0}
+  _inventoryMeleeImage: {fileID: 5140618261599141969}
+  _inventoryRangedImage: {fileID: 5140618262821545236}
+  _inventoryMeleeText: {fileID: 0}
+  _inventoryRangedText: {fileID: 0}
+  _currentInventoryWeaponImage: {fileID: 748036746}
+  _inventoryAmmoText: {fileID: 0}
 --- !u!114 &5140618262738594162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10342,7 +10341,7 @@ GameObject:
   - component: {fileID: 5140618263129111485}
   - component: {fileID: 5140618263129111482}
   m_Layer: 5
-  m_Name: Espada
+  m_Name: Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11247,13 +11246,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe734d23875b99408ddf23e67dd8f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMeleeWeaponSprite: {fileID: 0}
-  currentRangedWeaponSprite: {fileID: 0}
-  inventoryMeleeSprite: {fileID: 543792410248384561}
-  inventoryRangedSprite: {fileID: 2064450186922413778}
-  inventoryMeleeText: {fileID: 7552914295546744372}
-  inventoryRangedText: {fileID: 7552914295072234535}
-  inventoryAmmoText: {fileID: 5844821925812130049}
+  _inventoryMeleeImage: {fileID: 0}
+  _inventoryRangedImage: {fileID: 0}
+  _inventoryMeleeText: {fileID: 0}
+  _inventoryRangedText: {fileID: 0}
+  _currentInventoryWeaponImage: {fileID: 0}
+  _inventoryAmmoText: {fileID: 0}
 --- !u!114 &6964585069548162175
 MonoBehaviour:
   m_ObjectHideFlags: 0
